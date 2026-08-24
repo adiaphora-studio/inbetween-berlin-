@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>INBETWEEN BERLIN</title>
 
-    <meta name="description" content="Photography, architecture and urban space in Berlin.">
+    <meta
+        name="description"
+        content="Inbetween Berlin — photography, architecture and urban space in Berlin."
+    >
 
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
+
+    <!-- HEADER -->
 
     <header class="site-header">
 
@@ -19,7 +26,7 @@
             INBETWEEN BERLIN
         </a>
 
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="#work">Work</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
@@ -55,7 +62,18 @@
 
         <section class="hero">
 
-           <img src="IMG_5838%20Edited.png" alt="Berlin architecture">
+            <button
+                class="image-button hero-button"
+                type="button"
+                data-lightbox
+                data-index="0"
+                aria-label="Open hero image fullscreen"
+            >
+                <img
+                    src="IMG_5838%20Edited.png"
+                    alt="Berlin architecture"
+                >
+            </button>
 
         </section>
 
@@ -79,20 +97,121 @@
 
             <div class="gallery">
 
-               <img src="IMG_9467.png" alt="Berlin architecture">
+                <!-- IMAGE 02 -->
 
-                <img src="IMG_6146%20Edited.png" alt="Berlin architecture">
+                <button
+                    class="image-button"
+                    type="button"
+                    data-lightbox
+                    data-index="1"
+                    aria-label="Open photograph 02 fullscreen"
+                >
+                    <img
+                        src="IMG_9467.png"
+                        alt="Berlin architecture and urban space"
+                    >
+                </button>
 
-                <img src="IMG_6129%20Edited.png" alt="Berlin architecture">
-               <img src="IMG_5424.png" alt="Berlin architecture">
 
-                <img src="IMG_2884%20Edited.png" alt="Berlin architecture">
+                <!-- IMAGE 03 -->
 
-                <img src="IMG_1882.png" alt="Berlin architecture">
+                <button
+                    class="image-button"
+                    type="button"
+                    data-lightbox
+                    data-index="2"
+                    aria-label="Open photograph 03 fullscreen"
+                >
+                    <img
+                        src="IMG_6146%20Edited.png"
+                        alt="Berlin urban architecture"
+                    >
+                </button>
 
-                <img src="IMG_0842.png" alt="Berlin architecture">
 
-                <div class="image-placeholder">
+                <!-- IMAGE 04 -->
+
+                <button
+                    class="image-button"
+                    type="button"
+                    data-lightbox
+                    data-index="3"
+                    aria-label="Open photograph 04 fullscreen"
+                >
+                    <img
+                        src="IMG_6129%20Edited.png"
+                        alt="Everyday architecture in Berlin"
+                    >
+                </button>
+
+
+                <!-- IMAGE 05 -->
+
+                <button
+                    class="image-button"
+                    type="button"
+                    data-lightbox
+                    data-index="4"
+                    aria-label="Open photograph 05 fullscreen"
+                >
+                    <img
+                        src="IMG_5424.png"
+                        alt="Berlin architecture"
+                    >
+                </button>
+
+
+                <!-- IMAGE 06 -->
+
+                <button
+                    class="image-button"
+                    type="button"
+                    data-lightbox
+                    data-index="5"
+                    aria-label="Open photograph 06 fullscreen"
+                >
+                    <img
+                        src="IMG_2884%20Edited.png"
+                        alt="Berlin urban space"
+                    >
+                </button>
+
+
+                <!-- IMAGE 07 -->
+
+                <button
+                    class="image-button"
+                    type="button"
+                    data-lightbox
+                    data-index="6"
+                    aria-label="Open photograph 07 fullscreen"
+                >
+                    <img
+                        src="IMG_1882.png"
+                        alt="Everyday life and architecture in Berlin"
+                    >
+                </button>
+
+
+                <!-- IMAGE 08 -->
+
+                <button
+                    class="image-button"
+                    type="button"
+                    data-lightbox
+                    data-index="7"
+                    aria-label="Open photograph 08 fullscreen"
+                >
+                    <img
+                        src="IMG_0842.png"
+                        alt="Berlin architecture and urban space"
+                    >
+                </button>
+
+
+                <!-- IMAGE 09 -->
+
+                <div class="image-placeholder image-09">
                     IMAGE 09
                 </div>
 
@@ -133,14 +252,8 @@
                     TiM
                 </h2>
 
-                <p>
-                    
+                <p class="about-location">
                     based in Berlin
-                </p>
-
-                <p>
-                    
-                
                 </p>
 
                 <p>
@@ -188,5 +301,70 @@
     </footer>
 
 
+    <!-- LIGHTBOX -->
+
+    <div
+        class="lightbox"
+        id="lightbox"
+        aria-hidden="true"
+    >
+
+        <button
+            class="lightbox-close"
+            type="button"
+            aria-label="Close image"
+        >
+            ×
+        </button>
+
+
+        <button
+            class="lightbox-prev"
+            type="button"
+            aria-label="Previous image"
+        >
+            ←
+        </button>
+
+
+        <div class="lightbox-content">
+
+            <img
+                id="lightbox-image"
+                src=""
+                alt=""
+            >
+
+            <div class="lightbox-meta">
+
+                <span id="lightbox-counter">
+                    01 / 08
+                </span>
+
+                <span>
+                    INBETWEEN BERLIN
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="lightbox-next"
+            type="button"
+            aria-label="Next image"
+        >
+            →
+        </button>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
