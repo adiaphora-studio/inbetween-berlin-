@@ -406,3 +406,19 @@ footer .label {
     }
 
 }
+.gallery img,
+.hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.hero img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.gallery img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
