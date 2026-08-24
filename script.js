@@ -1,21 +1,16 @@
 /* =========================================================
    INBETWEEN BERLIN
-   LIGHTBOX
+   LIGHTBOX + SCROLL STORY
 ========================================================= */
 
 
-/*
-    All photographs that can be opened in the lightbox.
-*/
+/* =========================================================
+   LIGHTBOX
+========================================================= */
 
 const lightboxItems = Array.from(
     document.querySelectorAll("[data-lightbox]")
 );
-
-
-/*
-    Lightbox elements
-*/
 
 const lightbox = document.getElementById("lightbox");
 
@@ -35,16 +30,8 @@ const nextButton =
     document.querySelector(".lightbox-next");
 
 
-/*
-    Current image
-*/
-
 let currentIndex = 0;
 
-
-/* =========================================================
-   OPEN
-========================================================= */
 
 function openLightbox(index) {
 
@@ -60,10 +47,6 @@ function openLightbox(index) {
 }
 
 
-/* =========================================================
-   CLOSE
-========================================================= */
-
 function closeLightbox() {
 
     lightbox.classList.remove("is-open");
@@ -75,10 +58,6 @@ function closeLightbox() {
     lightboxImage.src = "";
 }
 
-
-/* =========================================================
-   UPDATE IMAGE
-========================================================= */
 
 function updateLightbox() {
 
@@ -113,10 +92,6 @@ function updateLightbox() {
 }
 
 
-/* =========================================================
-   NEXT
-========================================================= */
-
 function showNext() {
 
     currentIndex++;
@@ -129,10 +104,6 @@ function showNext() {
 }
 
 
-/* =========================================================
-   PREVIOUS
-========================================================= */
-
 function showPrevious() {
 
     currentIndex--;
@@ -144,10 +115,6 @@ function showPrevious() {
     updateLightbox();
 }
 
-
-/* =========================================================
-   IMAGE CLICK
-========================================================= */
 
 lightboxItems.forEach((item) => {
 
@@ -162,10 +129,6 @@ lightboxItems.forEach((item) => {
 
 });
 
-
-/* =========================================================
-   BUTTONS
-========================================================= */
 
 closeButton.addEventListener(
     "click",
@@ -184,10 +147,6 @@ previousButton.addEventListener(
     showPrevious
 );
 
-
-/* =========================================================
-   BACKGROUND CLICK
-========================================================= */
 
 lightbox.addEventListener("click", (event) => {
 
@@ -233,3 +192,60 @@ document.addEventListener("keydown", (event) => {
     }
 
 });
+
+
+/* =========================================================
+   STORY — BEASTS WE HOLD
+========================================================= */
+
+const storySteps =
+    Array.from(
+        document.querySelectorAll(".story-step")
+    );
+
+
+/*
+    Activate the story step that is currently
+    passing through the central part of the viewport.
+*/
+
+if (storySteps.length) {
+
+    const storyObserver =
+        new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        storySteps.forEach((step) => {
+                            step.classList.remove("is-active");
+                        });
+
+                        entry.target.classList.add("is-active");
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.45
+            }
+        );
+
+
+    storySteps.forEach((step) => {
+
+        storyObserver.observe(step);
+
+    });
+
+
+    /*
+        Start the first story image gently active.
+    */
+
+    storySteps[0].classList.add("is-active");
+
+}
