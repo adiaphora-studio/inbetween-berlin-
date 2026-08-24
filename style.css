@@ -806,9 +806,7 @@ footer .label {
 
 .story {
     position: relative;
-
     margin-top: 12vw;
-
     border-top: 1px solid var(--line);
 }
 
@@ -824,7 +822,6 @@ footer .label {
 
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
 
@@ -841,7 +838,6 @@ footer .label {
     margin: 0;
 
     font-size: clamp(64px, 11vw, 150px);
-
     line-height: 0.86;
 
     font-weight: 400;
@@ -852,9 +848,7 @@ footer .label {
 
 .story-intro h2 em {
     font-family: "Playfair Display", Georgia, serif;
-
     font-style: italic;
-
     font-weight: 400;
 
     letter-spacing: -0.045em;
@@ -867,8 +861,6 @@ footer .label {
     color: var(--muted);
 
     font-size: 13px;
-
-    letter-spacing: 0.02em;
 }
 
 
@@ -878,9 +870,7 @@ footer .label {
 
 .story-scroll-hint {
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
 
     gap: 12px;
@@ -890,16 +880,13 @@ footer .label {
     color: var(--muted);
 
     font-size: 9px;
-
     letter-spacing: 0.15em;
-
     text-transform: uppercase;
 }
 
 
 .story-scroll-line {
     width: 1px;
-
     height: 45px;
 
     background: var(--line);
@@ -916,25 +903,23 @@ footer .label {
 
 
 /*
-    Each step gets enough height to give the
-    sticky image time to breathe.
+    Each scene gets a lot of vertical space.
+    This is what creates the calm editorial rhythm.
 */
 
 .story-step {
     position: relative;
 
-    min-height: 100vh;
+    min-height: 145vh;
 
     display: flex;
-
-    align-items: center;
-
     justify-content: center;
+    align-items: flex-start;
 }
 
 
 /* ---------------------------------------------------------
-   STICKY IMAGE
+   IMAGE
 --------------------------------------------------------- */
 
 .story-image-wrap {
@@ -942,9 +927,17 @@ footer .label {
 
     top: 10vh;
 
-    width: min(68vw, 900px);
+    /*
+        IMPORTANT:
+        The photographs are square.
+        We therefore keep the container square too.
+    */
 
-    height: 80vh;
+    width: min(62vw, 82vh);
+
+    aspect-ratio: 1 / 1;
+
+    flex: 0 0 auto;
 
     overflow: hidden;
 
@@ -960,47 +953,69 @@ footer .label {
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
+    /*
+        No cropping.
+    */
 
-    transform: scale(1.04);
+    object-fit: contain;
+
+    background: #e8e7e3;
+
+    opacity: 0.85;
+
+    transform: scale(0.96);
 
     transition:
-        transform 1.2s cubic-bezier(.2, .7, .2, 1),
-        opacity 700ms ease;
+        opacity 900ms ease,
+        transform 1200ms cubic-bezier(.2, .7, .2, 1);
 }
 
 
-/*
-    The active image slowly settles into place.
-*/
-
 .story-step.is-active .story-image {
+    opacity: 1;
+
     transform: scale(1);
 }
 
 
 /* ---------------------------------------------------------
-   STORY COPY
+   TEXT
 --------------------------------------------------------- */
 
 .story-copy {
     position: absolute;
 
-    z-index: 3;
+    z-index: 5;
 
-    width: min(420px, 70vw);
+    width: min(390px, 32vw);
 
-    padding: 30px;
+    padding: 28px 30px;
 
     background: rgba(255, 255, 255, 0.94);
 
     opacity: 0;
 
-    transform: translateY(35px);
+    transform: translateY(45px);
 
     transition:
-        opacity 650ms ease,
-        transform 650ms cubic-bezier(.2, .7, .2, 1);
+        opacity 800ms ease,
+        transform 900ms cubic-bezier(.2, .7, .2, 1);
+}
+
+
+/*
+    Text deliberately sits beside the image.
+*/
+
+.story-step:nth-child(odd) .story-copy {
+    left: 7vw;
+    bottom: 18vh;
+}
+
+
+.story-step:nth-child(even) .story-copy {
+    right: 7vw;
+    bottom: 22vh;
 }
 
 
@@ -1008,25 +1023,6 @@ footer .label {
     opacity: 1;
 
     transform: translateY(0);
-}
-
-
-/*
-    Alternating text positions create a more editorial
-    rhythm rather than placing every caption identically.
-*/
-
-.story-step:nth-child(odd) .story-copy {
-    left: 8vw;
-
-    bottom: 14vh;
-}
-
-
-.story-step:nth-child(even) .story-copy {
-    right: 8vw;
-
-    bottom: 18vh;
 }
 
 
@@ -1057,29 +1053,42 @@ footer .label {
 
 
 /* ---------------------------------------------------------
-   FINAL STORY IMAGE
+   FINAL IMAGE
 --------------------------------------------------------- */
 
 .story-step-final {
-    min-height: 130vh;
+    min-height: 150vh;
 }
 
 
 .story-step-final .story-image-wrap {
-    width: 100vw;
+    width: min(100vw, 100vh);
 
-    height: 100vh;
+    aspect-ratio: 1 / 1;
 
     top: 0;
 }
 
 
 .story-step-final .story-copy {
+    left: 50% !important;
+    right: auto !important;
+    bottom: 15vh;
+
+    width: auto;
+
+    transform: translate(-50%, 45px);
+
     background: transparent;
 
-    color: #ffffff;
+    color: white;
 
     text-align: center;
+}
+
+
+.story-step-final.is-active .story-copy {
+    transform: translate(-50%, 0);
 }
 
 
@@ -1098,11 +1107,8 @@ footer .label {
     padding: 12vw var(--page);
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     align-items: center;
 
     text-align: center;
@@ -1131,6 +1137,150 @@ footer .label {
 }
 
 
+/* =========================================================
+   STORY — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .story {
+        margin-top: 20vw;
+    }
+
+
+    .story-intro {
+        min-height: 90vh;
+
+        padding-top: 25vw;
+        padding-bottom: 20vw;
+    }
+
+
+    .story-intro h2 {
+        font-size: clamp(58px, 17vw, 90px);
+    }
+
+
+    .story-subtitle {
+        max-width: 260px;
+
+        margin-top: 35px;
+
+        line-height: 1.5;
+    }
+
+
+    .story-scroll-hint {
+        margin-top: 65px;
+    }
+
+
+    /*
+        Mobile gets a square image too.
+        This is much better for your photographs.
+    */
+
+    .story-step {
+        min-height: 125vh;
+
+        display: block;
+
+        padding-top: 10vh;
+    }
+
+
+    .story-image-wrap {
+        position: sticky;
+
+        top: 11vh;
+
+        width: 88vw;
+
+        aspect-ratio: 1 / 1;
+
+        height: auto;
+
+        margin: 0 auto;
+    }
+
+
+    .story-image {
+        object-fit: contain;
+    }
+
+
+    .story-copy {
+        position: absolute;
+
+        z-index: 5;
+
+        width: 78vw;
+
+        left: 11vw !important;
+        right: auto !important;
+
+        bottom: 10vh !important;
+
+        padding: 22px;
+
+        background: rgba(255, 255, 255, 0.94);
+    }
+
+
+    .story-copy p {
+        font-size: clamp(24px, 7vw, 34px);
+    }
+
+
+    .story-step-final {
+        min-height: 125vh;
+    }
+
+
+    .story-step-final .story-image-wrap {
+        width: 100vw;
+
+        aspect-ratio: 1 / 1;
+
+        height: auto;
+
+        margin: 0;
+    }
+
+
+    .story-step-final .story-copy {
+        width: 90vw;
+
+        left: 5vw !important;
+
+        bottom: 10vh !important;
+
+        padding: 10px;
+
+        background: transparent;
+    }
+
+
+    .story-step-final .story-copy p {
+        font-size: clamp(40px, 12vw, 70px);
+    }
+
+
+    .story-end {
+        min-height: 70vh;
+
+        padding-top: 25vw;
+        padding-bottom: 25vw;
+    }
+
+
+    .story-end-text {
+        max-width: 85vw;
+
+        font-size: clamp(29px, 8vw, 42px);
+    }
+
+}
 /* =========================================================
    STORY — MOBILE
 ========================================================= */
