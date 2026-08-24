@@ -1292,8 +1292,12 @@ footer .label {
     }
 
 
+    /* -----------------------------------------------------
+       STORY INTRO
+    ----------------------------------------------------- */
+
     .story-intro {
-        min-height: 90vh;
+        min-height: 90svh;
 
         padding-top: 25vw;
         padding-bottom: 20vw;
@@ -1319,80 +1323,236 @@ footer .label {
     }
 
 
+    /* -----------------------------------------------------
+       STORY STEPS
+    ----------------------------------------------------- */
+
     .story-step {
-        min-height: 115vh;
+
+        /*
+            A little more breathing room than before.
+        */
+
+        min-height: 125svh;
 
         display: block;
 
-        padding-top: 10vh;
+        position: relative;
+
+        padding-top: 10svh;
     }
 
 
+    /* -----------------------------------------------------
+       SQUARE IMAGE
+    ----------------------------------------------------- */
+
     .story-image-wrap {
+
         position: sticky;
 
-        top: 10vh;
+        top: 10svh;
+
+        /*
+            Always square.
+        */
 
         width: 88vw;
 
-        height: 68vh;
+        height: 88vw;
+
+        aspect-ratio: 1 / 1;
 
         margin: 0 auto;
+
+        overflow: hidden;
+
+        background: transparent;
+
+        z-index: 1;
     }
 
 
+    .story-image {
+
+        width: 100%;
+
+        height: 100%;
+
+        display: block;
+
+        object-fit: cover;
+
+        background: transparent;
+
+        transform: scale(0.97);
+
+        opacity: 0.9;
+    }
+
+
+    .story-step.is-active .story-image {
+
+        transform: scale(1);
+
+        opacity: 1;
+    }
+
+
+    /* -----------------------------------------------------
+       TEXT
+    ----------------------------------------------------- */
+
     .story-copy {
+
         position: absolute;
 
+        z-index: 20;
+
+        /*
+            Text is deliberately above the image.
+        */
+
         width: 78vw;
-
-        padding: 22px;
-
-        bottom: 8vh !important;
 
         left: 11vw !important;
 
         right: auto !important;
+
+        bottom: 12svh !important;
+
+        padding: 22px;
+
+        background: rgba(255, 255, 255, 0.96);
+
+        opacity: 0;
+
+        transform: translateY(30px);
+
+        transition:
+            opacity 650ms ease,
+            transform 700ms cubic-bezier(.2, .7, .2, 1);
+    }
+
+
+    .story-step.is-active .story-copy {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+
+    .story-number {
+
+        margin-bottom: 15px;
+
+        font-size: 9px;
     }
 
 
     .story-copy p {
+
+        margin: 0;
+
         font-size: clamp(24px, 7vw, 34px);
+
+        line-height: 1.08;
     }
 
 
+    /* -----------------------------------------------------
+       FINAL STEP
+    ----------------------------------------------------- */
+
     .story-step-final {
-        min-height: 115vh;
+
+        /*
+            Do not use 100vh here.
+            Mobile browser UI makes 100vh unreliable.
+        */
+
+        min-height: 115svh;
+
+        padding-top: 0;
+
+        display: block;
     }
 
 
     .story-step-final .story-image-wrap {
+
+        position: sticky;
+
+        top: 0;
+
         width: 100vw;
 
-        height: 100vh;
+        height: 100vw;
+
+        aspect-ratio: 1 / 1;
 
         margin: 0;
+
+        z-index: 1;
+    }
+
+
+    .story-step-final .story-image {
+
+        object-fit: cover;
     }
 
 
     .story-step-final .story-copy {
+
+        position: absolute;
+
+        z-index: 30;
+
         width: 90vw;
 
         left: 5vw !important;
 
-        bottom: 12vh !important;
+        right: auto !important;
+
+        bottom: 9svh !important;
 
         padding: 10px;
+
+        background: transparent;
+
+        color: #ffffff;
+
+        text-align: center;
+
+        transform: translateY(25px);
+    }
+
+
+    .story-step-final.is-active .story-copy {
+
+        transform: translateY(0);
     }
 
 
     .story-step-final .story-copy p {
-        font-size: clamp(40px, 12vw, 70px);
+
+        font-size: clamp(42px, 12vw, 72px);
+
+        line-height: 0.95;
+
+        white-space: normal;
     }
 
 
+    /* -----------------------------------------------------
+       STORY END
+    ----------------------------------------------------- */
+
     .story-end {
-        min-height: 70vh;
+
+        min-height: 70svh;
 
         padding-top: 25vw;
 
@@ -1401,9 +1561,12 @@ footer .label {
 
 
     .story-end-text {
+
         max-width: 85vw;
 
         font-size: clamp(29px, 8vw, 42px);
+
+        line-height: 1.08;
     }
 
 }
