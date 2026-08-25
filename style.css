@@ -1257,3 +1257,64 @@ footer .label {
     }
 
 }
+/* =========================================================
+   STATEMENT — FINAL OVERRIDE
+========================================================= */
+
+.statement {
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0;
+    padding: 17vw var(--page);
+
+    box-sizing: border-box;
+}
+
+.statement p {
+    display: block;
+
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(32px, 4.6vw, 64px);
+    line-height: 1.08;
+
+    font-weight: 400;
+
+    letter-spacing: -0.03em;
+
+    color: var(--text);
+}
+
+
+/* ---------------------------------------------------------
+   STATEMENT — MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+    .statement {
+        width: 100%;
+
+        padding: 25vw var(--page);
+    }
+
+    .statement p {
+        width: 100%;
+
+        font-family: "Playfair Display", Georgia, serif;
+
+        font-size: clamp(32px, 9vw, 48px);
+
+        line-height: 1.08;
+
+        letter-spacing: -0.025em;
+    }
+
+}
