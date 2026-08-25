@@ -238,7 +238,7 @@ function updateStory() {
         window.innerHeight;
 
 
-    storySteps.forEach((step, index) => {
+    storySteps.forEach((step) => {
 
         const rect =
             step.getBoundingClientRect();
@@ -259,11 +259,9 @@ function updateStory() {
             );
 
 
-        /*
-            ---------------------------------------------
-            IMAGE
-            ---------------------------------------------
-        */
+        /* =====================================================
+           IMAGE
+        ===================================================== */
 
         const image =
             step.querySelector(".story-image");
@@ -273,28 +271,16 @@ function updateStory() {
         }
 
 
-        /*
-            Image slowly grows as the scene progresses.
-        */
-
         let imageScale;
 
 
         if (step.classList.contains("story-step-final")) {
-
-            /*
-                Final image becomes much larger.
-            */
 
             imageScale =
                 1 +
                 smoothstep(progress) * 0.16;
 
         } else {
-
-            /*
-                Normal images breathe only slightly.
-            */
 
             imageScale =
                 0.985 +
@@ -307,11 +293,9 @@ function updateStory() {
             `scale(${imageScale})`;
 
 
-        /*
-            ---------------------------------------------
-            TEXT
-            ---------------------------------------------
-        */
+        /* =====================================================
+           TEXT
+        ===================================================== */
 
         const copy =
             step.querySelector(".story-copy");
@@ -320,12 +304,6 @@ function updateStory() {
             return;
         }
 
-
-        /*
-            Text begins appearing around the middle
-            of the scene and disappears before the scene
-            is completely gone.
-        */
 
         const textIn =
             smoothstep(
@@ -348,22 +326,18 @@ function updateStory() {
             );
 
 
-        let textOpacity =
+        const textOpacity =
             Math.min(textIn, textOut);
 
 
-        /*
-            Text travels upwards while appearing.
-        */
+        /* -----------------------------------------------------
+           TEXT MOVEMENT
+        ----------------------------------------------------- */
 
         const textMovement =
             70 -
             (textOpacity * 70);
 
-
-        /*
-            Final text is slightly more dramatic.
-        */
 
         if (
             step.classList.contains(
@@ -383,6 +357,78 @@ function updateStory() {
 
         copy.style.opacity =
             textOpacity;
+
+
+        /* =====================================================
+           TEXT COLOR — BLACK → WHITE
+        ===================================================== */
+
+        /*
+            The text remains black while it is outside
+            the image.
+
+            As it moves across the image it gradually
+            becomes white.
+
+            This creates the feeling that the typography
+            belongs to the photograph rather than sitting
+            above it.
+        */
+
+        if (
+            !step.classList.contains(
+                "story-step-final"
+            )
+        ) {
+
+            const colorProgress =
+                smoothstep(
+                    clamp(
+                        (progress - 0.36) / 0.20,
+                        0,
+                        1
+                    )
+                );
+
+
+            const r =
+                Math.round(
+                    21 -
+                    (21 * colorProgress)
+                );
+
+            const g =
+                Math.round(
+                    21 -
+                    (21 * colorProgress)
+                );
+
+            const b =
+                Math.round(
+                    21 -
+                    (21 * colorProgress)
+                );
+
+
+            copy.style.color =
+                `rgb(${r}, ${g}, ${b})`;
+        }
+
+
+        /* -----------------------------------------------------
+           FINAL STORY TEXT
+        ----------------------------------------------------- */
+
+        if (
+            step.classList.contains(
+                "story-step-final"
+            )
+        ) {
+
+            copy.style.color =
+                "#ffffff";
+        }
+
     });
 
 
