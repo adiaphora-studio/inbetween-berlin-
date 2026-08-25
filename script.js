@@ -1,6 +1,6 @@
 /* =========================================================
    INBETWEEN BERLIN
-   LIGHTBOX + SCROLL STORY
+   LIGHTBOX + EDITORIAL SCROLL STORY
 ========================================================= */
 
 
@@ -67,13 +67,11 @@ function updateLightbox() {
         return;
     }
 
-
     const image = item.querySelector("img");
 
     if (!image) {
         return;
     }
-
 
     lightboxImage.src = image.src;
 
@@ -135,12 +133,10 @@ closeButton.addEventListener(
     closeLightbox
 );
 
-
 nextButton.addEventListener(
     "click",
     showNext
 );
-
 
 previousButton.addEventListener(
     "click",
@@ -167,27 +163,18 @@ document.addEventListener("keydown", (event) => {
         return;
     }
 
-
     if (event.key === "Escape") {
-
         closeLightbox();
-
         return;
     }
-
 
     if (event.key === "ArrowRight") {
-
         showNext();
-
         return;
     }
 
-
     if (event.key === "ArrowLeft") {
-
         showPrevious();
-
         return;
     }
 
@@ -195,57 +182,308 @@ document.addEventListener("keydown", (event) => {
 
 
 /* =========================================================
-   STORY — BEASTS WE HOLD
+   STORY
 ========================================================= */
+
+const story =
+    document.querySelector(".story");
 
 const storySteps =
     Array.from(
         document.querySelectorAll(".story-step")
     );
 
+const interlude =
+    document.querySelector(".story-interlude");
 
-/*
-    Activate the story step that is currently
-    passing through the central part of the viewport.
-*/
-
-if (storySteps.length) {
-
-    const storyObserver =
-        new IntersectionObserver(
-            (entries) => {
-
-                entries.forEach((entry) => {
-
-                    if (entry.isIntersecting) {
-
-                        storySteps.forEach((step) => {
-                            step.classList.remove("is-active");
-                        });
-
-                        entry.target.classList.add("is-active");
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.45
-            }
-        );
+const interludeText =
+    interlude
+        ? interlude.querySelector("p")
+        : null;
 
 
-    storySteps.forEach((step) => {
+/* =========================================================
+   UTILITY
+========================================================= */
 
-        storyObserver.observe(step);
+function clamp(value, min, max) {
 
+    return Math.min(
+        Math.max(value, min),
+        max
+    );
+}
+
+
+function smoothstep(value) {
+
+    value = clamp(value, 0, 1);
+
+    return value * value * (3 - 2 * value);
+}
+
+
+/* =========================================================
+   STORY ANIMATION
+========================================================= */
+
+function updateStory() {
+
+    if (!story || !storySteps.length) {
+        return;
+    }
+
+
+    const viewportHeight =
+        window.innerHeight;
+
+
+    storySteps.forEach((step, index) => {
+
+        const rect =
+            step.getBoundingClientRect();
+
+
+        /*
+            0 = scene is below viewport
+            0.5 = scene is centered
+            1 = scene has moved above viewport
+        */
+
+        const progress =
+            clamp(
+                (viewportHeight - rect.top) /
+                (viewportHeight + rect.height),
+                0,
+                1
+            );
+
+
+        /*
+            ---------------------------------------------
+            IMAGE
+            ---------------------------------------------
+        */
+
+        const image =
+            step.querySelector(".story-image");
+
+        if (!image) {
+            return;
+        }
+
+
+        /*
+            Image slowly grows as the scene progresses.
+        */
+
+        let imageScale;
+
+
+        if (step.classList.contains("story-step-final")) {
+
+            /*
+                Final image becomes much larger.
+            */
+
+            imageScale =
+                1 +
+                smoothstep(progress) * 0.16;
+
+        } else {
+
+            /*
+                Normal images breathe only slightly.
+            */
+
+            imageScale =
+                0.985 +
+                smoothstep(progress) * 0.025;
+
+        }
+
+
+        image.style.transform =
+            `scale(${imageScale})`;
+
+
+        /*
+            ---------------------------------------------
+            TEXT
+            ---------------------------------------------
+        */
+
+        const copy =
+            step.querySelector(".story-copy");
+
+        if (!copy) {
+            return;
+        }
+
+
+        /*
+            Text begins appearing around the middle
+            of the scene and disappears before the scene
+            is completely gone.
+        */
+
+        const textIn =
+            smoothstep(
+                clamp(
+                    (progress - 0.25) / 0.20,
+                    0,
+                    1
+                )
+            );
+
+
+        const textOut =
+            1 -
+            smoothstep(
+                clamp(
+                    (progress - 0.72) / 0.18,
+                    0,
+                    1
+                )
+            );
+
+
+        let textOpacity =
+            Math.min(textIn, textOut);
+
+
+        /*
+            Text travels upwards while appearing.
+        */
+
+        const textMovement =
+            70 -
+            (textOpacity * 70);
+
+
+        /*
+            Final text is slightly more dramatic.
+        */
+
+        if (
+            step.classList.contains(
+                "story-step-final"
+            )
+        ) {
+
+            copy.style.transform =
+                `translate3d(-50%, ${80 - textOpacity * 80}px, 0)`;
+
+        } else {
+
+            copy.style.transform =
+                `translate3d(0, ${textMovement}px, 0)`;
+        }
+
+
+        copy.style.opacity =
+            textOpacity;
     });
 
 
-    /*
-        Start the first story image gently active.
-    */
+    /* =====================================================
+       BLACK INTERLUDE
+    ===================================================== */
 
-    storySteps[0].classList.add("is-active");
+    if (interlude && interludeText) {
 
+        const rect =
+            interlude.getBoundingClientRect();
+
+
+        const progress =
+            clamp(
+                (viewportHeight - rect.top) /
+                (viewportHeight + rect.height),
+                0,
+                1
+            );
+
+
+        const textIn =
+            smoothstep(
+                clamp(
+                    (progress - 0.28) / 0.25,
+                    0,
+                    1
+                )
+            );
+
+
+        const textOut =
+            1 -
+            smoothstep(
+                clamp(
+                    (progress - 0.72) / 0.20,
+                    0,
+                    1
+                )
+            );
+
+
+        const opacity =
+            Math.min(textIn, textOut);
+
+
+        const movement =
+            50 -
+            opacity * 50;
+
+
+        interludeText.style.opacity =
+            opacity;
+
+
+        interludeText.style.transform =
+            `translateY(${movement}px)`;
+    }
 }
+
+
+/* =========================================================
+   REQUEST ANIMATION FRAME
+========================================================= */
+
+let ticking = false;
+
+
+function requestStoryUpdate() {
+
+    if (!ticking) {
+
+        window.requestAnimationFrame(() => {
+
+            updateStory();
+
+            ticking = false;
+
+        });
+
+        ticking = true;
+    }
+}
+
+
+window.addEventListener(
+    "scroll",
+    requestStoryUpdate,
+    { passive: true }
+);
+
+
+window.addEventListener(
+    "resize",
+    requestStoryUpdate
+);
+
+
+/* =========================================================
+   INITIAL STATE
+========================================================= */
+
+updateStory();
