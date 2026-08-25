@@ -1378,181 +1378,331 @@ footer .label {
 
 }
 /* =========================================================
-   STATEMENT — ORNAMENTAL TRACE
+STATEMENT — ORGANIC BLACK & WHITE FORM
 ========================================================= */
 
 .statement {
-    position: relative;
+position: relative;
 
-    width: 100%;
-    max-width: none;
+```
+width: 100%;
+min-height: 100vh;
 
-    min-height: 100vh;
+margin: 0;
+padding: 17vw var(--page) 18vw;
 
-    margin: 0;
-    padding: 17vw var(--page);
+display: flex;
+align-items: center;
 
-    display: flex;
-    align-items: center;
+overflow: hidden;
 
-    overflow: hidden;
+background: #ffffff;
 
-    background: #ffffff;
+border-top: 1px solid var(--line);
+```
+
 }
 
-
-/* ---------------------------------------------------------
-   ORNAMENT
---------------------------------------------------------- */
+/* =========================================================
+ORGANIC DRAWING
+========================================================= */
 
 .statement-ornament {
-    position: absolute;
+position: absolute;
 
-    inset: 0;
+```
+inset: -12% -8%;
 
-    width: 100%;
-    height: 100%;
+width: 116%;
+height: 124%;
 
-    pointer-events: none;
+pointer-events: none;
 
-    opacity: 0.11;
+z-index: 1;
 
-    transform: scale(1.08);
+opacity: 1;
 
-    z-index: 0;
+transform:
+    rotate(-4deg)
+    scale(1.04);
+```
+
 }
 
+/* SVG itself */
 
 .statement-ornament svg {
-    width: 100%;
-    height: 100%;
+display: block;
 
-    display: block;
+```
+width: 100%;
+height: 100%;
 
-    overflow: visible;
+overflow: visible;
+```
+
 }
 
+/* =========================================================
+MAIN ORGANIC FORM
+========================================================= */
 
-.statement-ornament path {
-    fill: none;
+.statement-ornament .ornament-main {
+fill: none;
 
-    stroke: #151515;
+```
+stroke: #111111;
 
-    stroke-width: 1;
+stroke-width: 115;
 
-    vector-effect: non-scaling-stroke;
+stroke-linecap: round;
 
-    stroke-linecap: round;
+stroke-linejoin: round;
 
-    stroke-dasharray: 1800;
+opacity: 0.92;
 
-    stroke-dashoffset: 1800;
+vector-effect: non-scaling-stroke;
 
-    animation:
-        statement-trace 9s cubic-bezier(.2, .65, .2, 1)
-        forwards;
+filter: contrast(1.15);
+```
+
 }
 
+/* =========================================================
+SECONDARY FORM
+========================================================= */
 
-/* ---------------------------------------------------------
-   TEXT
---------------------------------------------------------- */
+.statement-ornament .ornament-secondary {
+fill: none;
+
+```
+stroke: #ffffff;
+
+stroke-width: 72;
+
+stroke-linecap: round;
+
+stroke-linejoin: round;
+
+opacity: 0.96;
+
+vector-effect: non-scaling-stroke;
+```
+
+}
+
+/* =========================================================
+INNER BLACK DETAIL
+========================================================= */
+
+.statement-ornament .ornament-detail {
+fill: none;
+
+```
+stroke: #111111;
+
+stroke-width: 24;
+
+stroke-linecap: round;
+
+stroke-linejoin: round;
+
+opacity: 0.95;
+
+vector-effect: non-scaling-stroke;
+```
+
+}
+
+/* =========================================================
+FINE DRAWING DETAIL
+========================================================= */
+
+.statement-ornament .ornament-fine {
+fill: none;
+
+```
+stroke: #ffffff;
+
+stroke-width: 9;
+
+stroke-linecap: round;
+
+stroke-linejoin: round;
+
+opacity: 0.9;
+
+vector-effect: non-scaling-stroke;
+```
+
+}
+
+/* =========================================================
+TEXT — ABOVE THE FORM
+========================================================= */
 
 .statement-content {
-    position: relative;
+position: relative;
 
-    z-index: 2;
+```
+z-index: 5;
 
-    width: 100%;
-    max-width: 1000px;
+width: 100%;
+
+max-width: 1000px;
+
+pointer-events: none;
+```
+
+}
+
+.statement-content p {
+position: relative;
+
+```
+margin: 0;
+
+max-width: 1000px;
+
+font-family: "Playfair Display", Georgia, serif;
+
+font-size: clamp(42px, 5.2vw, 76px);
+
+line-height: 1.04;
+
+font-weight: 400;
+
+letter-spacing: -0.035em;
+
+color: #151515;
+
+text-shadow:
+    0 0 18px rgba(255, 255, 255, 0.85);
+```
+
+}
+
+/* =========================================================
+EMPHASIS
+========================================================= */
+
+.statement-content strong {
+font-weight: 400;
+}
+
+/* =========================================================
+SUBTLE DEPTH
+========================================================= */
+
+.statement::after {
+content: "";
+
+```
+position: absolute;
+
+inset: 0;
+
+z-index: 3;
+
+pointer-events: none;
+
+background:
+    radial-gradient(
+        ellipse at center,
+        rgba(255,255,255,0.10) 0%,
+        rgba(255,255,255,0.00) 65%
+    );
+```
+
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+```
+.statement {
+
+    min-height: 90svh;
+
+    padding:
+        25vw
+        var(--page)
+        28vw;
+
+    align-items: center;
+
+}
+
+
+.statement-ornament {
+
+    inset: -10% -30%;
+
+    width: 160%;
+
+    height: 120%;
+
+    transform:
+        rotate(-7deg)
+        scale(1.05);
+
+    opacity: 0.95;
+
+}
+
+
+.statement-ornament .ornament-main {
+
+    stroke-width: 92;
+
+}
+
+
+.statement-ornament .ornament-secondary {
+
+    stroke-width: 58;
+
+}
+
+
+.statement-ornament .ornament-detail {
+
+    stroke-width: 20;
+
+}
+
+
+.statement-ornament .ornament-fine {
+
+    stroke-width: 7;
+
+}
+
+
+.statement-content {
+
+    max-width: 90vw;
+
 }
 
 
 .statement-content p {
-    margin: 0;
 
-    max-width: 1000px;
+    max-width: 90vw;
 
-    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(34px, 9vw, 52px);
 
-    font-size: clamp(42px, 5.2vw, 72px);
+    line-height: 1.06;
 
-    line-height: 1.04;
+    letter-spacing: -0.025em;
 
-    font-weight: 400;
-
-    letter-spacing: -0.035em;
-
-    color: var(--text);
-}
-
-
-/* ---------------------------------------------------------
-   DRAWING ANIMATION
---------------------------------------------------------- */
-
-@keyframes statement-trace {
-
-    0% {
-        stroke-dashoffset: 1800;
-
-        opacity: 0;
-    }
-
-    12% {
-        opacity: 1;
-    }
-
-    100% {
-        stroke-dashoffset: 0;
-
-        opacity: 1;
-    }
+    text-shadow:
+        0 0 14px rgba(255, 255, 255, 0.95);
 
 }
-
-
-/* ---------------------------------------------------------
-   MOBILE
---------------------------------------------------------- */
-
-@media (max-width: 700px) {
-
-    .statement {
-
-        min-height: 90svh;
-
-        padding: 25vw var(--page);
-
-    }
-
-
-    .statement-content p {
-
-        max-width: 90vw;
-
-        font-size: clamp(34px, 9vw, 48px);
-
-        line-height: 1.06;
-
-        letter-spacing: -0.025em;
-
-    }
-
-
-    .statement-ornament {
-
-        opacity: 0.08;
-
-        transform: scale(1.35);
-
-    }
-
-
-    .statement-ornament path {
-
-        stroke-width: 1;
-
-    }
+```
 
 }
