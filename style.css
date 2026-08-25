@@ -26,10 +26,12 @@ html {
 
 body {
     margin: 0;
+
     background: #ffffff;
     color: var(--text);
 
     font-family: "DM Sans", Arial, sans-serif;
+
     font-size: 15px;
     line-height: 1.5;
 }
@@ -58,6 +60,7 @@ button {
 
 .site-header {
     display: flex;
+
     justify-content: space-between;
     align-items: center;
 
@@ -68,15 +71,19 @@ button {
 
 .logo {
     font-size: 14px;
+
     font-weight: 500;
+
     letter-spacing: 0.08em;
 }
 
 nav {
     display: flex;
+
     gap: 28px;
 
     color: var(--muted);
+
     font-size: 13px;
 }
 
@@ -87,6 +94,7 @@ nav {
 
 .intro {
     padding: 12vw var(--page) 9vw;
+
     max-width: 1200px;
 }
 
@@ -97,6 +105,7 @@ nav {
     line-height: 1;
 
     letter-spacing: 0.15em;
+
     text-transform: uppercase;
 
     color: var(--muted);
@@ -106,15 +115,19 @@ h1 {
     margin: 0;
 
     font-size: clamp(58px, 10vw, 140px);
+
     line-height: 0.88;
 
     font-weight: 400;
+
     letter-spacing: -0.06em;
 }
 
 h1 em {
     font-family: "Playfair Display", Georgia, serif;
+
     font-style: italic;
+
     letter-spacing: -0.045em;
 }
 
@@ -124,6 +137,7 @@ h1 em {
     margin-top: 48px;
 
     font-size: 18px;
+
     color: var(--muted);
 }
 
@@ -145,9 +159,11 @@ h1 em {
     padding: 0;
 
     border: 0;
+
     background: none;
 
     cursor: zoom-in;
+
     text-align: left;
 }
 
@@ -159,6 +175,7 @@ h1 em {
     display: block;
 
     width: 100%;
+
     aspect-ratio: 1 / 1;
 
     object-fit: cover;
@@ -181,6 +198,7 @@ h1 em {
 
 .image-button:focus-visible {
     outline: 2px solid var(--text);
+
     outline-offset: 4px;
 }
 
@@ -200,6 +218,7 @@ h1 em {
     align-items: baseline;
 
     padding-top: 18px;
+
     margin-bottom: 55px;
 
     border-top: 1px solid var(--line);
@@ -213,6 +232,7 @@ h1 em {
     margin: 0;
 
     font-size: 12px;
+
     color: var(--muted);
 }
 
@@ -231,6 +251,7 @@ h1 em {
 
 .gallery .image-button {
     aspect-ratio: 1 / 1;
+
     overflow: hidden;
 }
 
@@ -280,6 +301,7 @@ h1 em {
     aspect-ratio: 1 / 1;
 
     background: var(--placeholder);
+
     color: #999;
 
     display: flex;
@@ -288,6 +310,7 @@ h1 em {
     align-items: center;
 
     font-size: 10px;
+
     letter-spacing: 0.15em;
 }
 
@@ -303,10 +326,6 @@ h1 em {
 
     border-top: 1px solid var(--line);
 
-    /*
-        This makes the story feel like a separate
-        editorial piece rather than another gallery.
-    */
     overflow: clip;
 }
 
@@ -321,6 +340,7 @@ h1 em {
     padding: 14vw var(--page) 8vw;
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
@@ -337,9 +357,11 @@ h1 em {
     margin: 0;
 
     font-size: clamp(64px, 11vw, 150px);
+
     line-height: 0.86;
 
     font-weight: 400;
+
     letter-spacing: -0.065em;
 }
 
@@ -347,6 +369,7 @@ h1 em {
     font-family: "Playfair Display", Georgia, serif;
 
     font-style: italic;
+
     font-weight: 400;
 
     letter-spacing: -0.045em;
@@ -362,12 +385,14 @@ h1 em {
 
 
 /* =========================================================
-   SCROLL HINT
+   STORY SCROLL HINT
 ========================================================= */
 
 .story-scroll-hint {
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
 
     gap: 12px;
@@ -379,11 +404,13 @@ h1 em {
     font-size: 9px;
 
     letter-spacing: 0.15em;
+
     text-transform: uppercase;
 }
 
 .story-scroll-line {
     width: 1px;
+
     height: 45px;
 
     background: var(--line);
@@ -398,14 +425,6 @@ h1 em {
     position: relative;
 }
 
-
-/*
-    Each image gets enough vertical room to breathe.
-
-    The image itself stays sticky while the user scrolls
-    through the scene.
-*/
-
 .story-step {
     position: relative;
 
@@ -414,6 +433,7 @@ h1 em {
     display: flex;
 
     justify-content: center;
+
     align-items: flex-start;
 }
 
@@ -452,11 +472,6 @@ h1 em {
 
     transform: scale(1);
 
-    /*
-        No CSS transition here.
-
-        JavaScript controls the movement continuously.
-    */
     will-change: transform, opacity;
 }
 
@@ -472,12 +487,6 @@ h1 em {
 
     width: min(420px, 34vw);
 
-    /*
-        No white box.
-
-        This is deliberately transparent so the text
-        feels like part of the image rather than a card.
-    */
     padding: 0;
 
     background: transparent;
@@ -492,20 +501,24 @@ h1 em {
 }
 
 
-/*
-    Alternating text positions.
-*/
+/* LEFT / RIGHT RHYTHM */
 
 .story-step:nth-child(odd) .story-copy {
     left: 7vw;
+
     bottom: 25vh;
 }
 
 .story-step:nth-child(even) .story-copy {
     right: 7vw;
+
     bottom: 29vh;
 }
 
+
+/* =========================================================
+   STORY NUMBER
+========================================================= */
 
 .story-number {
     display: block;
@@ -519,6 +532,10 @@ h1 em {
     letter-spacing: 0.15em;
 }
 
+
+/* =========================================================
+   STORY TEXT
+========================================================= */
 
 .story-copy p {
     margin: 0;
@@ -589,14 +606,6 @@ h1 em {
     color: #ffffff;
 }
 
-
-/*
-    The final image slowly expands.
-
-    It starts as a square and can grow beyond
-    the normal story width.
-*/
-
 .story-step-final .story-image-wrap {
     top: 0;
 
@@ -618,12 +627,13 @@ h1 em {
 }
 
 
-/*
-    Final text floats over the image.
-*/
+/* =========================================================
+   FINAL STORY TEXT
+========================================================= */
 
 .story-step-final .story-copy {
     left: 50% !important;
+
     right: auto !important;
 
     bottom: 16vh;
@@ -634,8 +644,7 @@ h1 em {
 
     text-align: center;
 
-    transform:
-        translate3d(-50%, 80px, 0);
+    transform: translate3d(-50%, 80px, 0);
 
     opacity: 0;
 }
@@ -663,6 +672,7 @@ h1 em {
     padding: 12vw var(--page);
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
@@ -671,6 +681,8 @@ h1 em {
     text-align: center;
 
     border-top: 1px solid var(--line);
+
+    background: #ffffff;
 }
 
 .story-end .label {
@@ -693,6 +705,52 @@ h1 em {
 
 
 /* =========================================================
+   STATEMENT
+   IMPORTANT:
+   FULL-WIDTH SECTION.
+   ONLY THE TEXT IS LIMITED.
+========================================================= */
+
+.statement {
+    display: block;
+
+    width: 100%;
+
+    max-width: none;
+
+    margin: 0;
+
+    padding: 17vw var(--page) 18vw;
+
+    background: #ffffff;
+
+    border-top: 1px solid var(--line);
+}
+
+.statement p {
+    display: block;
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(42px, 5.2vw, 76px);
+
+    line-height: 1.04;
+
+    font-weight: 400;
+
+    letter-spacing: -0.035em;
+
+    color: var(--text);
+}
+
+
+/* =========================================================
    ABOUT
 ========================================================= */
 
@@ -708,6 +766,10 @@ h1 em {
     border-top: 1px solid var(--line);
 }
 
+.about-label {
+    padding-top: 5px;
+}
+
 .about-text {
     max-width: 680px;
 }
@@ -718,6 +780,8 @@ h1 em {
     font-size: 30px;
 
     font-weight: 400;
+
+    letter-spacing: -0.03em;
 }
 
 .about-text p {
@@ -816,9 +880,11 @@ footer .label {
     display: block;
 
     max-width: 100%;
+
     max-height: calc(100% - 40px);
 
     width: auto;
+
     height: auto;
 
     object-fit: contain;
@@ -838,6 +904,11 @@ footer .label {
     transform: scale(1);
 }
 
+
+/* =========================================================
+   LIGHTBOX META
+========================================================= */
+
 .lightbox-meta {
     display: flex;
 
@@ -855,6 +926,11 @@ footer .label {
 
     text-transform: uppercase;
 }
+
+
+/* =========================================================
+   LIGHTBOX BUTTONS
+========================================================= */
 
 .lightbox-close,
 .lightbox-prev,
@@ -898,6 +974,7 @@ footer .label {
 
 .lightbox-close {
     top: 20px;
+
     right: 25px;
 
     font-size: 32px;
@@ -905,6 +982,7 @@ footer .label {
 
 .lightbox-prev {
     left: 20px;
+
     top: 50%;
 
     transform: translateY(-50%);
@@ -912,6 +990,7 @@ footer .label {
 
 .lightbox-next {
     right: 20px;
+
     top: 50%;
 
     transform: translateY(-50%);
@@ -937,10 +1016,13 @@ footer .label {
     }
 
 
-    /* HEADER */
+    /* =====================================================
+       HEADER
+    ===================================================== */
 
     .site-header {
         padding-top: 18px;
+
         padding-bottom: 18px;
     }
 
@@ -949,7 +1031,9 @@ footer .label {
     }
 
 
-    /* INTRO */
+    /* =====================================================
+       INTRO
+    ===================================================== */
 
     .intro {
         padding-top: 24vw;
@@ -964,7 +1048,9 @@ footer .label {
     }
 
 
-    /* WORK HEADER */
+    /* =====================================================
+       WORK HEADER
+    ===================================================== */
 
     .section-header {
         display: block;
@@ -981,7 +1067,9 @@ footer .label {
     }
 
 
-    /* GALLERY */
+    /* =====================================================
+       GALLERY
+    ===================================================== */
 
     .gallery {
         display: block;
@@ -1000,17 +1088,23 @@ footer .label {
 
 
     /* =====================================================
-       STORY INTRO
+       STORY
     ===================================================== */
 
     .story {
         margin-top: 20vw;
     }
 
+
+    /* =====================================================
+       STORY INTRO
+    ===================================================== */
+
     .story-intro {
         min-height: 90svh;
 
         padding-top: 25vw;
+
         padding-bottom: 20vw;
     }
 
@@ -1049,6 +1143,7 @@ footer .label {
         top: 10svh;
 
         width: 88vw;
+
         height: 88vw;
 
         aspect-ratio: 1 / 1;
@@ -1078,6 +1173,7 @@ footer .label {
         width: 78vw;
 
         left: 11vw !important;
+
         right: auto !important;
 
         bottom: 13svh !important;
@@ -1090,8 +1186,7 @@ footer .label {
 
         text-align: left;
 
-        transform:
-            translate3d(0, 60px, 0);
+        transform: translate3d(0, 60px, 0);
     }
 
     .story-number {
@@ -1125,7 +1220,7 @@ footer .label {
 
 
     /* =====================================================
-       FINAL
+       FINAL STORY IMAGE
     ===================================================== */
 
     .story-step-final {
@@ -1140,6 +1235,7 @@ footer .label {
         top: 0;
 
         width: 100vw;
+
         height: 100vw;
 
         margin: 0;
@@ -1154,8 +1250,7 @@ footer .label {
 
         text-align: center;
 
-        transform:
-            translate3d(-50%, 65px, 0);
+        transform: translate3d(-50%, 65px, 0);
     }
 
     .story-step-final .story-copy p {
@@ -1173,6 +1268,7 @@ footer .label {
         min-height: 70svh;
 
         padding-top: 25vw;
+
         padding-bottom: 25vw;
     }
 
@@ -1184,12 +1280,29 @@ footer .label {
 
 
     /* =====================================================
-       STATEMENT
+       STATEMENT — MOBILE
     ===================================================== */
 
     .statement {
-        padding-top: 25vw;
-        padding-bottom: 25vw;
+        width: 100%;
+
+        max-width: none;
+
+        padding: 25vw var(--page) 28vw;
+    }
+
+    .statement p {
+        width: 100%;
+
+        max-width: 100%;
+
+        font-family: "Playfair Display", Georgia, serif;
+
+        font-size: clamp(34px, 9vw, 52px);
+
+        line-height: 1.06;
+
+        letter-spacing: -0.025em;
     }
 
 
@@ -1199,6 +1312,10 @@ footer .label {
 
     .about {
         display: block;
+
+        padding-top: 50px;
+
+        padding-bottom: 25vw;
     }
 
     .about-text {
@@ -1229,11 +1346,13 @@ footer .label {
 
     .lightbox-content {
         width: 100%;
+
         height: 82vh;
     }
 
     #lightbox-image {
         max-width: 100%;
+
         max-height: calc(100% - 35px);
     }
 
@@ -1245,6 +1364,7 @@ footer .label {
 
     .lightbox-close {
         top: 10px;
+
         right: 10px;
     }
 
@@ -1254,67 +1374,6 @@ footer .label {
 
     .lightbox-next {
         right: 5px;
-    }
-
-}
-/* =========================================================
-   STATEMENT — FINAL OVERRIDE
-========================================================= */
-
-.statement {
-    display: block;
-    width: 100%;
-    max-width: 1000px;
-
-    margin: 0;
-    padding: 17vw var(--page);
-
-    box-sizing: border-box;
-}
-
-.statement p {
-    display: block;
-
-    width: 100%;
-    max-width: 1000px;
-
-    margin: 0;
-
-    font-family: "Playfair Display", Georgia, serif;
-
-    font-size: clamp(32px, 4.6vw, 64px);
-    line-height: 1.08;
-
-    font-weight: 400;
-
-    letter-spacing: -0.03em;
-
-    color: var(--text);
-}
-
-
-/* ---------------------------------------------------------
-   STATEMENT — MOBILE
---------------------------------------------------------- */
-
-@media (max-width: 700px) {
-
-    .statement {
-        width: 100%;
-
-        padding: 25vw var(--page);
-    }
-
-    .statement p {
-        width: 100%;
-
-        font-family: "Playfair Display", Georgia, serif;
-
-        font-size: clamp(32px, 9vw, 48px);
-
-        line-height: 1.08;
-
-        letter-spacing: -0.025em;
     }
 
 }
