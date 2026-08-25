@@ -1556,3 +1556,46 @@ footer .label {
     }
 
 }
+/* =========================================================
+   STORY TEXT — SMOOTH LIGHT TRANSITION
+========================================================= */
+
+.story-copy {
+    transition: color 180ms ease;
+}
+
+
+/* =========================================================
+   STATEMENT ORNAMENT — MOBILE VISIBILITY
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .statement {
+        position: relative;
+        isolation: isolate;
+    }
+
+    .statement-ornament {
+        display: block;
+
+        position: absolute;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        opacity: 0.10;
+
+        z-index: 0;
+
+        pointer-events: none;
+    }
+
+    .statement-content {
+        position: relative;
+
+        z-index: 2;
+    }
+}
