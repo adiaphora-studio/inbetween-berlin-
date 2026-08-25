@@ -1378,7 +1378,7 @@ footer .label {
 
 }
 /* =========================================================
-STATEMENT — ORGANIC BLACK & WHITE FORM
+STATEMENT — ORGANIC BLACK & WHITE DRAWING
 ========================================================= */
 
 .statement {
@@ -1404,32 +1404,28 @@ border-top: 1px solid var(--line);
 }
 
 /* =========================================================
-ORGANIC DRAWING
+ORGANIC DRAWING LAYER
 ========================================================= */
 
 .statement-ornament {
 position: absolute;
 
 ```
-inset: -12% -8%;
+inset: -5% -5%;
 
-width: 116%;
-height: 124%;
-
-pointer-events: none;
+width: 110%;
+height: 110%;
 
 z-index: 1;
 
+pointer-events: none;
+
 opacity: 1;
 
-transform:
-    rotate(-4deg)
-    scale(1.04);
+transform: rotate(-3deg) scale(1.08);
 ```
 
 }
-
-/* SVG itself */
 
 .statement-ornament svg {
 display: block;
@@ -1444,16 +1440,16 @@ overflow: visible;
 }
 
 /* =========================================================
-MAIN ORGANIC FORM
+BLACK ORGANIC MASS
 ========================================================= */
 
 .statement-ornament .ornament-main {
 fill: none;
 
 ```
-stroke: #111111;
+stroke: #000000;
 
-stroke-width: 115;
+stroke-width: 150;
 
 stroke-linecap: round;
 
@@ -1462,14 +1458,12 @@ stroke-linejoin: round;
 opacity: 0.92;
 
 vector-effect: non-scaling-stroke;
-
-filter: contrast(1.15);
 ```
 
 }
 
 /* =========================================================
-SECONDARY FORM
+WHITE CUT THROUGH THE FORM
 ========================================================= */
 
 .statement-ornament .ornament-secondary {
@@ -1478,13 +1472,13 @@ fill: none;
 ```
 stroke: #ffffff;
 
-stroke-width: 72;
+stroke-width: 95;
 
 stroke-linecap: round;
 
 stroke-linejoin: round;
 
-opacity: 0.96;
+opacity: 1;
 
 vector-effect: non-scaling-stroke;
 ```
@@ -1492,16 +1486,16 @@ vector-effect: non-scaling-stroke;
 }
 
 /* =========================================================
-INNER BLACK DETAIL
+BLACK INNER DETAIL
 ========================================================= */
 
 .statement-ornament .ornament-detail {
 fill: none;
 
 ```
-stroke: #111111;
+stroke: #000000;
 
-stroke-width: 24;
+stroke-width: 32;
 
 stroke-linecap: round;
 
@@ -1515,7 +1509,7 @@ vector-effect: non-scaling-stroke;
 }
 
 /* =========================================================
-FINE DRAWING DETAIL
+WHITE FINE DETAIL
 ========================================================= */
 
 .statement-ornament .ornament-fine {
@@ -1524,13 +1518,13 @@ fill: none;
 ```
 stroke: #ffffff;
 
-stroke-width: 9;
+stroke-width: 13;
 
 stroke-linecap: round;
 
 stroke-linejoin: round;
 
-opacity: 0.9;
+opacity: 1;
 
 vector-effect: non-scaling-stroke;
 ```
@@ -1538,7 +1532,7 @@ vector-effect: non-scaling-stroke;
 }
 
 /* =========================================================
-TEXT — ABOVE THE FORM
+TEXT
 ========================================================= */
 
 .statement-content {
@@ -1560,6 +1554,8 @@ pointer-events: none;
 position: relative;
 
 ```
+z-index: 5;
+
 margin: 0;
 
 max-width: 1000px;
@@ -1577,43 +1573,18 @@ letter-spacing: -0.035em;
 color: #151515;
 
 text-shadow:
-    0 0 18px rgba(255, 255, 255, 0.85);
+    0 0 12px rgba(255, 255, 255, 0.92),
+    0 0 28px rgba(255, 255, 255, 0.72);
 ```
 
 }
 
 /* =========================================================
-EMPHASIS
+TEXT EMPHASIS
 ========================================================= */
 
 .statement-content strong {
 font-weight: 400;
-}
-
-/* =========================================================
-SUBTLE DEPTH
-========================================================= */
-
-.statement::after {
-content: "";
-
-```
-position: absolute;
-
-inset: 0;
-
-z-index: 3;
-
-pointer-events: none;
-
-background:
-    radial-gradient(
-        ellipse at center,
-        rgba(255,255,255,0.10) 0%,
-        rgba(255,255,255,0.00) 65%
-    );
-```
-
 }
 
 /* =========================================================
@@ -1632,16 +1603,14 @@ MOBILE
         var(--page)
         28vw;
 
-    align-items: center;
-
 }
 
 
 .statement-ornament {
 
-    inset: -10% -30%;
+    inset: -10% -25%;
 
-    width: 160%;
+    width: 150%;
 
     height: 120%;
 
@@ -1649,35 +1618,33 @@ MOBILE
         rotate(-7deg)
         scale(1.05);
 
-    opacity: 0.95;
-
 }
 
 
 .statement-ornament .ornament-main {
 
-    stroke-width: 92;
+    stroke-width: 105;
 
 }
 
 
 .statement-ornament .ornament-secondary {
 
-    stroke-width: 58;
+    stroke-width: 68;
 
 }
 
 
 .statement-ornament .ornament-detail {
 
-    stroke-width: 20;
+    stroke-width: 23;
 
 }
 
 
 .statement-ornament .ornament-fine {
 
-    stroke-width: 7;
+    stroke-width: 9;
 
 }
 
@@ -1700,7 +1667,8 @@ MOBILE
     letter-spacing: -0.025em;
 
     text-shadow:
-        0 0 14px rgba(255, 255, 255, 0.95);
+        0 0 12px rgba(255, 255, 255, 0.95),
+        0 0 24px rgba(255, 255, 255, 0.8);
 
 }
 ```
