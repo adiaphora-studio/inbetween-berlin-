@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital@0;1&display=swap');
 
+
 :root {
     --page: 5vw;
 
@@ -26,7 +27,6 @@ html {
 
 body {
     margin: 0;
-
     background: #ffffff;
     color: var(--text);
 
@@ -59,15 +59,35 @@ button {
 ========================================================= */
 
 .site-header {
-    display: flex;
+    position: relative;
 
+    display: flex;
     justify-content: space-between;
     align-items: center;
 
     padding: 24px var(--page);
 
     border-bottom: 1px solid var(--line);
+
+    background: #ffffff;
+
+    z-index: 20;
 }
+
+
+/* IMPORTANT:
+   There should be absolutely nothing decorative
+   generated inside the header.
+*/
+
+.site-header::before,
+.site-header::after,
+.site-header .logo::before,
+.site-header .logo::after {
+    content: none !important;
+    display: none !important;
+}
+
 
 .logo {
     font-size: 14px;
@@ -706,35 +726,171 @@ h1 em {
 
 /* =========================================================
    STATEMENT
-   IMPORTANT:
-   FULL-WIDTH SECTION.
-   ONLY THE TEXT IS LIMITED.
+   BLACK / WHITE ORGANIC FORM
 ========================================================= */
 
 .statement {
-    display: block;
+    position: relative;
 
     width: 100%;
 
-    max-width: none;
+    min-height: 100vh;
 
     margin: 0;
 
     padding: 17vw var(--page) 18vw;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
 
     background: #ffffff;
 
     border-top: 1px solid var(--line);
 }
 
-.statement p {
+
+/* =========================================================
+   ORGANIC FORM
+========================================================= */
+
+.statement-ornament {
+    position: absolute;
+
+    inset: -5% -5%;
+
+    width: 110%;
+    height: 110%;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    opacity: 1;
+
+    transform: rotate(-3deg) scale(1.08);
+}
+
+.statement-ornament svg {
     display: block;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   BLACK MAIN MASS
+========================================================= */
+
+.statement-ornament .ornament-main {
+    fill: none;
+
+    stroke: #000000;
+
+    stroke-width: 150;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    opacity: 0.92;
+
+    vector-effect: non-scaling-stroke;
+}
+
+
+/* =========================================================
+   WHITE CUT
+========================================================= */
+
+.statement-ornament .ornament-secondary {
+    fill: none;
+
+    stroke: #ffffff;
+
+    stroke-width: 95;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    opacity: 1;
+
+    vector-effect: non-scaling-stroke;
+}
+
+
+/* =========================================================
+   BLACK INNER DETAIL
+========================================================= */
+
+.statement-ornament .ornament-detail {
+    fill: none;
+
+    stroke: #000000;
+
+    stroke-width: 32;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    opacity: 0.95;
+
+    vector-effect: non-scaling-stroke;
+}
+
+
+/* =========================================================
+   WHITE FINE DETAIL
+========================================================= */
+
+.statement-ornament .ornament-fine {
+    fill: none;
+
+    stroke: #ffffff;
+
+    stroke-width: 13;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    opacity: 1;
+
+    vector-effect: non-scaling-stroke;
+}
+
+
+/* =========================================================
+   STATEMENT TEXT
+========================================================= */
+
+.statement-content {
+    position: relative;
+
+    z-index: 5;
 
     width: 100%;
 
     max-width: 1000px;
 
+    pointer-events: none;
+}
+
+.statement-content p {
+    position: relative;
+
+    z-index: 5;
+
     margin: 0;
+
+    max-width: 1000px;
 
     font-family: "Playfair Display", Georgia, serif;
 
@@ -746,7 +902,15 @@ h1 em {
 
     letter-spacing: -0.035em;
 
-    color: var(--text);
+    color: #151515;
+
+    text-shadow:
+        0 0 12px rgba(255, 255, 255, 0.92),
+        0 0 28px rgba(255, 255, 255, 0.72);
+}
+
+.statement-content strong {
+    font-weight: 400;
 }
 
 
@@ -1016,13 +1180,10 @@ footer .label {
     }
 
 
-    /* =====================================================
-       HEADER
-    ===================================================== */
+    /* HEADER */
 
     .site-header {
         padding-top: 18px;
-
         padding-bottom: 18px;
     }
 
@@ -1031,9 +1192,7 @@ footer .label {
     }
 
 
-    /* =====================================================
-       INTRO
-    ===================================================== */
+    /* INTRO */
 
     .intro {
         padding-top: 24vw;
@@ -1048,9 +1207,7 @@ footer .label {
     }
 
 
-    /* =====================================================
-       WORK HEADER
-    ===================================================== */
+    /* WORK HEADER */
 
     .section-header {
         display: block;
@@ -1067,9 +1224,7 @@ footer .label {
     }
 
 
-    /* =====================================================
-       GALLERY
-    ===================================================== */
+    /* GALLERY */
 
     .gallery {
         display: block;
@@ -1087,18 +1242,14 @@ footer .label {
     }
 
 
-    /* =====================================================
-       STORY
-    ===================================================== */
+    /* STORY */
 
     .story {
         margin-top: 20vw;
     }
 
 
-    /* =====================================================
-       STORY INTRO
-    ===================================================== */
+    /* STORY INTRO */
 
     .story-intro {
         min-height: 90svh;
@@ -1125,9 +1276,7 @@ footer .label {
     }
 
 
-    /* =====================================================
-       STORY STEPS
-    ===================================================== */
+    /* STORY STEPS */
 
     .story-step {
         min-height: 135svh;
@@ -1165,9 +1314,7 @@ footer .label {
     }
 
 
-    /* =====================================================
-       STORY TEXT
-    ===================================================== */
+    /* STORY TEXT */
 
     .story-copy {
         width: 78vw;
@@ -1202,9 +1349,7 @@ footer .label {
     }
 
 
-    /* =====================================================
-       BLACK INTERLUDE
-    ===================================================== */
+    /* BLACK INTERLUDE */
 
     .story-interlude {
         min-height: 70svh;
@@ -1219,9 +1364,7 @@ footer .label {
     }
 
 
-    /* =====================================================
-       FINAL STORY IMAGE
-    ===================================================== */
+    /* FINAL STORY IMAGE */
 
     .story-step-final {
         min-height: 125svh;
@@ -1260,9 +1403,7 @@ footer .label {
     }
 
 
-    /* =====================================================
-       STORY END
-    ===================================================== */
+    /* STORY END */
 
     .story-end {
         min-height: 70svh;
@@ -1284,31 +1425,61 @@ footer .label {
     ===================================================== */
 
     .statement {
-        width: 100%;
+        min-height: 90svh;
 
-        max-width: none;
-
-        padding: 25vw var(--page) 28vw;
+        padding:
+            25vw
+            var(--page)
+            28vw;
     }
 
-    .statement p {
-        width: 100%;
+    .statement-ornament {
+        inset: -10% -25%;
 
-        max-width: 100%;
+        width: 150%;
+        height: 120%;
 
-        font-family: "Playfair Display", Georgia, serif;
+        transform:
+            rotate(-7deg)
+            scale(1.05);
+    }
+
+    .statement-ornament .ornament-main {
+        stroke-width: 105;
+    }
+
+    .statement-ornament .ornament-secondary {
+        stroke-width: 68;
+    }
+
+    .statement-ornament .ornament-detail {
+        stroke-width: 23;
+    }
+
+    .statement-ornament .ornament-fine {
+        stroke-width: 9;
+    }
+
+    .statement-content {
+        max-width: 90vw;
+    }
+
+    .statement-content p {
+        max-width: 90vw;
 
         font-size: clamp(34px, 9vw, 52px);
 
         line-height: 1.06;
 
         letter-spacing: -0.025em;
+
+        text-shadow:
+            0 0 12px rgba(255, 255, 255, 0.95),
+            0 0 24px rgba(255, 255, 255, 0.8);
     }
 
 
-    /* =====================================================
-       ABOUT
-    ===================================================== */
+    /* ABOUT */
 
     .about {
         display: block;
@@ -1323,9 +1494,7 @@ footer .label {
     }
 
 
-    /* =====================================================
-       FOOTER
-    ===================================================== */
+    /* FOOTER */
 
     footer {
         display: block;
@@ -1336,9 +1505,7 @@ footer .label {
     }
 
 
-    /* =====================================================
-       LIGHTBOX
-    ===================================================== */
+    /* LIGHTBOX */
 
     .lightbox {
         padding: 60px 18px 30px;
@@ -1375,302 +1542,5 @@ footer .label {
     .lightbox-next {
         right: 5px;
     }
-
-}
-/* =========================================================
-STATEMENT — ORGANIC BLACK & WHITE DRAWING
-========================================================= */
-
-.statement {
-position: relative;
-
-```
-width: 100%;
-min-height: 100vh;
-
-margin: 0;
-padding: 17vw var(--page) 18vw;
-
-display: flex;
-align-items: center;
-
-overflow: hidden;
-
-background: #ffffff;
-
-border-top: 1px solid var(--line);
-```
-
-}
-
-/* =========================================================
-ORGANIC DRAWING LAYER
-========================================================= */
-
-.statement-ornament {
-position: absolute;
-
-```
-inset: -5% -5%;
-
-width: 110%;
-height: 110%;
-
-z-index: 1;
-
-pointer-events: none;
-
-opacity: 1;
-
-transform: rotate(-3deg) scale(1.08);
-```
-
-}
-
-.statement-ornament svg {
-display: block;
-
-```
-width: 100%;
-height: 100%;
-
-overflow: visible;
-```
-
-}
-
-/* =========================================================
-BLACK ORGANIC MASS
-========================================================= */
-
-.statement-ornament .ornament-main {
-fill: none;
-
-```
-stroke: #000000;
-
-stroke-width: 150;
-
-stroke-linecap: round;
-
-stroke-linejoin: round;
-
-opacity: 0.92;
-
-vector-effect: non-scaling-stroke;
-```
-
-}
-
-/* =========================================================
-WHITE CUT THROUGH THE FORM
-========================================================= */
-
-.statement-ornament .ornament-secondary {
-fill: none;
-
-```
-stroke: #ffffff;
-
-stroke-width: 95;
-
-stroke-linecap: round;
-
-stroke-linejoin: round;
-
-opacity: 1;
-
-vector-effect: non-scaling-stroke;
-```
-
-}
-
-/* =========================================================
-BLACK INNER DETAIL
-========================================================= */
-
-.statement-ornament .ornament-detail {
-fill: none;
-
-```
-stroke: #000000;
-
-stroke-width: 32;
-
-stroke-linecap: round;
-
-stroke-linejoin: round;
-
-opacity: 0.95;
-
-vector-effect: non-scaling-stroke;
-```
-
-}
-
-/* =========================================================
-WHITE FINE DETAIL
-========================================================= */
-
-.statement-ornament .ornament-fine {
-fill: none;
-
-```
-stroke: #ffffff;
-
-stroke-width: 13;
-
-stroke-linecap: round;
-
-stroke-linejoin: round;
-
-opacity: 1;
-
-vector-effect: non-scaling-stroke;
-```
-
-}
-
-/* =========================================================
-TEXT
-========================================================= */
-
-.statement-content {
-position: relative;
-
-```
-z-index: 5;
-
-width: 100%;
-
-max-width: 1000px;
-
-pointer-events: none;
-```
-
-}
-
-.statement-content p {
-position: relative;
-
-```
-z-index: 5;
-
-margin: 0;
-
-max-width: 1000px;
-
-font-family: "Playfair Display", Georgia, serif;
-
-font-size: clamp(42px, 5.2vw, 76px);
-
-line-height: 1.04;
-
-font-weight: 400;
-
-letter-spacing: -0.035em;
-
-color: #151515;
-
-text-shadow:
-    0 0 12px rgba(255, 255, 255, 0.92),
-    0 0 28px rgba(255, 255, 255, 0.72);
-```
-
-}
-
-/* =========================================================
-TEXT EMPHASIS
-========================================================= */
-
-.statement-content strong {
-font-weight: 400;
-}
-
-/* =========================================================
-MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-```
-.statement {
-
-    min-height: 90svh;
-
-    padding:
-        25vw
-        var(--page)
-        28vw;
-
-}
-
-
-.statement-ornament {
-
-    inset: -10% -25%;
-
-    width: 150%;
-
-    height: 120%;
-
-    transform:
-        rotate(-7deg)
-        scale(1.05);
-
-}
-
-
-.statement-ornament .ornament-main {
-
-    stroke-width: 105;
-
-}
-
-
-.statement-ornament .ornament-secondary {
-
-    stroke-width: 68;
-
-}
-
-
-.statement-ornament .ornament-detail {
-
-    stroke-width: 23;
-
-}
-
-
-.statement-ornament .ornament-fine {
-
-    stroke-width: 9;
-
-}
-
-
-.statement-content {
-
-    max-width: 90vw;
-
-}
-
-
-.statement-content p {
-
-    max-width: 90vw;
-
-    font-size: clamp(34px, 9vw, 52px);
-
-    line-height: 1.06;
-
-    letter-spacing: -0.025em;
-
-    text-shadow:
-        0 0 12px rgba(255, 255, 255, 0.95),
-        0 0 24px rgba(255, 255, 255, 0.8);
-
-}
-```
 
 }
