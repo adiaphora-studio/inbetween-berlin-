@@ -1,10 +1,9 @@
-```css
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital@0;1&display=swap');
 
 
 /* =========================================================
    INBETWEEN BERLIN
-   COMPLETE STYLE
+   EDITORIAL / PHOTOGRAPHY / ARCHITECTURE
 ========================================================= */
 
 :root {
@@ -33,6 +32,9 @@ html {
 
 body {
     margin: 0;
+    padding: 0;
+
+    width: 100%;
 
     background: #ffffff;
     color: var(--text);
@@ -46,26 +48,6 @@ body {
 body.lightbox-open {
     overflow: hidden;
 }
-
-
-/* ---------------------------------------------------------
-   IMPORTANT:
-   Prevent accidental pseudo-elements from creating
-   stray marks / lines in the upper-left corner.
---------------------------------------------------------- */
-
-body::before,
-body::after,
-main::before,
-main::after,
-header::before,
-header::after,
-.site-header::before,
-.site-header::after {
-    content: none !important;
-    display: none !important;
-}
-
 
 a {
     color: inherit;
@@ -86,22 +68,21 @@ button {
 ========================================================= */
 
 .site-header {
-    position: relative;
-    z-index: 20;
-
     display: flex;
 
     justify-content: space-between;
     align-items: center;
 
+    width: 100%;
+
     padding: 24px var(--page);
 
     border-bottom: 1px solid var(--line);
-
-    background: #ffffff;
 }
 
 .logo {
+    display: block;
+
     font-size: 14px;
 
     font-weight: 500;
@@ -179,6 +160,8 @@ h1 em {
 ========================================================= */
 
 .hero {
+    width: auto;
+
     margin: 0 var(--page);
 }
 
@@ -534,7 +517,7 @@ h1 em {
 
 
 /* =========================================================
-   STORY LEFT / RIGHT RHYTHM
+   STORY COPY RHYTHM
 ========================================================= */
 
 .story-step:nth-child(odd) .story-copy {
@@ -740,179 +723,41 @@ h1 em {
 
 /* =========================================================
    STATEMENT
-   BLACK / WHITE ORGANIC ORNAMENT
+   CLEAN / STABLE VERSION
 ========================================================= */
 
 .statement {
     position: relative;
 
     width: 100%;
-    min-height: 100vh;
 
     margin: 0;
 
     padding: 17vw var(--page) 18vw;
 
-    display: flex;
-
-    align-items: center;
-
-    overflow: hidden;
-
     background: #ffffff;
 
     border-top: 1px solid var(--line);
+
+    overflow: hidden;
 }
 
 
 /* =========================================================
-   ORNAMENT CONTAINER
-
-   No line animation.
-   No dashed strokes.
-   No grey SVG traces.
-
-   The ornament is a solid black organic mass with
-   white cuts through it.
-========================================================= */
-
-.statement-ornament {
-    position: absolute;
-
-    inset: -8% -5%;
-
-    width: 110%;
-    height: 116%;
-
-    z-index: 1;
-
-    pointer-events: none;
-
-    opacity: 1;
-
-    transform:
-        rotate(-4deg)
-        scale(1.04);
-}
-
-.statement-ornament svg {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    overflow: visible;
-}
-
-
-/* =========================================================
-   MAIN BLACK ORGANIC MASS
-========================================================= */
-
-.statement-ornament .ornament-main {
-    fill: none;
-
-    stroke: #000000;
-
-    stroke-width: 155;
-
-    stroke-linecap: round;
-
-    stroke-linejoin: round;
-
-    opacity: 0.96;
-
-    vector-effect: non-scaling-stroke;
-}
-
-
-/* =========================================================
-   WHITE CUT
-
-   This creates the visual impression of a carved /
-   architectural form rather than a simple line.
-========================================================= */
-
-.statement-ornament .ornament-secondary {
-    fill: none;
-
-    stroke: #ffffff;
-
-    stroke-width: 92;
-
-    stroke-linecap: round;
-
-    stroke-linejoin: round;
-
-    opacity: 1;
-
-    vector-effect: non-scaling-stroke;
-}
-
-
-/* =========================================================
-   BLACK INNER FORM
-========================================================= */
-
-.statement-ornament .ornament-detail {
-    fill: none;
-
-    stroke: #000000;
-
-    stroke-width: 34;
-
-    stroke-linecap: round;
-
-    stroke-linejoin: round;
-
-    opacity: 0.98;
-
-    vector-effect: non-scaling-stroke;
-}
-
-
-/* =========================================================
-   WHITE FINE CUT
-========================================================= */
-
-.statement-ornament .ornament-fine {
-    fill: none;
-
-    stroke: #ffffff;
-
-    stroke-width: 14;
-
-    stroke-linecap: round;
-
-    stroke-linejoin: round;
-
-    opacity: 1;
-
-    vector-effect: non-scaling-stroke;
-}
-
-
-/* =========================================================
-   STATEMENT TEXT
+   STATEMENT CONTENT
 ========================================================= */
 
 .statement-content {
     position: relative;
 
-    z-index: 5;
+    z-index: 2;
 
     width: 100%;
 
     max-width: 1000px;
-
-    pointer-events: none;
 }
 
 .statement-content p {
-    position: relative;
-
-    z-index: 5;
-
     margin: 0;
 
     max-width: 1000px;
@@ -927,19 +772,27 @@ h1 em {
 
     letter-spacing: -0.035em;
 
-    color: #151515;
-
-    /*
-       Keeps the typography readable over the
-       black / white organic form.
-    */
-    text-shadow:
-        0 0 14px rgba(255, 255, 255, 0.96),
-        0 0 30px rgba(255, 255, 255, 0.82);
+    color: var(--text);
 }
 
 .statement-content strong {
     font-weight: 400;
+}
+
+
+/* =========================================================
+   STATEMENT ORNAMENT
+   DISABLED FOR NOW
+========================================================= */
+
+/*
+   We deliberately keep the ornament out for this stable
+   version. This prevents SVG/path rendering artifacts
+   and keeps the original editorial spacing intact.
+*/
+
+.statement-ornament {
+    display: none;
 }
 
 
@@ -996,6 +849,8 @@ footer {
     display: flex;
 
     justify-content: space-between;
+
+    width: 100%;
 
     padding: 30px var(--page);
 
@@ -1215,7 +1070,6 @@ footer .label {
 
     .site-header {
         padding-top: 18px;
-
         padding-bottom: 18px;
     }
 
@@ -1473,11 +1327,11 @@ footer .label {
 
 
     /* =====================================================
-       STATEMENT — MOBILE
+       STATEMENT
     ===================================================== */
 
     .statement {
-        min-height: 90svh;
+        width: 100%;
 
         padding:
             25vw
@@ -1485,60 +1339,24 @@ footer .label {
             28vw;
     }
 
-
-    /* -----------------------------------------------------
-       MOBILE ORGANIC FORM
-    ----------------------------------------------------- */
-
-    .statement-ornament {
-        inset: -12% -30%;
-
-        width: 160%;
-
-        height: 125%;
-
-        transform:
-            rotate(-7deg)
-            scale(1.02);
-    }
-
-    .statement-ornament .ornament-main {
-        stroke-width: 105;
-    }
-
-    .statement-ornament .ornament-secondary {
-        stroke-width: 65;
-    }
-
-    .statement-ornament .ornament-detail {
-        stroke-width: 23;
-    }
-
-    .statement-ornament .ornament-fine {
-        stroke-width: 9;
-    }
-
-
-    /* -----------------------------------------------------
-       MOBILE STATEMENT TEXT
-    ----------------------------------------------------- */
-
     .statement-content {
+        width: 100%;
+
         max-width: 90vw;
     }
 
     .statement-content p {
+        width: 100%;
+
         max-width: 90vw;
+
+        font-family: "Playfair Display", Georgia, serif;
 
         font-size: clamp(34px, 9vw, 52px);
 
         line-height: 1.06;
 
         letter-spacing: -0.025em;
-
-        text-shadow:
-            0 0 12px rgba(255, 255, 255, 0.96),
-            0 0 25px rgba(255, 255, 255, 0.84);
     }
 
 
@@ -1613,4 +1431,3 @@ footer .label {
     }
 
 }
-```
