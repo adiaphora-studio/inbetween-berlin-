@@ -5,6 +5,25 @@
 
 
 /* =========================================================
+   REMOVE CHATGPT REFERRAL PARAMETER
+========================================================= */
+
+if (window.location.search.includes("utm_source=chatgpt.com")) {
+
+    const cleanUrl =
+        window.location.origin +
+        window.location.pathname +
+        window.location.hash;
+
+    window.history.replaceState(
+        {},
+        document.title,
+        cleanUrl
+    );
+}
+
+
+/* =========================================================
    LIGHTBOX
 ========================================================= */
 
@@ -33,6 +52,10 @@ const nextButton =
 let currentIndex = 0;
 
 
+/* =========================================================
+   OPEN LIGHTBOX
+========================================================= */
+
 function openLightbox(index) {
 
     currentIndex = index;
@@ -41,48 +64,77 @@ function openLightbox(index) {
 
     lightbox.classList.add("is-open");
 
-    lightbox.setAttribute("aria-hidden", "false");
+    lightbox.setAttribute(
+        "aria-hidden",
+        "false"
+    );
 
-    document.body.classList.add("lightbox-open");
+    document.body.classList.add(
+        "lightbox-open"
+    );
 }
 
 
+/* =========================================================
+   CLOSE LIGHTBOX
+========================================================= */
+
 function closeLightbox() {
 
-    lightbox.classList.remove("is-open");
+    lightbox.classList.remove(
+        "is-open"
+    );
 
-    lightbox.setAttribute("aria-hidden", "true");
+    lightbox.setAttribute(
+        "aria-hidden",
+        "true"
+    );
 
-    document.body.classList.remove("lightbox-open");
+    document.body.classList.remove(
+        "lightbox-open"
+    );
 
     lightboxImage.src = "";
 }
 
 
+/* =========================================================
+   UPDATE LIGHTBOX
+========================================================= */
+
 function updateLightbox() {
 
-    const item = lightboxItems[currentIndex];
+    const item =
+        lightboxItems[currentIndex];
 
     if (!item) {
         return;
     }
 
-    const image = item.querySelector("img");
+    const image =
+        item.querySelector("img");
 
     if (!image) {
         return;
     }
 
-    lightboxImage.src = image.src;
+    lightboxImage.src =
+        image.src;
 
-    lightboxImage.alt = image.alt;
+    lightboxImage.alt =
+        image.alt;
 
 
     const number =
-        String(currentIndex + 1).padStart(2, "0");
+        String(
+            currentIndex + 1
+        ).padStart(2, "0");
+
 
     const total =
-        String(lightboxItems.length).padStart(2, "0");
+        String(
+            lightboxItems.length
+        ).padStart(2, "0");
 
 
     lightboxCounter.textContent =
@@ -90,11 +142,19 @@ function updateLightbox() {
 }
 
 
+/* =========================================================
+   NEXT IMAGE
+========================================================= */
+
 function showNext() {
 
     currentIndex++;
 
-    if (currentIndex >= lightboxItems.length) {
+    if (
+        currentIndex >=
+        lightboxItems.length
+    ) {
+
         currentIndex = 0;
     }
 
@@ -102,31 +162,49 @@ function showNext() {
 }
 
 
+/* =========================================================
+   PREVIOUS IMAGE
+========================================================= */
+
 function showPrevious() {
 
     currentIndex--;
 
     if (currentIndex < 0) {
-        currentIndex = lightboxItems.length - 1;
+
+        currentIndex =
+            lightboxItems.length - 1;
     }
 
     updateLightbox();
 }
 
 
+/* =========================================================
+   IMAGE CLICK EVENTS
+========================================================= */
+
 lightboxItems.forEach((item) => {
 
-    item.addEventListener("click", () => {
+    item.addEventListener(
+        "click",
+        () => {
 
-        const index =
-            Number(item.dataset.index);
+            const index =
+                Number(
+                    item.dataset.index
+                );
 
-        openLightbox(index);
-
-    });
+            openLightbox(index);
+        }
+    );
 
 });
 
+
+/* =========================================================
+   LIGHTBOX BUTTON EVENTS
+========================================================= */
 
 closeButton.addEventListener(
     "click",
@@ -144,41 +222,74 @@ previousButton.addEventListener(
 );
 
 
-lightbox.addEventListener("click", (event) => {
+/* =========================================================
+   CLICK OUTSIDE IMAGE
+========================================================= */
 
-    if (event.target === lightbox) {
-        closeLightbox();
+lightbox.addEventListener(
+    "click",
+    (event) => {
+
+        if (
+            event.target ===
+            lightbox
+        ) {
+
+            closeLightbox();
+        }
     }
-
-});
+);
 
 
 /* =========================================================
    KEYBOARD
 ========================================================= */
 
-document.addEventListener("keydown", (event) => {
+document.addEventListener(
+    "keydown",
+    (event) => {
 
-    if (!lightbox.classList.contains("is-open")) {
-        return;
+        if (
+            !lightbox.classList.contains(
+                "is-open"
+            )
+        ) {
+
+            return;
+        }
+
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeLightbox();
+
+            return;
+        }
+
+
+        if (
+            event.key === "ArrowRight"
+        ) {
+
+            showNext();
+
+            return;
+        }
+
+
+        if (
+            event.key === "ArrowLeft"
+        ) {
+
+            showPrevious();
+
+            return;
+        }
+
     }
-
-    if (event.key === "Escape") {
-        closeLightbox();
-        return;
-    }
-
-    if (event.key === "ArrowRight") {
-        showNext();
-        return;
-    }
-
-    if (event.key === "ArrowLeft") {
-        showPrevious();
-        return;
-    }
-
-});
+);
 
 
 /* =========================================================
@@ -186,15 +297,21 @@ document.addEventListener("keydown", (event) => {
 ========================================================= */
 
 const story =
-    document.querySelector(".story");
+    document.querySelector(
+        ".story"
+    );
 
 const storySteps =
     Array.from(
-        document.querySelectorAll(".story-step")
+        document.querySelectorAll(
+            ".story-step"
+        )
     );
 
 const interlude =
-    document.querySelector(".story-interlude");
+    document.querySelector(
+        ".story-interlude"
+    );
 
 const interludeText =
     interlude
@@ -206,10 +323,17 @@ const interludeText =
    UTILITY
 ========================================================= */
 
-function clamp(value, min, max) {
+function clamp(
+    value,
+    min,
+    max
+) {
 
     return Math.min(
-        Math.max(value, min),
+        Math.max(
+            value,
+            min
+        ),
         max
     );
 }
@@ -217,9 +341,18 @@ function clamp(value, min, max) {
 
 function smoothstep(value) {
 
-    value = clamp(value, 0, 1);
+    value =
+        clamp(
+            value,
+            0,
+            1
+        );
 
-    return value * value * (3 - 2 * value);
+    return (
+        value *
+        value *
+        (3 - 2 * value)
+    );
 }
 
 
@@ -229,7 +362,11 @@ function smoothstep(value) {
 
 function updateStory() {
 
-    if (!story || !storySteps.length) {
+    if (
+        !story ||
+        !storySteps.length
+    ) {
+
         return;
     }
 
@@ -238,205 +375,255 @@ function updateStory() {
         window.innerHeight;
 
 
-    storySteps.forEach((step) => {
+    storySteps.forEach(
+        (step) => {
 
-        const rect =
-            step.getBoundingClientRect();
-
-
-        /*
-            0 = scene is below viewport
-            0.5 = scene is centered
-            1 = scene has moved above viewport
-        */
-
-        const progress =
-            clamp(
-                (viewportHeight - rect.top) /
-                (viewportHeight + rect.height),
-                0,
-                1
-            );
+            const rect =
+                step.getBoundingClientRect();
 
 
-        /* =====================================================
-           IMAGE
-        ===================================================== */
+            /*
+                0 = scene is below viewport
+                0.5 = scene is centered
+                1 = scene has moved above viewport
+            */
 
-        const image =
-            step.querySelector(".story-image");
-
-        if (!image) {
-            return;
-        }
-
-
-        let imageScale;
-
-
-        if (step.classList.contains("story-step-final")) {
-
-            imageScale =
-                1 +
-                smoothstep(progress) * 0.16;
-
-        } else {
-
-            imageScale =
-                0.985 +
-                smoothstep(progress) * 0.025;
-
-        }
-
-
-        image.style.transform =
-            `scale(${imageScale})`;
-
-
-        /* =====================================================
-           TEXT
-        ===================================================== */
-
-        const copy =
-            step.querySelector(".story-copy");
-
-        if (!copy) {
-            return;
-        }
-
-
-        const textIn =
-            smoothstep(
+            const progress =
                 clamp(
-                    (progress - 0.25) / 0.20,
+                    (
+                        viewportHeight -
+                        rect.top
+                    ) /
+                    (
+                        viewportHeight +
+                        rect.height
+                    ),
                     0,
                     1
+                );
+
+
+            /* =================================================
+               IMAGE
+            ================================================= */
+
+            const image =
+                step.querySelector(
+                    ".story-image"
+                );
+
+            if (!image) {
+                return;
+            }
+
+
+            let imageScale;
+
+
+            if (
+                step.classList.contains(
+                    "story-step-final"
                 )
-            );
+            ) {
+
+                imageScale =
+                    1 +
+                    smoothstep(
+                        progress
+                    ) *
+                    0.16;
+
+            } else {
+
+                imageScale =
+                    0.985 +
+                    smoothstep(
+                        progress
+                    ) *
+                    0.025;
+            }
 
 
-        const textOut =
-            1 -
-            smoothstep(
-                clamp(
-                    (progress - 0.72) / 0.18,
-                    0,
-                    1
-                )
-            );
+            image.style.transform =
+                `scale(${imageScale})`;
 
 
-        const textOpacity =
-            Math.min(textIn, textOut);
+            /* =================================================
+               TEXT
+            ================================================= */
+
+            const copy =
+                step.querySelector(
+                    ".story-copy"
+                );
+
+            if (!copy) {
+                return;
+            }
 
 
-        /* -----------------------------------------------------
-           TEXT MOVEMENT
-        ----------------------------------------------------- */
-
-        const textMovement =
-            70 -
-            (textOpacity * 70);
-
-
-        if (
-            step.classList.contains(
-                "story-step-final"
-            )
-        ) {
-
-            copy.style.transform =
-                `translate3d(-50%, ${80 - textOpacity * 80}px, 0)`;
-
-        } else {
-
-            copy.style.transform =
-                `translate3d(0, ${textMovement}px, 0)`;
-        }
-
-
-        copy.style.opacity =
-            textOpacity;
-
-
-        /* =====================================================
-           TEXT COLOR — BLACK → WHITE
-        ===================================================== */
-
-        /*
-            The text remains black while it is outside
-            the image.
-
-            As it moves across the image it gradually
-            becomes white.
-
-            This creates the feeling that the typography
-            belongs to the photograph rather than sitting
-            above it.
-        */
-
-        if (
-            !step.classList.contains(
-                "story-step-final"
-            )
-        ) {
-
-            const colorProgress =
+            const textIn =
                 smoothstep(
                     clamp(
-                        (progress - 0.36) / 0.20,
+                        (
+                            progress -
+                            0.25
+                        ) /
+                        0.20,
                         0,
                         1
                     )
                 );
 
 
-            const r =
-                Math.round(
-                    21 -
-                    (21 * colorProgress)
-                );
-
-            const g =
-                Math.round(
-                    21 -
-                    (21 * colorProgress)
-                );
-
-            const b =
-                Math.round(
-                    21 -
-                    (21 * colorProgress)
+            const textOut =
+                1 -
+                smoothstep(
+                    clamp(
+                        (
+                            progress -
+                            0.72
+                        ) /
+                        0.18,
+                        0,
+                        1
+                    )
                 );
 
 
-            copy.style.color =
-                `rgb(${r}, ${g}, ${b})`;
+            const textOpacity =
+                Math.min(
+                    textIn,
+                    textOut
+                );
+
+
+            /* =================================================
+               TEXT MOVEMENT
+            ================================================= */
+
+            const textMovement =
+                70 -
+                (
+                    textOpacity *
+                    70
+                );
+
+
+            if (
+                step.classList.contains(
+                    "story-step-final"
+                )
+            ) {
+
+                copy.style.transform =
+                    `translate3d(
+                        -50%,
+                        ${80 - textOpacity * 80}px,
+                        0
+                    )`;
+
+            } else {
+
+                copy.style.transform =
+                    `translate3d(
+                        0,
+                        ${textMovement}px,
+                        0
+                    )`;
+            }
+
+
+            copy.style.opacity =
+                textOpacity;
+
+
+            /* =================================================
+               TEXT COLOR
+               BLACK → WHITE
+            ================================================= */
+
+            if (
+                !step.classList.contains(
+                    "story-step-final"
+                )
+            ) {
+
+                const colorProgress =
+                    smoothstep(
+                        clamp(
+                            (
+                                progress -
+                                0.36
+                            ) /
+                            0.20,
+                            0,
+                            1
+                        )
+                    );
+
+
+                const r =
+                    Math.round(
+                        21 -
+                        (
+                            21 *
+                            colorProgress
+                        )
+                    );
+
+
+                const g =
+                    Math.round(
+                        21 -
+                        (
+                            21 *
+                            colorProgress
+                        )
+                    );
+
+
+                const b =
+                    Math.round(
+                        21 -
+                        (
+                            21 *
+                            colorProgress
+                        )
+                    );
+
+
+                copy.style.color =
+                    `rgb(${r}, ${g}, ${b})`;
+            }
+
+
+            /* =================================================
+               FINAL STORY TEXT
+            ================================================= */
+
+            if (
+                step.classList.contains(
+                    "story-step-final"
+                )
+            ) {
+
+                copy.style.color =
+                    "#ffffff";
+            }
+
         }
+    );
 
 
-        /* -----------------------------------------------------
-           FINAL STORY TEXT
-        ----------------------------------------------------- */
-
-        if (
-            step.classList.contains(
-                "story-step-final"
-            )
-        ) {
-
-            copy.style.color =
-                "#ffffff";
-        }
-
-    });
-
-
-    /* =====================================================
+    /* =========================================================
        BLACK INTERLUDE
-    ===================================================== */
+    ========================================================= */
 
-    if (interlude && interludeText) {
+    if (
+        interlude &&
+        interludeText
+    ) {
 
         const rect =
             interlude.getBoundingClientRect();
@@ -444,8 +631,14 @@ function updateStory() {
 
         const progress =
             clamp(
-                (viewportHeight - rect.top) /
-                (viewportHeight + rect.height),
+                (
+                    viewportHeight -
+                    rect.top
+                ) /
+                (
+                    viewportHeight +
+                    rect.height
+                ),
                 0,
                 1
             );
@@ -454,7 +647,11 @@ function updateStory() {
         const textIn =
             smoothstep(
                 clamp(
-                    (progress - 0.28) / 0.25,
+                    (
+                        progress -
+                        0.28
+                    ) /
+                    0.25,
                     0,
                     1
                 )
@@ -465,7 +662,11 @@ function updateStory() {
             1 -
             smoothstep(
                 clamp(
-                    (progress - 0.72) / 0.20,
+                    (
+                        progress -
+                        0.72
+                    ) /
+                    0.20,
                     0,
                     1
                 )
@@ -473,7 +674,10 @@ function updateStory() {
 
 
         const opacity =
-            Math.min(textIn, textOut);
+            Math.min(
+                textIn,
+                textOut
+            );
 
 
         const movement =
@@ -502,25 +706,36 @@ function requestStoryUpdate() {
 
     if (!ticking) {
 
-        window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(
+            () => {
 
-            updateStory();
+                updateStory();
 
-            ticking = false;
-
-        });
+                ticking = false;
+            }
+        );
 
         ticking = true;
     }
 }
 
 
+/* =========================================================
+   SCROLL
+========================================================= */
+
 window.addEventListener(
     "scroll",
     requestStoryUpdate,
-    { passive: true }
+    {
+        passive: true
+    }
 );
 
+
+/* =========================================================
+   RESIZE
+========================================================= */
 
 window.addEventListener(
     "resize",
