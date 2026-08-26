@@ -716,7 +716,6 @@ h1 em {
 }
 
 
-```css
 /* =========================================================
    STORY 02 — WORN SURFACES
 ========================================================= */
@@ -725,6 +724,7 @@ h1 em {
     position: relative;
 
     width: 100%;
+    box-sizing: border-box;
 
     background: #ffffff;
 
@@ -739,9 +739,10 @@ h1 em {
 ========================================================= */
 
 .worn-intro {
+    width: 100%;
     max-width: 900px;
 
-    margin-bottom: 9vw;
+    margin: 0 0 9vw 0;
 }
 
 .worn-intro h2 {
@@ -824,6 +825,8 @@ h1 em {
     gap: 15vw;
 
     width: 100%;
+
+    box-sizing: border-box;
 }
 
 
@@ -835,6 +838,8 @@ h1 em {
     display: block;
 
     width: min(68vw, 900px);
+
+    max-width: 100%;
 
     aspect-ratio: 1 / 1;
 
@@ -851,6 +856,8 @@ h1 em {
     cursor: zoom-in;
 
     flex-shrink: 0;
+
+    box-sizing: border-box;
 }
 
 .worn-image-right {
@@ -886,6 +893,10 @@ h1 em {
 ========================================================= */
 
 .worn-end {
+    width: 100%;
+
+    box-sizing: border-box;
+
     padding: 15vw 0 2vw;
 
     text-align: center;
@@ -917,8 +928,9 @@ h1 em {
 @media (max-width: 700px) {
 
     .worn-story {
-        padding-top: 25vw;
+        box-sizing: border-box;
 
+        padding-top: 25vw;
         padding-bottom: 25vw;
     }
 
@@ -948,6 +960,8 @@ h1 em {
     .worn-image-right {
         width: 88vw;
 
+        max-width: 100%;
+
         align-self: center;
 
         margin: 0;
@@ -963,7 +977,7 @@ h1 em {
         font-size: clamp(29px, 8vw, 42px);
     }
 }
-```
+
 
 /* =========================================================
    STATEMENT
@@ -973,6 +987,7 @@ h1 em {
     position: relative;
 
     width: 100%;
+    box-sizing: border-box;
 
     margin: 0;
 
@@ -983,22 +998,6 @@ h1 em {
     border-top: 1px solid var(--line);
 
     overflow: hidden;
-
-    box-sizing: border-box;
-}
-
-
-/* =========================================================
-   STATEMENT INNER CONTENT
-========================================================= */
-
-.statement-ornament,
-.statement-content {
-    width: 100%;
-    max-width: 1000px;
-
-    margin-left: 0;
-    margin-right: auto;
 }
 
 
@@ -1012,10 +1011,10 @@ h1 em {
     display: block;
 
     width: 210px;
+
     height: 110px;
 
-    margin-top: 0;
-    margin-bottom: 65px;
+    margin: 0 0 65px 0;
 
     z-index: 3;
 
@@ -1100,18 +1099,13 @@ h1 em {
 
     max-width: 1000px;
 
-    margin-left: 0;
-    margin-right: auto;
-
-    padding: 0;
+    box-sizing: border-box;
 }
 
 .statement-content p {
-    width: 100%;
+    margin: 0;
 
     max-width: 1000px;
-
-    margin: 0;
 
     font-family: "Playfair Display", Georgia, serif;
 
@@ -1129,86 +1123,6 @@ h1 em {
 .statement-content strong {
     font-weight: 400;
 }
-
-
-/* =========================================================
-   STATEMENT — MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-    .statement {
-        width: 100%;
-
-        padding:
-            25vw
-            var(--page)
-            28vw;
-    }
-
-    .statement-ornament {
-        width: 145px;
-        height: 78px;
-
-        margin-bottom: 42px;
-    }
-
-    .ornament-circle {
-        left: 0;
-        top: 11px;
-
-        width: 52px;
-        height: 52px;
-
-        border-width: 1.5px;
-    }
-
-    .ornament-square {
-        left: 42px;
-        top: 0;
-
-        width: 52px;
-        height: 52px;
-    }
-
-    .ornament-line {
-        left: 0;
-        bottom: 0;
-
-        width: 145px;
-        height: 1.5px;
-    }
-
-    .statement-ornament::after {
-        left: 52px;
-        top: 20px;
-
-        width: 20px;
-        height: 20px;
-    }
-
-    .statement-content {
-        width: 100%;
-
-        max-width: 90vw;
-
-        margin-left: 0;
-        margin-right: auto;
-    }
-
-    .statement-content p {
-        width: 100%;
-
-        max-width: 90vw;
-
-        font-size: clamp(34px, 9vw, 52px);
-
-        line-height: 1.06;
-
-        letter-spacing: -0.025em;
-    }
-}
-
 /* =========================================================
    ABOUT
 ========================================================= */
