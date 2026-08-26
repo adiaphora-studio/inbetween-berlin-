@@ -568,578 +568,566 @@ h1 em {
 
 
 /* =========================================================
-   BLACK INTERLUDE
+BLACK INTERLUDE
 ========================================================= */
 
 .story-interlude {
-    position: relative;
+position: relative;
 
-    min-height: 75vh;
+```
+min-height: 75vh;
 
-    display: flex;
+display: flex;
 
-    justify-content: center;
-    align-items: center;
+justify-content: center;
+align-items: center;
 
-    padding: 12vw var(--page);
+padding: 12vw var(--page);
 
-    background: #000000;
+background: #000000;
 
-    color: #ffffff;
+color: #ffffff;
 
-    text-align: center;
+text-align: center;
+```
+
 }
 
 .story-interlude p {
-    max-width: 850px;
+max-width: 850px;
 
-    margin: 0;
+```
+margin: 0;
 
-    font-family: "Playfair Display", Georgia, serif;
+font-family: "Playfair Display", Georgia, serif;
 
-    font-size: clamp(42px, 7vw, 100px);
+font-size: clamp(42px, 7vw, 100px);
 
-    line-height: 0.98;
+line-height: 0.98;
 
-    letter-spacing: -0.04em;
+letter-spacing: -0.04em;
 
-    opacity: 0;
+opacity: 0;
 
-    transform: translateY(50px);
+transform: translateY(50px);
 
-    will-change: opacity, transform;
+will-change: opacity, transform;
+```
+
 }
 
-
 /* =========================================================
-   FINAL STORY STEP
+FINAL STORY STEP
 ========================================================= */
 
 .story-step-final {
-    min-height: 160vh;
+min-height: 160vh;
 
-    background: #000000;
+```
+background: #000000;
 
-    color: #ffffff;
+color: #ffffff;
+```
+
 }
 
 .story-step-final .story-image-wrap {
-    top: 0;
+top: 0;
 
-    width: min(100vw, 100vh);
+```
+width: min(100vw, 100vh);
 
-    height: min(100vw, 100vh);
+height: min(100vw, 100vh);
 
-    aspect-ratio: 1 / 1;
+aspect-ratio: 1 / 1;
 
-    background: #000000;
+background: #000000;
 
-    z-index: 2;
+z-index: 2;
+```
+
 }
 
 .story-step-final .story-image {
-    transform: scale(1);
+transform: scale(1);
 
-    object-fit: cover;
+```
+object-fit: cover;
+```
+
 }
 
-
 /* =========================================================
-   FINAL STORY TEXT
+FINAL STORY TEXT
 ========================================================= */
 
 .story-step-final .story-copy {
-    left: 50% !important;
+left: 50% !important;
 
-    right: auto !important;
+```
+right: auto !important;
 
-    bottom: 16vh;
+bottom: 16vh;
 
-    width: 90vw;
+width: 90vw;
 
-    color: #ffffff;
+color: #ffffff;
 
-    text-align: center;
+text-align: center;
 
-    transform: translate3d(-50%, 80px, 0);
+transform: translate3d(-50%, 80px, 0);
 
-    opacity: 0;
+opacity: 0;
+```
+
 }
 
 .story-step-final .story-number {
-    display: none;
+display: none;
 }
 
 .story-step-final .story-copy p {
-    font-size: clamp(48px, 8vw, 120px);
+font-size: clamp(48px, 8vw, 120px);
 
-    line-height: 0.9;
+```
+line-height: 0.9;
 
-    letter-spacing: -0.045em;
+letter-spacing: -0.045em;
+```
+
 }
 
-
 /* =========================================================
-   STORY END
+STORY END
 ========================================================= */
 
 .story-end {
-    min-height: 70vh;
+min-height: 70vh;
 
-    padding: 12vw var(--page);
+```
+padding: 12vw var(--page);
 
-    display: flex;
+display: flex;
 
-    flex-direction: column;
+flex-direction: column;
 
-    justify-content: center;
-    align-items: center;
+justify-content: center;
+align-items: center;
 
-    text-align: center;
+text-align: center;
 
-    border-top: 1px solid var(--line);
+border-top: 1px solid var(--line);
 
-    background: #ffffff;
+background: #ffffff;
+```
+
 }
 
 .story-end .label {
-    margin-bottom: 35px;
+margin-bottom: 35px;
 }
 
 .story-end-text {
-    max-width: 650px;
+max-width: 650px;
 
-    margin: 0;
+```
+margin: 0;
 
-    font-family: "Playfair Display", Georgia, serif;
+font-family: "Playfair Display", Georgia, serif;
 
-    font-size: clamp(30px, 4vw, 55px);
+font-size: clamp(30px, 4vw, 55px);
 
-    line-height: 1.08;
+line-height: 1.08;
 
-    letter-spacing: -0.03em;
+letter-spacing: -0.03em;
+```
+
 }
 
 /* =========================================================
-   STATEMENT
-   EDITORIAL / GEOMETRIC VERSION
+STORY 02 — TRACES
+========================================================= */
+
+.traces-story {
+position: relative;
+
+```
+width: 100%;
+
+background: #ffffff;
+
+padding: 12vw var(--page) 14vw;
+
+overflow: hidden;
+```
+
+}
+
+/* =========================================================
+TRACES INTRO
+========================================================= */
+
+.traces-intro {
+max-width: 850px;
+
+```
+margin-bottom: 10vw;
+```
+
+}
+
+.traces-intro h2 {
+margin: 35px 0 0;
+
+```
+font-family: "Playfair Display", Georgia, serif;
+
+font-size: clamp(60px, 9vw, 130px);
+
+font-weight: 400;
+
+line-height: 0.9;
+
+letter-spacing: -0.055em;
+```
+
+}
+
+.traces-subtitle {
+max-width: 430px;
+
+```
+margin: 40px 0 0;
+
+color: var(--muted);
+
+font-size: 16px;
+
+line-height: 1.5;
+```
+
+}
+
+/* =========================================================
+TRACES GALLERY
+========================================================= */
+
+.traces-gallery {
+display: flex;
+
+```
+flex-direction: column;
+
+gap: 12vw;
+
+width: 100%;
+```
+
+}
+
+/* =========================================================
+TRACES IMAGE
+========================================================= */
+
+.traces-image {
+display: block;
+
+```
+width: min(72vw, 900px);
+
+aspect-ratio: 1 / 1;
+
+margin: 0;
+
+padding: 0;
+
+border: 0;
+
+background: none;
+
+overflow: hidden;
+
+cursor: pointer;
+```
+
+}
+
+.traces-image-offset {
+align-self: flex-end;
+}
+
+.traces-image img {
+display: block;
+
+```
+width: 100%;
+
+height: 100%;
+
+object-fit: cover;
+
+transition:
+    transform 700ms ease,
+    filter 500ms ease;
+```
+
+}
+
+.traces-image:hover img {
+transform: scale(1.025);
+}
+
+/* =========================================================
+TRACES END
+========================================================= */
+
+.traces-end {
+padding: 14vw 0 3vw;
+
+```
+text-align: center;
+```
+
+}
+
+.traces-end .label {
+margin-bottom: 30px;
+}
+
+.traces-end-text {
+max-width: 600px;
+
+```
+margin: 0 auto;
+
+font-family: "Playfair Display", Georgia, serif;
+
+font-size: clamp(30px, 4vw, 55px);
+
+line-height: 1.08;
+
+letter-spacing: -0.03em;
+```
+
+}
+
+/* =========================================================
+STATEMENT
+EDITORIAL / GEOMETRIC VERSION
 ========================================================= */
 
 .statement {
-    position: relative;
+position: relative;
 
-    width: 100%;
+```
+width: 100%;
 
-    margin: 0;
+margin: 0;
 
-    padding: 17vw var(--page) 18vw;
+padding: 17vw var(--page) 18vw;
 
-    background: #ffffff;
+background: #ffffff;
 
-    border-top: 1px solid var(--line);
+border-top: 1px solid var(--line);
 
-    overflow: hidden;
+overflow: hidden;
+```
+
 }
 
-
 /* =========================================================
-   STATEMENT ORNAMENT
-   BLACK / WHITE GEOMETRIC COMPOSITION
+STATEMENT ORNAMENT
 ========================================================= */
 
 .statement-ornament {
-    position: relative;
+position: relative;
 
-    display: block;
+```
+display: block;
 
-    width: 210px;
+width: 210px;
 
-    height: 110px;
+height: 110px;
 
-    margin: 0 0 65px 0;
+margin: 0 0 65px 0;
 
-    z-index: 3;
+z-index: 3;
 
-    pointer-events: none;
+pointer-events: none;
+```
+
 }
-
-
-/* =========================================================
-   CIRCLE
-========================================================= */
 
 .ornament-circle {
-    position: absolute;
+position: absolute;
 
-    left: 0;
-    top: 15px;
+```
+left: 0;
+top: 15px;
 
-    display: block;
+width: 72px;
+height: 72px;
 
-    width: 72px;
-    height: 72px;
+box-sizing: border-box;
 
-    box-sizing: border-box;
+border: 2px solid #111111;
 
-    border: 2px solid #111111;
+border-radius: 50%;
+```
 
-    border-radius: 50%;
 }
-
-
-/* =========================================================
-   SQUARE
-========================================================= */
 
 .ornament-square {
-    position: absolute;
+position: absolute;
 
-    left: 58px;
-    top: 0;
+```
+left: 58px;
+top: 0;
 
-    display: block;
+width: 72px;
+height: 72px;
 
-    width: 72px;
-    height: 72px;
+background: #111111;
 
-    background: #111111;
+transform: rotate(45deg);
 
-    transform: rotate(45deg);
+box-sizing: border-box;
+```
 
-    transform-origin: center;
-
-    box-sizing: border-box;
 }
-
-
-/* =========================================================
-   HORIZONTAL LINE
-========================================================= */
 
 .ornament-line {
-    position: absolute;
+position: absolute;
 
-    left: 0;
-    bottom: 0;
+```
+left: 0;
+bottom: 0;
 
-    display: block;
+width: 210px;
+height: 2px;
 
-    width: 210px;
-    height: 2px;
+background: #111111;
+```
 
-    background: #111111;
 }
-
-
-/* =========================================================
-   SMALL WHITE CUT
-   CREATES THE GRAPHIC OVERLAP
-========================================================= */
 
 .statement-ornament::after {
-    content: "";
+content: "";
 
-    position: absolute;
+```
+position: absolute;
 
-    left: 72px;
-    top: 28px;
+left: 72px;
+top: 28px;
 
-    width: 28px;
-    height: 28px;
+width: 28px;
+height: 28px;
 
-    background: #ffffff;
+background: #ffffff;
 
-    transform: rotate(45deg);
+transform: rotate(45deg);
 
-    z-index: 4;
+z-index: 4;
 
-    pointer-events: none;
+pointer-events: none;
+```
+
 }
 
-
 /* =========================================================
-   STATEMENT CONTENT
+STATEMENT CONTENT
 ========================================================= */
 
 .statement-content {
-    position: relative;
+position: relative;
 
-    z-index: 5;
+```
+z-index: 5;
 
-    width: 100%;
+width: 100%;
 
-    max-width: 1000px;
+max-width: 1000px;
+```
+
 }
 
 .statement-content p {
-    margin: 0;
+margin: 0;
 
-    max-width: 1000px;
+```
+max-width: 1000px;
 
-    font-family: "Playfair Display", Georgia, serif;
+font-family: "Playfair Display", Georgia, serif;
 
-    font-size: clamp(42px, 5.2vw, 76px);
+font-size: clamp(42px, 5.2vw, 76px);
 
-    line-height: 1.04;
+line-height: 1.04;
 
-    font-weight: 400;
+font-weight: 400;
 
-    letter-spacing: -0.035em;
+letter-spacing: -0.035em;
 
-    color: var(--text);
+color: var(--text);
+```
+
 }
 
 .statement-content strong {
-    font-weight: 400;
+font-weight: 400;
 }
 
+/* =========================================================
+TRACES — MOBILE
+========================================================= */
 
-<!-- =====================================================
-     STORY 02 — TRACES
-====================================================== -->
-
-<section class="traces-story" id="traces">
-
-```
-<!-- STORY 02 INTRO -->
-
-<div class="traces-intro">
-
-    <p class="label">
-        Story 02
-    </p>
-
-    <h2>
-        Traces
-    </h2>
-
-    <p class="traces-subtitle">
-        Architecture carries traces of people.
-    </p>
-
-</div>
-
-
-<!-- IMAGE SEQUENCE -->
-
-<div class="traces-gallery">
-
-
-    <!-- IMAGE 01 -->
-
-    <button
-        class="traces-image"
-        type="button"
-        data-lightbox
-        data-index="8"
-        aria-label="Open photograph 01 fullscreen"
-    >
-        <img
-            src="IMG_1272.jpg"
-            alt="Traces of use on architectural surfaces in Berlin"
-        >
-    </button>
-
-
-    <!-- IMAGE 02 -->
-
-    <button
-        class="traces-image traces-image-offset"
-        type="button"
-        data-lightbox
-        data-index="9"
-        aria-label="Open photograph 02 fullscreen"
-    >
-        <img
-            src="IMG_1793.jpg"
-            alt="Traces of use on architectural surfaces in Berlin"
-        >
-    </button>
-
-
-    <!-- IMAGE 03 -->
-
-    <button
-        class="traces-image"
-        type="button"
-        data-lightbox
-        data-index="10"
-        aria-label="Open photograph 03 fullscreen"
-    >
-        <img
-            src="IMG_4391.jpg"
-            alt="Traces of use on architectural surfaces in Berlin"
-        >
-    </button>
-
-
-    <!-- IMAGE 04 -->
-
-    <button
-        class="traces-image traces-image-offset"
-        type="button"
-        data-lightbox
-        data-index="11"
-        aria-label="Open photograph 04 fullscreen"
-    >
-        <img
-            src="IMG_5078.jpg"
-            alt="Traces of use on architectural surfaces in Berlin"
-        >
-    </button>
-
-
-    <!-- IMAGE 05 -->
-
-    <button
-        class="traces-image"
-        type="button"
-        data-lightbox
-        data-index="12"
-        aria-label="Open photograph 05 fullscreen"
-    >
-        <img
-            src="IMG_5312.jpg"
-            alt="Traces of use on architectural surfaces in Berlin"
-        >
-    </button>
-
-
-    <!-- IMAGE 06 -->
-
-    <button
-        class="traces-image traces-image-offset"
-        type="button"
-        data-lightbox
-        data-index="13"
-        aria-label="Open photograph 06 fullscreen"
-    >
-        <img
-            src="IMG_9255Edited.jpg"
-            alt="Traces of use on architectural surfaces in Berlin"
-        >
-    </button>
-
-
-    <!-- IMAGE 07 -->
-
-    <button
-        class="traces-image"
-        type="button"
-        data-lightbox
-        data-index="14"
-        aria-label="Open photograph 07 fullscreen"
-    >
-        <img
-            src="IMG_66312.jpg"
-            alt="Traces of use on architectural surfaces in Berlin"
-        >
-    </button>
-
-
-    <!-- IMAGE 08 -->
-
-    <button
-        class="traces-image traces-image-offset"
-        type="button"
-        data-lightbox
-        data-index="15"
-        aria-label="Open photograph 08 fullscreen"
-    >
-        <img
-            src="IMG_68952.jpg"
-            alt="Traces of use on architectural surfaces in Berlin"
-        >
-    </button>
-
-
-    <!-- IMAGE 09 -->
-
-    <button
-        class="traces-image"
-        type="button"
-        data-lightbox
-        data-index="16"
-        aria-label="Open photograph 09 fullscreen"
-    >
-        <img
-            src="IMG_70462.jpg"
-            alt="Traces of use on architectural surfaces in Berlin"
-        >
-    </button>
-
-
-    <!-- IMAGE 10 -->
-
-    <button
-        class="traces-image traces-image-offset"
-        type="button"
-        data-lightbox
-        data-index="17"
-        aria-label="Open photograph 10 fullscreen"
-    >
-        <img
-            src="IMG_84232.jpg"
-            alt="Traces of use on architectural surfaces in Berlin"
-        >
-    </button>
-
-
-</div>
-
-
-<!-- STORY 02 END -->
-
-<div class="traces-end">
-
-    <p class="label">
-        Traces
-    </p>
-
-    <p class="traces-end-text">
-        Tiles, wear, touch, time.
-    </p>
-
-</div>
-```
-
-</section>
-
-<!-- =====================================================
-     STATEMENT
-====================================================== -->
-
-<section class="statement">
+@media (max-width: 700px) {
 
 ```
-<div class="statement-ornament" aria-hidden="true">
+.traces-story {
+    padding-top: 25vw;
 
-    <span class="ornament-circle"></span>
+    padding-bottom: 25vw;
+}
 
-    <span class="ornament-square"></span>
+.traces-intro {
+    margin-bottom: 20vw;
+}
 
-    <span class="ornament-line"></span>
+.traces-intro h2 {
+    font-size: clamp(58px, 17vw, 90px);
+}
 
-</div>
+.traces-subtitle {
+    max-width: 280px;
 
-<div class="statement-content">
+    margin-top: 30px;
+}
 
-    <p>
-        <strong>Everyday spaces carry more than we see.</strong>
-        <br><br>
-        In walls, staircases, floors and courtyards,
-        cultures leave traces of what they valued,
-        desired and believed.
-    </p>
+.traces-gallery {
+    gap: 22vw;
+}
 
-</div>
+.traces-image,
+.traces-image-offset {
+    width: 88vw;
+
+    align-self: center;
+
+    margin: 0;
+}
+
+.traces-end {
+    padding-top: 28vw;
+}
+
+.traces-end-text {
+    max-width: 85vw;
+
+    font-size: clamp(29px, 8vw, 42px);
+}
 ```
 
-</section>
-
-<!-- =====================================================
-     ABOUT
-====================================================== -->
+}
 
 <section id="about" class="about">
 
