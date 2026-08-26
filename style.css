@@ -965,7 +965,6 @@ h1 em {
 }
 ```
 
-
 /* =========================================================
    STATEMENT
 ========================================================= */
@@ -984,6 +983,22 @@ h1 em {
     border-top: 1px solid var(--line);
 
     overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   STATEMENT INNER CONTENT
+========================================================= */
+
+.statement-ornament,
+.statement-content {
+    width: 100%;
+    max-width: 1000px;
+
+    margin-left: 0;
+    margin-right: auto;
 }
 
 
@@ -997,10 +1012,10 @@ h1 em {
     display: block;
 
     width: 210px;
-
     height: 110px;
 
-    margin: 0 0 65px 0;
+    margin-top: 0;
+    margin-bottom: 65px;
 
     z-index: 3;
 
@@ -1084,12 +1099,19 @@ h1 em {
     width: 100%;
 
     max-width: 1000px;
+
+    margin-left: 0;
+    margin-right: auto;
+
+    padding: 0;
 }
 
 .statement-content p {
-    margin: 0;
+    width: 100%;
 
     max-width: 1000px;
+
+    margin: 0;
 
     font-family: "Playfair Display", Georgia, serif;
 
@@ -1108,6 +1130,84 @@ h1 em {
     font-weight: 400;
 }
 
+
+/* =========================================================
+   STATEMENT — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .statement {
+        width: 100%;
+
+        padding:
+            25vw
+            var(--page)
+            28vw;
+    }
+
+    .statement-ornament {
+        width: 145px;
+        height: 78px;
+
+        margin-bottom: 42px;
+    }
+
+    .ornament-circle {
+        left: 0;
+        top: 11px;
+
+        width: 52px;
+        height: 52px;
+
+        border-width: 1.5px;
+    }
+
+    .ornament-square {
+        left: 42px;
+        top: 0;
+
+        width: 52px;
+        height: 52px;
+    }
+
+    .ornament-line {
+        left: 0;
+        bottom: 0;
+
+        width: 145px;
+        height: 1.5px;
+    }
+
+    .statement-ornament::after {
+        left: 52px;
+        top: 20px;
+
+        width: 20px;
+        height: 20px;
+    }
+
+    .statement-content {
+        width: 100%;
+
+        max-width: 90vw;
+
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .statement-content p {
+        width: 100%;
+
+        max-width: 90vw;
+
+        font-size: clamp(34px, 9vw, 52px);
+
+        line-height: 1.06;
+
+        letter-spacing: -0.025em;
+    }
+}
 
 /* =========================================================
    ABOUT
