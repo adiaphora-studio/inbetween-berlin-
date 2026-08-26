@@ -895,54 +895,48 @@ h1 em {
 
 
 <!-- =====================================================
-     STORY 02 — WORN SURFACES
+     STORY 02 — TRACES
 ====================================================== -->
 
-<section class="worn-story" id="worn-surfaces">
+<section class="traces-story" id="traces">
 
 ```
 <!-- STORY 02 INTRO -->
 
-<div class="worn-intro">
+<div class="traces-intro">
 
     <p class="label">
         Story 02
     </p>
 
     <h2>
-        Worn<br>
-        <em>surfaces.</em>
+        Traces
     </h2>
 
-    <p class="worn-subtitle">
+    <p class="traces-subtitle">
         Architecture carries traces of people.
     </p>
-
-    <div class="worn-scroll-hint">
-        <span>Scroll</span>
-        <span class="worn-scroll-line"></span>
-    </div>
 
 </div>
 
 
-<!-- WORN SURFACES — IMAGE SEQUENCE -->
+<!-- IMAGE SEQUENCE -->
 
-<div class="worn-sequence">
+<div class="traces-gallery">
 
 
     <!-- IMAGE 01 -->
 
     <button
-        class="worn-image"
+        class="traces-image"
         type="button"
         data-lightbox
         data-index="8"
-        aria-label="Open worn surface photograph 01 fullscreen"
+        aria-label="Open photograph 01 fullscreen"
     >
         <img
             src="IMG_1272.jpg"
-            alt="Worn architectural surface in Berlin"
+            alt="Traces of use on architectural surfaces in Berlin"
         >
     </button>
 
@@ -950,15 +944,15 @@ h1 em {
     <!-- IMAGE 02 -->
 
     <button
-        class="worn-image worn-image-right"
+        class="traces-image traces-image-offset"
         type="button"
         data-lightbox
         data-index="9"
-        aria-label="Open worn surface photograph 02 fullscreen"
+        aria-label="Open photograph 02 fullscreen"
     >
         <img
             src="IMG_1793.jpg"
-            alt="Worn architectural surface in Berlin"
+            alt="Traces of use on architectural surfaces in Berlin"
         >
     </button>
 
@@ -966,15 +960,15 @@ h1 em {
     <!-- IMAGE 03 -->
 
     <button
-        class="worn-image"
+        class="traces-image"
         type="button"
         data-lightbox
         data-index="10"
-        aria-label="Open worn surface photograph 03 fullscreen"
+        aria-label="Open photograph 03 fullscreen"
     >
         <img
             src="IMG_4391.jpg"
-            alt="Worn architectural surface in Berlin"
+            alt="Traces of use on architectural surfaces in Berlin"
         >
     </button>
 
@@ -982,15 +976,15 @@ h1 em {
     <!-- IMAGE 04 -->
 
     <button
-        class="worn-image worn-image-right"
+        class="traces-image traces-image-offset"
         type="button"
         data-lightbox
         data-index="11"
-        aria-label="Open worn surface photograph 04 fullscreen"
+        aria-label="Open photograph 04 fullscreen"
     >
         <img
             src="IMG_5078.jpg"
-            alt="Worn architectural surface in Berlin"
+            alt="Traces of use on architectural surfaces in Berlin"
         >
     </button>
 
@@ -998,15 +992,15 @@ h1 em {
     <!-- IMAGE 05 -->
 
     <button
-        class="worn-image"
+        class="traces-image"
         type="button"
         data-lightbox
         data-index="12"
-        aria-label="Open worn surface photograph 05 fullscreen"
+        aria-label="Open photograph 05 fullscreen"
     >
         <img
             src="IMG_5312.jpg"
-            alt="Worn architectural surface in Berlin"
+            alt="Traces of use on architectural surfaces in Berlin"
         >
     </button>
 
@@ -1014,15 +1008,15 @@ h1 em {
     <!-- IMAGE 06 -->
 
     <button
-        class="worn-image worn-image-right"
+        class="traces-image traces-image-offset"
         type="button"
         data-lightbox
         data-index="13"
-        aria-label="Open worn surface photograph 06 fullscreen"
+        aria-label="Open photograph 06 fullscreen"
     >
         <img
             src="IMG_9255Edited.jpg"
-            alt="Worn architectural surface in Berlin"
+            alt="Traces of use on architectural surfaces in Berlin"
         >
     </button>
 
@@ -1030,15 +1024,15 @@ h1 em {
     <!-- IMAGE 07 -->
 
     <button
-        class="worn-image"
+        class="traces-image"
         type="button"
         data-lightbox
         data-index="14"
-        aria-label="Open worn surface photograph 07 fullscreen"
+        aria-label="Open photograph 07 fullscreen"
     >
         <img
             src="IMG_66312.jpg"
-            alt="Worn architectural surface in Berlin"
+            alt="Traces of use on architectural surfaces in Berlin"
         >
     </button>
 
@@ -1046,15 +1040,15 @@ h1 em {
     <!-- IMAGE 08 -->
 
     <button
-        class="worn-image worn-image-right"
+        class="traces-image traces-image-offset"
         type="button"
         data-lightbox
         data-index="15"
-        aria-label="Open worn surface photograph 08 fullscreen"
+        aria-label="Open photograph 08 fullscreen"
     >
         <img
             src="IMG_68952.jpg"
-            alt="Worn architectural surface in Berlin"
+            alt="Traces of use on architectural surfaces in Berlin"
         >
     </button>
 
@@ -1062,15 +1056,15 @@ h1 em {
     <!-- IMAGE 09 -->
 
     <button
-        class="worn-image"
+        class="traces-image"
         type="button"
         data-lightbox
         data-index="16"
-        aria-label="Open worn surface photograph 09 fullscreen"
+        aria-label="Open photograph 09 fullscreen"
     >
         <img
             src="IMG_70462.jpg"
-            alt="Worn architectural surface in Berlin"
+            alt="Traces of use on architectural surfaces in Berlin"
         >
     </button>
 
@@ -1078,15 +1072,15 @@ h1 em {
     <!-- IMAGE 10 -->
 
     <button
-        class="worn-image worn-image-right"
+        class="traces-image traces-image-offset"
         type="button"
         data-lightbox
         data-index="17"
-        aria-label="Open worn surface photograph 10 fullscreen"
+        aria-label="Open photograph 10 fullscreen"
     >
         <img
             src="IMG_84232.jpg"
-            alt="Worn architectural surface in Berlin"
+            alt="Traces of use on architectural surfaces in Berlin"
         >
     </button>
 
@@ -1096,46 +1090,17 @@ h1 em {
 
 <!-- STORY 02 END -->
 
-<div class="worn-end">
+<div class="traces-end">
 
     <p class="label">
-        Worn Surfaces
+        Traces
     </p>
 
-    <p class="worn-end-text">
+    <p class="traces-end-text">
         Tiles, wear, touch, time.
     </p>
 
 </div>
-```
-
-</section>
-
-<!-- =====================================================
-     STORY 03 — UP / DOWN
-====================================================== -->
-
-<section class="updown-story" id="up-down">
-
-```
-<div class="updown-intro">
-
-    <p class="label">
-        Story 03
-    </p>
-
-    <h2>
-        Up /<br>
-        <em>Down.</em>
-    </h2>
-
-    <p class="updown-subtitle">
-        Architecture becomes space and movement.
-    </p>
-
-</div>
-
-<!-- TREPPENBILDER KOMMEN HIER SPÄTER -->
 ```
 
 </section>
