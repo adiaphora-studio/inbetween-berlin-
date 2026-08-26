@@ -894,266 +894,324 @@ h1 em {
 }
 
 
-/* =========================================================
-   STORY 02 — WORN SURFACES
-========================================================= */
+<!-- =====================================================
+     STORY 02 — WORN SURFACES
+====================================================== -->
 
-.worn-story {
-    position: relative;
+<section class="worn-story" id="worn-surfaces">
+
+```
+<!-- STORY 02 INTRO -->
+
+<div class="worn-intro">
+
+    <p class="label">
+        Story 02
+    </p>
+
+    <h2>
+        Worn<br>
+        <em>surfaces.</em>
+    </h2>
+
+    <p class="worn-subtitle">
+        Architecture carries traces of people.
+    </p>
+
+    <div class="worn-scroll-hint">
+        <span>Scroll</span>
+        <span class="worn-scroll-line"></span>
+    </div>
+
+</div>
+
+
+<!-- WORN SURFACES — IMAGE SEQUENCE -->
+
+<div class="worn-sequence">
+
+
+    <!-- IMAGE 01 -->
+
+    <button
+        class="worn-image"
+        type="button"
+        data-lightbox
+        data-index="8"
+        aria-label="Open worn surface photograph 01 fullscreen"
+    >
+        <img
+            src="IMG_1272.jpg"
+            alt="Worn architectural surface in Berlin"
+        >
+    </button>
+
+
+    <!-- IMAGE 02 -->
+
+    <button
+        class="worn-image worn-image-right"
+        type="button"
+        data-lightbox
+        data-index="9"
+        aria-label="Open worn surface photograph 02 fullscreen"
+    >
+        <img
+            src="IMG_1793.jpg"
+            alt="Worn architectural surface in Berlin"
+        >
+    </button>
+
+
+    <!-- IMAGE 03 -->
+
+    <button
+        class="worn-image"
+        type="button"
+        data-lightbox
+        data-index="10"
+        aria-label="Open worn surface photograph 03 fullscreen"
+    >
+        <img
+            src="IMG_4391.jpg"
+            alt="Worn architectural surface in Berlin"
+        >
+    </button>
+
+
+    <!-- IMAGE 04 -->
+
+    <button
+        class="worn-image worn-image-right"
+        type="button"
+        data-lightbox
+        data-index="11"
+        aria-label="Open worn surface photograph 04 fullscreen"
+    >
+        <img
+            src="IMG_5078.jpg"
+            alt="Worn architectural surface in Berlin"
+        >
+    </button>
+
+
+    <!-- IMAGE 05 -->
+
+    <button
+        class="worn-image"
+        type="button"
+        data-lightbox
+        data-index="12"
+        aria-label="Open worn surface photograph 05 fullscreen"
+    >
+        <img
+            src="IMG_5312.jpg"
+            alt="Worn architectural surface in Berlin"
+        >
+    </button>
+
+
+    <!-- IMAGE 06 -->
+
+    <button
+        class="worn-image worn-image-right"
+        type="button"
+        data-lightbox
+        data-index="13"
+        aria-label="Open worn surface photograph 06 fullscreen"
+    >
+        <img
+            src="IMG_9255Edited.jpg"
+            alt="Worn architectural surface in Berlin"
+        >
+    </button>
+
+
+    <!-- IMAGE 07 -->
+
+    <button
+        class="worn-image"
+        type="button"
+        data-lightbox
+        data-index="14"
+        aria-label="Open worn surface photograph 07 fullscreen"
+    >
+        <img
+            src="IMG_66312.jpg"
+            alt="Worn architectural surface in Berlin"
+        >
+    </button>
+
+
+    <!-- IMAGE 08 -->
+
+    <button
+        class="worn-image worn-image-right"
+        type="button"
+        data-lightbox
+        data-index="15"
+        aria-label="Open worn surface photograph 08 fullscreen"
+    >
+        <img
+            src="IMG_68952.jpg"
+            alt="Worn architectural surface in Berlin"
+        >
+    </button>
 
-    width: 100%;
 
-    padding: 12vw 0 14vw;
+    <!-- IMAGE 09 -->
 
-    background: #ffffff;
+    <button
+        class="worn-image"
+        type="button"
+        data-lightbox
+        data-index="16"
+        aria-label="Open worn surface photograph 09 fullscreen"
+    >
+        <img
+            src="IMG_70462.jpg"
+            alt="Worn architectural surface in Berlin"
+        >
+    </button>
 
-    overflow: hidden;
-}
 
+    <!-- IMAGE 10 -->
 
-/* =========================================================
-   STORY 02 INTRO
-========================================================= */
+    <button
+        class="worn-image worn-image-right"
+        type="button"
+        data-lightbox
+        data-index="17"
+        aria-label="Open worn surface photograph 10 fullscreen"
+    >
+        <img
+            src="IMG_84232.jpg"
+            alt="Worn architectural surface in Berlin"
+        >
+    </button>
 
-.worn-intro {
-    width: 100%;
 
-    padding: 0 var(--page) 10vw;
-}
+</div>
 
-.worn-intro h2 {
-    margin: 35px 0 0;
 
-    font-family: "Playfair Display", Georgia, serif;
+<!-- STORY 02 END -->
 
-    font-size: clamp(70px, 10vw, 150px);
+<div class="worn-end">
 
-    font-weight: 400;
+    <p class="label">
+        Worn Surfaces
+    </p>
 
-    line-height: 0.88;
+    <p class="worn-end-text">
+        Tiles, wear, touch, time.
+    </p>
 
-    letter-spacing: -0.055em;
-}
+</div>
+```
 
-.worn-subtitle {
-    max-width: 420px;
+</section>
 
-    margin-top: 45px;
+<!-- =====================================================
+     STORY 03 — UP / DOWN
+====================================================== -->
 
-    font-size: 16px;
+<section class="updown-story" id="up-down">
 
-    line-height: 1.5;
+```
+<div class="updown-intro">
 
-    color: var(--muted);
-}
+    <p class="label">
+        Story 03
+    </p>
 
+    <h2>
+        Up /<br>
+        <em>Down.</em>
+    </h2>
 
-/* =========================================================
-   SCROLL HINT
-========================================================= */
+    <p class="updown-subtitle">
+        Architecture becomes space and movement.
+    </p>
 
-.worn-scroll-hint {
-    display: flex;
+</div>
 
-    align-items: center;
+<!-- TREPPENBILDER KOMMEN HIER SPÄTER -->
+```
 
-    gap: 14px;
+</section>
 
-    margin-top: 55px;
+<!-- =====================================================
+     STATEMENT
+====================================================== -->
 
-    color: var(--muted);
+<section class="statement">
 
-    font-size: 9px;
+```
+<div class="statement-ornament" aria-hidden="true">
 
-    letter-spacing: 0.15em;
+    <span class="ornament-circle"></span>
 
-    text-transform: uppercase;
-}
+    <span class="ornament-square"></span>
 
-.worn-scroll-line {
-    display: block;
+    <span class="ornament-line"></span>
 
-    width: 45px;
+</div>
 
-    height: 1px;
+<div class="statement-content">
 
-    background: var(--line);
-}
+    <p>
+        <strong>Everyday spaces carry more than we see.</strong>
+        <br><br>
+        In walls, staircases, floors and courtyards,
+        cultures leave traces of what they valued,
+        desired and believed.
+    </p>
 
+</div>
+```
 
-/* =========================================================
-   IMAGE SEQUENCE
-========================================================= */
+</section>
 
-.worn-sequence {
-    display: flex;
+<!-- =====================================================
+     ABOUT
+====================================================== -->
 
-    flex-direction: column;
+<section id="about" class="about">
 
-    gap: 13vw;
+```
+<div class="about-label">
 
-    width: 100%;
-}
+    <p class="label">
+        About
+    </p>
 
+</div>
 
-/* =========================================================
-   WORN IMAGE
-========================================================= */
 
-.worn-image {
-    display: block;
+<div class="about-text">
 
-    width: 62vw;
+    <h2>
+        TiM
+    </h2>
 
-    max-width: 900px;
+    <p class="about-location">
+        based in Berlin, Europe
+    </p>
 
-    aspect-ratio: 1 / 1;
+    <p>
+        focus on nature, architecture,
+        cultural practices and the relationship
+        between society and its built environment.
+    </p>
 
-    margin-left: var(--page);
+</div>
+```
 
-    padding: 0;
+</section>
 
-    border: 0;
+</main>
 
-    background: transparent;
-
-    overflow: hidden;
-
-    cursor: pointer;
-}
-
-.worn-image-right {
-    margin-left: auto;
-
-    margin-right: var(--page);
-}
-
-.worn-image img {
-    display: block;
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-    filter: grayscale(100%);
-
-    transition:
-        filter 500ms ease,
-        transform 700ms ease;
-}
-
-.worn-image:hover img {
-    filter: grayscale(0%);
-
-    transform: scale(1.025);
-}
-
-
-/* =========================================================
-   STORY 02 END
-========================================================= */
-
-.worn-end {
-    padding: 16vw var(--page) 5vw;
-
-    text-align: center;
-}
-
-.worn-end .label {
-    margin-bottom: 30px;
-}
-
-.worn-end-text {
-    max-width: 650px;
-
-    margin: 0 auto;
-
-    font-family: "Playfair Display", Georgia, serif;
-
-    font-size: clamp(30px, 4vw, 55px);
-
-    line-height: 1.08;
-
-    letter-spacing: -0.03em;
-}
-
-
-/* =========================================================
-   STORY 02 — MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-    .worn-story {
-        padding-top: 25vw;
-
-        padding-bottom: 25vw;
-    }
-
-
-    .worn-intro {
-        padding-bottom: 20vw;
-    }
-
-
-    .worn-intro h2 {
-        font-size: clamp(58px, 17vw, 90px);
-
-        line-height: 0.9;
-    }
-
-
-    .worn-subtitle {
-        max-width: 270px;
-
-        margin-top: 35px;
-    }
-
-
-    .worn-scroll-hint {
-        margin-top: 55px;
-    }
-
-
-    .worn-sequence {
-        gap: 28vw;
-    }
-
-
-    .worn-image,
-    .worn-image-right {
-        width: 88vw;
-
-        margin-left: auto;
-
-        margin-right: auto;
-    }
-
-
-    .worn-image img {
-        filter: grayscale(0%);
-    }
-
-
-    .worn-end {
-        padding-top: 30vw;
-
-        padding-bottom: 10vw;
-    }
-
-
-    .worn-end-text {
-        max-width: 85vw;
-
-        font-size: clamp(29px, 8vw, 42px);
-    }
-
-}
-/* =========================================================
-   FOOTER
-========================================================= */
+<!-- FOOTER -->
 
 footer {
     display: flex;
