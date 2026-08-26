@@ -45,10 +45,6 @@ body {
     line-height: 1.5;
 }
 
-body.lightbox-open {
-    overflow: hidden;
-}
-
 a {
     color: inherit;
     text-decoration: none;
@@ -566,16 +562,18 @@ h1 em {
     letter-spacing: -0.025em;
 }
 
-```css
+
 /* =========================================================
    BLACK INTERLUDE
 ========================================================= */
 
 .story-interlude {
     position: relative;
+
     min-height: 75vh;
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
@@ -589,15 +587,19 @@ h1 em {
 
 .story-interlude p {
     max-width: 850px;
+
     margin: 0;
 
     font-family: "Playfair Display", Georgia, serif;
 
     font-size: clamp(42px, 7vw, 100px);
+
     line-height: 0.98;
+
     letter-spacing: -0.04em;
 
     opacity: 0;
+
     transform: translateY(50px);
 
     will-change: opacity, transform;
@@ -612,6 +614,7 @@ h1 em {
     min-height: 160vh;
 
     background: #000000;
+
     color: #ffffff;
 }
 
@@ -619,6 +622,7 @@ h1 em {
     top: 0;
 
     width: min(100vw, 100vh);
+
     height: min(100vw, 100vh);
 
     aspect-ratio: 1 / 1;
@@ -630,6 +634,7 @@ h1 em {
 
 .story-step-final .story-image {
     transform: scale(1);
+
     object-fit: cover;
 }
 
@@ -640,6 +645,7 @@ h1 em {
 
 .story-step-final .story-copy {
     left: 50% !important;
+
     right: auto !important;
 
     bottom: 16vh;
@@ -663,6 +669,7 @@ h1 em {
     font-size: clamp(48px, 8vw, 120px);
 
     line-height: 0.9;
+
     letter-spacing: -0.045em;
 }
 
@@ -677,6 +684,7 @@ h1 em {
     padding: 12vw var(--page);
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
@@ -703,6 +711,7 @@ h1 em {
     font-size: clamp(30px, 4vw, 55px);
 
     line-height: 1.08;
+
     letter-spacing: -0.03em;
 }
 
@@ -720,7 +729,7 @@ h1 em {
 
     padding: 14vw var(--page) 12vw;
 
-    overflow: hidden;
+    overflow: visible;
 }
 
 
@@ -763,7 +772,6 @@ h1 em {
 
 /* =========================================================
    TRACES GALLERY
-   LARGE / QUIET / EDITORIAL
 ========================================================= */
 
 .traces-gallery {
@@ -789,6 +797,7 @@ h1 em {
     aspect-ratio: 1 / 1;
 
     margin: 0;
+
     padding: 0;
 
     border: 0;
@@ -798,6 +807,8 @@ h1 em {
     overflow: hidden;
 
     cursor: zoom-in;
+
+    flex-shrink: 0;
 }
 
 .traces-image-offset {
@@ -888,6 +899,7 @@ h1 em {
     display: block;
 
     width: 210px;
+
     height: 110px;
 
     margin: 0 0 65px 0;
@@ -1078,159 +1090,6 @@ footer .label {
 
 
 /* =========================================================
-   TRACES — MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-    .traces-story {
-        padding-top: 25vw;
-        padding-bottom: 25vw;
-    }
-
-    .traces-intro {
-        margin-bottom: 20vw;
-    }
-
-    .traces-intro h2 {
-        font-size: clamp(58px, 17vw, 90px);
-    }
-
-    .traces-subtitle {
-        max-width: 280px;
-
-        margin-top: 30px;
-    }
-
-    .traces-gallery {
-        gap: 24vw;
-    }
-
-    .traces-image,
-    .traces-image-offset {
-        width: 88vw;
-
-        align-self: center;
-
-        margin: 0;
-    }
-
-    .traces-end {
-        padding-top: 28vw;
-    }
-
-    .traces-end-text {
-        max-width: 85vw;
-
-        font-size: clamp(29px, 8vw, 42px);
-    }
-
-
-    /* =====================================================
-       STATEMENT — MOBILE
-    ===================================================== */
-
-    .statement {
-        padding-top: 25vw;
-
-        padding-bottom: 28vw;
-    }
-
-    .statement-ornament {
-        width: 145px;
-        height: 78px;
-
-        margin-bottom: 42px;
-    }
-
-    .ornament-circle {
-        left: 0;
-        top: 11px;
-
-        width: 52px;
-        height: 52px;
-
-        border-width: 1.5px;
-    }
-
-    .ornament-square {
-        left: 42px;
-        top: 0;
-
-        width: 52px;
-        height: 52px;
-    }
-
-    .ornament-line {
-        left: 0;
-        bottom: 0;
-
-        width: 145px;
-        height: 1.5px;
-    }
-
-    .statement-ornament::after {
-        left: 52px;
-        top: 20px;
-
-        width: 20px;
-        height: 20px;
-    }
-
-    .statement-content {
-        max-width: 100%;
-    }
-
-    .statement-content p {
-        max-width: 90vw;
-
-        font-size: clamp(34px, 9vw, 52px);
-
-        line-height: 1.06;
-
-        letter-spacing: -0.025em;
-    }
-
-
-    /* =====================================================
-       ABOUT — MOBILE
-    ===================================================== */
-
-    .about {
-        display: block;
-
-        padding-top: 50px;
-
-        padding-bottom: 25vw;
-    }
-
-    .about-text {
-        margin-top: 60px;
-
-        max-width: 100%;
-    }
-
-    .about-text p {
-        max-width: 90vw;
-    }
-
-
-    /* =====================================================
-       FOOTER — MOBILE
-    ===================================================== */
-
-    footer {
-        display: block;
-    }
-
-    .footer-links {
-        margin-top: 28px;
-    }
-}
-```
-
-
-/* =========================================================
    LIGHTBOX
 ========================================================= */
 
@@ -1267,6 +1126,8 @@ footer .label {
     visibility: visible;
 
     pointer-events: auto;
+
+    overflow: auto;
 }
 
 .lightbox-content {
@@ -1280,6 +1141,8 @@ footer .label {
     width: min(90vw, 1400px);
 
     height: 90vh;
+
+    flex-shrink: 0;
 }
 
 #lightbox-image {
@@ -1649,7 +1512,7 @@ footer .label {
     .story-step-final .story-copy {
         width: 90vw;
 
-        left: 5vw !important;
+        left: 50% !important;
 
         bottom: 10svh !important;
 
@@ -1685,6 +1548,54 @@ footer .label {
 
 
     /* =====================================================
+       TRACES
+    ===================================================== */
+
+    .traces-story {
+        padding-top: 25vw;
+
+        padding-bottom: 25vw;
+    }
+
+    .traces-intro {
+        margin-bottom: 20vw;
+    }
+
+    .traces-intro h2 {
+        font-size: clamp(58px, 17vw, 90px);
+    }
+
+    .traces-subtitle {
+        max-width: 280px;
+
+        margin-top: 30px;
+    }
+
+    .traces-gallery {
+        gap: 24vw;
+    }
+
+    .traces-image,
+    .traces-image-offset {
+        width: 88vw;
+
+        align-self: center;
+
+        margin: 0;
+    }
+
+    .traces-end {
+        padding-top: 28vw;
+    }
+
+    .traces-end-text {
+        max-width: 85vw;
+
+        font-size: clamp(29px, 8vw, 42px);
+    }
+
+
+    /* =====================================================
        STATEMENT
     ===================================================== */
 
@@ -1697,6 +1608,56 @@ footer .label {
             28vw;
     }
 
+    .statement-ornament {
+        width: 145px;
+
+        height: 78px;
+
+        margin-bottom: 42px;
+    }
+
+    .ornament-circle {
+        left: 0;
+
+        top: 11px;
+
+        width: 52px;
+
+        height: 52px;
+
+        border-width: 1.5px;
+    }
+
+    .ornament-square {
+        left: 42px;
+
+        top: 0;
+
+        width: 52px;
+
+        height: 52px;
+    }
+
+    .ornament-line {
+        left: 0;
+
+        bottom: 0;
+
+        width: 145px;
+
+        height: 1.5px;
+    }
+
+    .statement-ornament::after {
+        left: 52px;
+
+        top: 20px;
+
+        width: 20px;
+
+        height: 20px;
+    }
+
     .statement-content {
         width: 100%;
 
@@ -1707,8 +1668,6 @@ footer .label {
         width: 100%;
 
         max-width: 90vw;
-
-        font-family: "Playfair Display", Georgia, serif;
 
         font-size: clamp(34px, 9vw, 52px);
 
@@ -1732,6 +1691,12 @@ footer .label {
 
     .about-text {
         margin-top: 60px;
+
+        max-width: 100%;
+    }
+
+    .about-text p {
+        max-width: 90vw;
     }
 
 
@@ -1787,5 +1752,4 @@ footer .label {
     .lightbox-next {
         right: 5px;
     }
-
 }
