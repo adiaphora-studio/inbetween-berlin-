@@ -716,11 +716,12 @@ h1 em {
 }
 
 
+```css
 /* =========================================================
-   STORY 02 — TRACES
+   STORY 02 — WORN SURFACES
 ========================================================= */
 
-.traces-story {
+.worn-story {
     position: relative;
 
     width: 100%;
@@ -734,16 +735,16 @@ h1 em {
 
 
 /* =========================================================
-   TRACES INTRO
+   WORN INTRO
 ========================================================= */
 
-.traces-intro {
+.worn-intro {
     max-width: 900px;
 
     margin-bottom: 9vw;
 }
 
-.traces-intro h2 {
+.worn-intro h2 {
     margin: 30px 0 0;
 
     font-family: "Playfair Display", Georgia, serif;
@@ -757,7 +758,15 @@ h1 em {
     letter-spacing: -0.06em;
 }
 
-.traces-subtitle {
+.worn-intro h2 em {
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-style: italic;
+
+    font-weight: 400;
+}
+
+.worn-subtitle {
     max-width: 430px;
 
     margin: 38px 0 0;
@@ -771,10 +780,43 @@ h1 em {
 
 
 /* =========================================================
-   TRACES GALLERY
+   WORN SCROLL HINT
 ========================================================= */
 
-.traces-gallery {
+.worn-scroll-hint {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-top: 70px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    letter-spacing: 0.15em;
+
+    text-transform: uppercase;
+}
+
+.worn-scroll-line {
+    width: 1px;
+
+    height: 45px;
+
+    background: var(--line);
+}
+
+
+/* =========================================================
+   WORN SEQUENCE
+========================================================= */
+
+.worn-sequence {
     display: flex;
 
     flex-direction: column;
@@ -786,10 +828,10 @@ h1 em {
 
 
 /* =========================================================
-   TRACES IMAGE
+   WORN IMAGES
 ========================================================= */
 
-.traces-image {
+.worn-image {
     display: block;
 
     width: min(68vw, 900px);
@@ -811,11 +853,11 @@ h1 em {
     flex-shrink: 0;
 }
 
-.traces-image-offset {
+.worn-image-right {
     align-self: flex-end;
 }
 
-.traces-image img {
+.worn-image img {
     display: block;
 
     width: 100%;
@@ -828,11 +870,11 @@ h1 em {
         opacity 300ms ease;
 }
 
-.traces-image:hover img {
+.worn-image:hover img {
     transform: scale(1.018);
 }
 
-.traces-image:focus-visible {
+.worn-image:focus-visible {
     outline: 2px solid var(--text);
 
     outline-offset: 5px;
@@ -840,20 +882,20 @@ h1 em {
 
 
 /* =========================================================
-   TRACES END
+   WORN END
 ========================================================= */
 
-.traces-end {
+.worn-end {
     padding: 15vw 0 2vw;
 
     text-align: center;
 }
 
-.traces-end .label {
+.worn-end .label {
     margin-bottom: 28px;
 }
 
-.traces-end-text {
+.worn-end-text {
     max-width: 600px;
 
     margin: 0 auto;
@@ -866,6 +908,62 @@ h1 em {
 
     letter-spacing: -0.03em;
 }
+
+
+/* =========================================================
+   WORN SURFACES — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .worn-story {
+        padding-top: 25vw;
+
+        padding-bottom: 25vw;
+    }
+
+    .worn-intro {
+        margin-bottom: 20vw;
+    }
+
+    .worn-intro h2 {
+        font-size: clamp(58px, 17vw, 90px);
+    }
+
+    .worn-subtitle {
+        max-width: 280px;
+
+        margin-top: 30px;
+    }
+
+    .worn-scroll-hint {
+        margin-top: 55px;
+    }
+
+    .worn-sequence {
+        gap: 24vw;
+    }
+
+    .worn-image,
+    .worn-image-right {
+        width: 88vw;
+
+        align-self: center;
+
+        margin: 0;
+    }
+
+    .worn-end {
+        padding-top: 28vw;
+    }
+
+    .worn-end-text {
+        max-width: 85vw;
+
+        font-size: clamp(29px, 8vw, 42px);
+    }
+}
+```
 
 
 /* =========================================================
