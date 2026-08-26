@@ -566,605 +566,489 @@ h1 em {
     letter-spacing: -0.025em;
 }
 
-
+```css
 /* =========================================================
-BLACK INTERLUDE
+   BLACK INTERLUDE
 ========================================================= */
 
 .story-interlude {
-position: relative;
+    position: relative;
+    min-height: 75vh;
 
-```
-min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-display: flex;
+    padding: 12vw var(--page);
 
-justify-content: center;
-align-items: center;
+    background: #000000;
+    color: #ffffff;
 
-padding: 12vw var(--page);
-
-background: #000000;
-
-color: #ffffff;
-
-text-align: center;
-```
-
+    text-align: center;
 }
 
 .story-interlude p {
-max-width: 850px;
+    max-width: 850px;
+    margin: 0;
 
-```
-margin: 0;
+    font-family: "Playfair Display", Georgia, serif;
 
-font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(42px, 7vw, 100px);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
 
-font-size: clamp(42px, 7vw, 100px);
+    opacity: 0;
+    transform: translateY(50px);
 
-line-height: 0.98;
-
-letter-spacing: -0.04em;
-
-opacity: 0;
-
-transform: translateY(50px);
-
-will-change: opacity, transform;
-```
-
+    will-change: opacity, transform;
 }
 
+
 /* =========================================================
-FINAL STORY STEP
+   FINAL STORY STEP
 ========================================================= */
 
 .story-step-final {
-min-height: 160vh;
+    min-height: 160vh;
 
-```
-background: #000000;
-
-color: #ffffff;
-```
-
+    background: #000000;
+    color: #ffffff;
 }
 
 .story-step-final .story-image-wrap {
-top: 0;
+    top: 0;
 
-```
-width: min(100vw, 100vh);
+    width: min(100vw, 100vh);
+    height: min(100vw, 100vh);
 
-height: min(100vw, 100vh);
+    aspect-ratio: 1 / 1;
 
-aspect-ratio: 1 / 1;
+    background: #000000;
 
-background: #000000;
-
-z-index: 2;
-```
-
+    z-index: 2;
 }
 
 .story-step-final .story-image {
-transform: scale(1);
-
-```
-object-fit: cover;
-```
-
+    transform: scale(1);
+    object-fit: cover;
 }
 
+
 /* =========================================================
-FINAL STORY TEXT
+   FINAL STORY TEXT
 ========================================================= */
 
 .story-step-final .story-copy {
-left: 50% !important;
+    left: 50% !important;
+    right: auto !important;
 
-```
-right: auto !important;
+    bottom: 16vh;
 
-bottom: 16vh;
+    width: 90vw;
 
-width: 90vw;
+    color: #ffffff;
 
-color: #ffffff;
+    text-align: center;
 
-text-align: center;
+    transform: translate3d(-50%, 80px, 0);
 
-transform: translate3d(-50%, 80px, 0);
-
-opacity: 0;
-```
-
+    opacity: 0;
 }
 
 .story-step-final .story-number {
-display: none;
+    display: none;
 }
 
 .story-step-final .story-copy p {
-font-size: clamp(48px, 8vw, 120px);
+    font-size: clamp(48px, 8vw, 120px);
 
-```
-line-height: 0.9;
-
-letter-spacing: -0.045em;
-```
-
+    line-height: 0.9;
+    letter-spacing: -0.045em;
 }
 
+
 /* =========================================================
-STORY END
+   STORY END
 ========================================================= */
 
 .story-end {
-min-height: 70vh;
+    min-height: 70vh;
 
-```
-padding: 12vw var(--page);
+    padding: 12vw var(--page);
 
-display: flex;
+    display: flex;
+    flex-direction: column;
 
-flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-justify-content: center;
-align-items: center;
+    text-align: center;
 
-text-align: center;
+    border-top: 1px solid var(--line);
 
-border-top: 1px solid var(--line);
-
-background: #ffffff;
-```
-
+    background: #ffffff;
 }
 
 .story-end .label {
-margin-bottom: 35px;
+    margin-bottom: 35px;
 }
 
 .story-end-text {
-max-width: 650px;
+    max-width: 650px;
 
-```
-margin: 0;
+    margin: 0;
 
-font-family: "Playfair Display", Georgia, serif;
+    font-family: "Playfair Display", Georgia, serif;
 
-font-size: clamp(30px, 4vw, 55px);
+    font-size: clamp(30px, 4vw, 55px);
 
-line-height: 1.08;
-
-letter-spacing: -0.03em;
-```
-
+    line-height: 1.08;
+    letter-spacing: -0.03em;
 }
 
+
 /* =========================================================
-STORY 02 — TRACES
+   STORY 02 — TRACES
 ========================================================= */
 
 .traces-story {
-position: relative;
+    position: relative;
 
-```
-width: 100%;
+    width: 100%;
 
-background: #ffffff;
+    background: #ffffff;
 
-padding: 12vw var(--page) 14vw;
+    padding: 14vw var(--page) 12vw;
 
-overflow: hidden;
-```
-
+    overflow: hidden;
 }
 
+
 /* =========================================================
-TRACES INTRO
+   TRACES INTRO
 ========================================================= */
 
 .traces-intro {
-max-width: 850px;
+    max-width: 900px;
 
-```
-margin-bottom: 10vw;
-```
-
+    margin-bottom: 9vw;
 }
 
 .traces-intro h2 {
-margin: 35px 0 0;
+    margin: 30px 0 0;
 
-```
-font-family: "Playfair Display", Georgia, serif;
+    font-family: "Playfair Display", Georgia, serif;
 
-font-size: clamp(60px, 9vw, 130px);
+    font-size: clamp(64px, 10vw, 140px);
 
-font-weight: 400;
+    font-weight: 400;
 
-line-height: 0.9;
+    line-height: 0.88;
 
-letter-spacing: -0.055em;
-```
-
+    letter-spacing: -0.06em;
 }
 
 .traces-subtitle {
-max-width: 430px;
+    max-width: 430px;
 
-```
-margin: 40px 0 0;
+    margin: 38px 0 0;
 
-color: var(--muted);
+    color: var(--muted);
 
-font-size: 16px;
+    font-size: 15px;
 
-line-height: 1.5;
-```
-
+    line-height: 1.5;
 }
 
+
 /* =========================================================
-TRACES GALLERY
+   TRACES GALLERY
+   LARGE / QUIET / EDITORIAL
 ========================================================= */
 
 .traces-gallery {
-display: flex;
+    display: flex;
 
-```
-flex-direction: column;
+    flex-direction: column;
 
-gap: 12vw;
+    gap: 15vw;
 
-width: 100%;
-```
-
+    width: 100%;
 }
 
+
 /* =========================================================
-TRACES IMAGE
+   TRACES IMAGE
 ========================================================= */
 
 .traces-image {
-display: block;
+    display: block;
 
-```
-width: min(72vw, 900px);
+    width: min(68vw, 900px);
 
-aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 1;
 
-margin: 0;
+    margin: 0;
+    padding: 0;
 
-padding: 0;
+    border: 0;
 
-border: 0;
+    background: none;
 
-background: none;
+    overflow: hidden;
 
-overflow: hidden;
-
-cursor: pointer;
-```
-
+    cursor: zoom-in;
 }
 
 .traces-image-offset {
-align-self: flex-end;
+    align-self: flex-end;
 }
 
 .traces-image img {
-display: block;
+    display: block;
 
-```
-width: 100%;
+    width: 100%;
+    height: 100%;
 
-height: 100%;
+    object-fit: cover;
 
-object-fit: cover;
-
-transition:
-    transform 700ms ease,
-    filter 500ms ease;
-```
-
+    transition:
+        transform 700ms cubic-bezier(.2, .7, .2, 1),
+        opacity 300ms ease;
 }
 
 .traces-image:hover img {
-transform: scale(1.025);
+    transform: scale(1.018);
 }
 
+.traces-image:focus-visible {
+    outline: 2px solid var(--text);
+
+    outline-offset: 5px;
+}
+
+
 /* =========================================================
-TRACES END
+   TRACES END
 ========================================================= */
 
 .traces-end {
-padding: 14vw 0 3vw;
+    padding: 15vw 0 2vw;
 
-```
-text-align: center;
-```
-
+    text-align: center;
 }
 
 .traces-end .label {
-margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
 .traces-end-text {
-max-width: 600px;
+    max-width: 600px;
 
-```
-margin: 0 auto;
+    margin: 0 auto;
 
-font-family: "Playfair Display", Georgia, serif;
+    font-family: "Playfair Display", Georgia, serif;
 
-font-size: clamp(30px, 4vw, 55px);
+    font-size: clamp(30px, 4vw, 55px);
 
-line-height: 1.08;
+    line-height: 1.08;
 
-letter-spacing: -0.03em;
-```
-
+    letter-spacing: -0.03em;
 }
 
+
 /* =========================================================
-STATEMENT
-EDITORIAL / GEOMETRIC VERSION
+   STATEMENT
 ========================================================= */
 
 .statement {
-position: relative;
+    position: relative;
 
-```
-width: 100%;
+    width: 100%;
 
-margin: 0;
+    margin: 0;
 
-padding: 17vw var(--page) 18vw;
+    padding: 14vw var(--page) 16vw;
 
-background: #ffffff;
+    background: #ffffff;
 
-border-top: 1px solid var(--line);
+    border-top: 1px solid var(--line);
 
-overflow: hidden;
-```
-
+    overflow: hidden;
 }
 
+
 /* =========================================================
-STATEMENT ORNAMENT
+   STATEMENT ORNAMENT
 ========================================================= */
 
 .statement-ornament {
-position: relative;
+    position: relative;
 
-```
-display: block;
+    display: block;
 
-width: 210px;
+    width: 210px;
+    height: 110px;
 
-height: 110px;
+    margin: 0 0 65px 0;
 
-margin: 0 0 65px 0;
+    z-index: 3;
 
-z-index: 3;
-
-pointer-events: none;
-```
-
+    pointer-events: none;
 }
 
 .ornament-circle {
-position: absolute;
+    position: absolute;
 
-```
-left: 0;
-top: 15px;
+    left: 0;
+    top: 15px;
 
-width: 72px;
-height: 72px;
+    width: 72px;
+    height: 72px;
 
-box-sizing: border-box;
+    box-sizing: border-box;
 
-border: 2px solid #111111;
+    border: 2px solid #111111;
 
-border-radius: 50%;
-```
-
+    border-radius: 50%;
 }
 
 .ornament-square {
-position: absolute;
+    position: absolute;
 
-```
-left: 58px;
-top: 0;
+    left: 58px;
+    top: 0;
 
-width: 72px;
-height: 72px;
+    width: 72px;
+    height: 72px;
 
-background: #111111;
+    background: #111111;
 
-transform: rotate(45deg);
+    transform: rotate(45deg);
 
-box-sizing: border-box;
-```
-
+    box-sizing: border-box;
 }
 
 .ornament-line {
-position: absolute;
+    position: absolute;
 
-```
-left: 0;
-bottom: 0;
+    left: 0;
+    bottom: 0;
 
-width: 210px;
-height: 2px;
+    width: 210px;
+    height: 2px;
 
-background: #111111;
-```
-
+    background: #111111;
 }
 
 .statement-ornament::after {
-content: "";
+    content: "";
 
-```
-position: absolute;
+    position: absolute;
 
-left: 72px;
-top: 28px;
+    left: 72px;
+    top: 28px;
 
-width: 28px;
-height: 28px;
+    width: 28px;
+    height: 28px;
 
-background: #ffffff;
+    background: #ffffff;
 
-transform: rotate(45deg);
+    transform: rotate(45deg);
 
-z-index: 4;
+    z-index: 4;
 
-pointer-events: none;
-```
-
+    pointer-events: none;
 }
 
+
 /* =========================================================
-STATEMENT CONTENT
+   STATEMENT CONTENT
 ========================================================= */
 
 .statement-content {
-position: relative;
+    position: relative;
 
-```
-z-index: 5;
+    z-index: 5;
 
-width: 100%;
+    width: 100%;
 
-max-width: 1000px;
-```
-
+    max-width: 1000px;
 }
 
 .statement-content p {
-margin: 0;
+    margin: 0;
 
-```
-max-width: 1000px;
+    max-width: 1000px;
 
-font-family: "Playfair Display", Georgia, serif;
+    font-family: "Playfair Display", Georgia, serif;
 
-font-size: clamp(42px, 5.2vw, 76px);
+    font-size: clamp(42px, 5.2vw, 76px);
 
-line-height: 1.04;
+    line-height: 1.04;
 
-font-weight: 400;
+    font-weight: 400;
 
-letter-spacing: -0.035em;
+    letter-spacing: -0.035em;
 
-color: var(--text);
-```
-
+    color: var(--text);
 }
 
 .statement-content strong {
-font-weight: 400;
+    font-weight: 400;
 }
+
 
 /* =========================================================
-TRACES — MOBILE
+   ABOUT
 ========================================================= */
 
-@media (max-width: 700px) {
+.about {
+    display: grid;
 
-```
-.traces-story {
-    padding-top: 25vw;
+    grid-template-columns: 1fr 2fr;
 
-    padding-bottom: 25vw;
+    gap: 50px;
+
+    width: 100%;
+
+    padding: 60px var(--page) 13vw;
+
+    border-top: 1px solid var(--line);
 }
 
-.traces-intro {
-    margin-bottom: 20vw;
+.about-label {
+    padding-top: 5px;
 }
 
-.traces-intro h2 {
-    font-size: clamp(58px, 17vw, 90px);
+.about-text {
+    max-width: 680px;
 }
 
-.traces-subtitle {
-    max-width: 280px;
+.about-text h2 {
+    margin: 0 0 30px;
 
-    margin-top: 30px;
+    font-size: 30px;
+
+    font-weight: 400;
+
+    letter-spacing: -0.03em;
 }
 
-.traces-gallery {
-    gap: 22vw;
+.about-text p {
+    max-width: 620px;
+
+    color: #444;
 }
 
-.traces-image,
-.traces-image-offset {
-    width: 88vw;
-
-    align-self: center;
-
-    margin: 0;
+.about-location {
+    margin-top: 0;
 }
 
-.traces-end {
-    padding-top: 28vw;
-}
 
-.traces-end-text {
-    max-width: 85vw;
-
-    font-size: clamp(29px, 8vw, 42px);
-}
-```
-
-}
-
-<section id="about" class="about">
-
-```
-<div class="about-label">
-
-    <p class="label">
-        About
-    </p>
-
-</div>
-
-
-<div class="about-text">
-
-    <h2>
-        TiM
-    </h2>
-
-    <p class="about-location">
-        based in Berlin, Europe
-    </p>
-
-    <p>
-        focus on nature, architecture,
-        cultural practices and the relationship
-        between society and its built environment.
-    </p>
-
-</div>
-```
-
-</section>
-
-</main>
-
-<!-- FOOTER -->
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer {
     display: flex;
@@ -1191,6 +1075,159 @@ footer .label {
 
     gap: 30px;
 }
+
+
+/* =========================================================
+   TRACES — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .traces-story {
+        padding-top: 25vw;
+        padding-bottom: 25vw;
+    }
+
+    .traces-intro {
+        margin-bottom: 20vw;
+    }
+
+    .traces-intro h2 {
+        font-size: clamp(58px, 17vw, 90px);
+    }
+
+    .traces-subtitle {
+        max-width: 280px;
+
+        margin-top: 30px;
+    }
+
+    .traces-gallery {
+        gap: 24vw;
+    }
+
+    .traces-image,
+    .traces-image-offset {
+        width: 88vw;
+
+        align-self: center;
+
+        margin: 0;
+    }
+
+    .traces-end {
+        padding-top: 28vw;
+    }
+
+    .traces-end-text {
+        max-width: 85vw;
+
+        font-size: clamp(29px, 8vw, 42px);
+    }
+
+
+    /* =====================================================
+       STATEMENT — MOBILE
+    ===================================================== */
+
+    .statement {
+        padding-top: 25vw;
+
+        padding-bottom: 28vw;
+    }
+
+    .statement-ornament {
+        width: 145px;
+        height: 78px;
+
+        margin-bottom: 42px;
+    }
+
+    .ornament-circle {
+        left: 0;
+        top: 11px;
+
+        width: 52px;
+        height: 52px;
+
+        border-width: 1.5px;
+    }
+
+    .ornament-square {
+        left: 42px;
+        top: 0;
+
+        width: 52px;
+        height: 52px;
+    }
+
+    .ornament-line {
+        left: 0;
+        bottom: 0;
+
+        width: 145px;
+        height: 1.5px;
+    }
+
+    .statement-ornament::after {
+        left: 52px;
+        top: 20px;
+
+        width: 20px;
+        height: 20px;
+    }
+
+    .statement-content {
+        max-width: 100%;
+    }
+
+    .statement-content p {
+        max-width: 90vw;
+
+        font-size: clamp(34px, 9vw, 52px);
+
+        line-height: 1.06;
+
+        letter-spacing: -0.025em;
+    }
+
+
+    /* =====================================================
+       ABOUT — MOBILE
+    ===================================================== */
+
+    .about {
+        display: block;
+
+        padding-top: 50px;
+
+        padding-bottom: 25vw;
+    }
+
+    .about-text {
+        margin-top: 60px;
+
+        max-width: 100%;
+    }
+
+    .about-text p {
+        max-width: 90vw;
+    }
+
+
+    /* =====================================================
+       FOOTER — MOBILE
+    ===================================================== */
+
+    footer {
+        display: block;
+    }
+
+    .footer-links {
+        margin-top: 28px;
+    }
+}
+```
 
 
 /* =========================================================
