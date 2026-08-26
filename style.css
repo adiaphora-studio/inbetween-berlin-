@@ -720,10 +720,9 @@ h1 em {
     letter-spacing: -0.03em;
 }
 
-
- /* =========================================================
+/* =========================================================
    STATEMENT
-   CLEAN / STABLE VERSION
+   EDITORIAL / GEOMETRIC VERSION
 ========================================================= */
 
 .statement {
@@ -745,32 +744,42 @@ h1 em {
 
 /* =========================================================
    STATEMENT ORNAMENT
-   BAUHAUS GEOMETRY
+   BLACK / WHITE GEOMETRIC COMPOSITION
 ========================================================= */
 
 .statement-ornament {
     position: relative;
 
-    width: 170px;
+    display: block;
 
-    height: 90px;
+    width: 210px;
 
-    margin-bottom: 55px;
+    height: 110px;
 
-    z-index: 1;
+    margin: 0 0 65px 0;
+
+    z-index: 3;
+
+    pointer-events: none;
 }
 
 
-/* CIRCLE */
+/* =========================================================
+   CIRCLE
+========================================================= */
 
 .ornament-circle {
     position: absolute;
 
     left: 0;
-    top: 10px;
+    top: 15px;
 
-    width: 70px;
-    height: 70px;
+    display: block;
+
+    width: 72px;
+    height: 72px;
+
+    box-sizing: border-box;
 
     border: 2px solid #111111;
 
@@ -778,26 +787,34 @@ h1 em {
 }
 
 
-/* SQUARE */
+/* =========================================================
+   SQUARE
+========================================================= */
 
 .ornament-square {
     position: absolute;
 
-    left: 52px;
+    left: 58px;
     top: 0;
 
-    width: 70px;
-    height: 70px;
+    display: block;
+
+    width: 72px;
+    height: 72px;
 
     background: #111111;
 
     transform: rotate(45deg);
 
     transform-origin: center;
+
+    box-sizing: border-box;
 }
 
 
-/* LINE */
+/* =========================================================
+   HORIZONTAL LINE
+========================================================= */
 
 .ornament-line {
     position: absolute;
@@ -805,10 +822,38 @@ h1 em {
     left: 0;
     bottom: 0;
 
-    width: 170px;
+    display: block;
+
+    width: 210px;
     height: 2px;
 
     background: #111111;
+}
+
+
+/* =========================================================
+   SMALL WHITE CUT
+   CREATES THE GRAPHIC OVERLAP
+========================================================= */
+
+.statement-ornament::after {
+    content: "";
+
+    position: absolute;
+
+    left: 72px;
+    top: 28px;
+
+    width: 28px;
+    height: 28px;
+
+    background: #ffffff;
+
+    transform: rotate(45deg);
+
+    z-index: 4;
+
+    pointer-events: none;
 }
 
 
@@ -819,7 +864,7 @@ h1 em {
 .statement-content {
     position: relative;
 
-    z-index: 2;
+    z-index: 5;
 
     width: 100%;
 
@@ -855,39 +900,77 @@ h1 em {
 
 @media (max-width: 700px) {
 
-    .statement-ornament {
-        width: 125px;
+    .statement {
+        padding-top: 25vw;
 
-        height: 70px;
-
-        margin-bottom: 40px;
+        padding-bottom: 28vw;
     }
 
+
+    .statement-ornament {
+        width: 145px;
+
+        height: 78px;
+
+        margin-bottom: 42px;
+    }
+
+
     .ornament-circle {
+        left: 0;
+        top: 11px;
+
         width: 52px;
         height: 52px;
-
-        top: 8px;
 
         border-width: 1.5px;
     }
 
+
     .ornament-square {
-        left: 39px;
+        left: 42px;
         top: 0;
 
         width: 52px;
         height: 52px;
     }
 
+
     .ornament-line {
-        width: 125px;
+        left: 0;
+        bottom: 0;
+
+        width: 145px;
 
         height: 1.5px;
     }
 
-}
 
+    .statement-ornament::after {
+        left: 52px;
+        top: 20px;
+
+        width: 20px;
+        height: 20px;
+    }
+
+
+    .statement-content {
+        max-width: 100%;
+    }
+
+
+    .statement-content p {
+        max-width: 90vw;
+
+        font-size: clamp(34px, 9vw, 52px);
+
+        line-height: 1.06;
+
+        letter-spacing: -0.025em;
+    }
+
+}
 /* =========================================================
    ABOUT
 ========================================================= */
