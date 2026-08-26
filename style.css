@@ -721,7 +721,7 @@ h1 em {
 }
 
 
-/* =========================================================
+ /* =========================================================
    STATEMENT
    CLEAN / STABLE VERSION
 ========================================================= */
@@ -740,6 +740,75 @@ h1 em {
     border-top: 1px solid var(--line);
 
     overflow: hidden;
+}
+
+
+/* =========================================================
+   STATEMENT ORNAMENT
+   BAUHAUS GEOMETRY
+========================================================= */
+
+.statement-ornament {
+    position: relative;
+
+    width: 170px;
+
+    height: 90px;
+
+    margin-bottom: 55px;
+
+    z-index: 1;
+}
+
+
+/* CIRCLE */
+
+.ornament-circle {
+    position: absolute;
+
+    left: 0;
+    top: 10px;
+
+    width: 70px;
+    height: 70px;
+
+    border: 2px solid #111111;
+
+    border-radius: 50%;
+}
+
+
+/* SQUARE */
+
+.ornament-square {
+    position: absolute;
+
+    left: 52px;
+    top: 0;
+
+    width: 70px;
+    height: 70px;
+
+    background: #111111;
+
+    transform: rotate(45deg);
+
+    transform-origin: center;
+}
+
+
+/* LINE */
+
+.ornament-line {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 170px;
+    height: 2px;
+
+    background: #111111;
 }
 
 
@@ -781,20 +850,43 @@ h1 em {
 
 
 /* =========================================================
-   STATEMENT ORNAMENT
-   DISABLED FOR NOW
+   MOBILE
 ========================================================= */
 
-/*
-   We deliberately keep the ornament out for this stable
-   version. This prevents SVG/path rendering artifacts
-   and keeps the original editorial spacing intact.
-*/
+@media (max-width: 700px) {
 
-.statement-ornament {
-    display: none;
+    .statement-ornament {
+        width: 125px;
+
+        height: 70px;
+
+        margin-bottom: 40px;
+    }
+
+    .ornament-circle {
+        width: 52px;
+        height: 52px;
+
+        top: 8px;
+
+        border-width: 1.5px;
+    }
+
+    .ornament-square {
+        left: 39px;
+        top: 0;
+
+        width: 52px;
+        height: 52px;
+    }
+
+    .ornament-line {
+        width: 125px;
+
+        height: 1.5px;
+    }
+
 }
-
 
 /* =========================================================
    ABOUT
