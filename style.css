@@ -1,5 +1,11 @@
+```css
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital@0;1&display=swap');
 
+
+/* =========================================================
+   INBETWEEN BERLIN
+   COMPLETE STYLE
+========================================================= */
 
 :root {
     --page: 5vw;
@@ -27,6 +33,7 @@ html {
 
 body {
     margin: 0;
+
     background: #ffffff;
     color: var(--text);
 
@@ -39,6 +46,26 @@ body {
 body.lightbox-open {
     overflow: hidden;
 }
+
+
+/* ---------------------------------------------------------
+   IMPORTANT:
+   Prevent accidental pseudo-elements from creating
+   stray marks / lines in the upper-left corner.
+--------------------------------------------------------- */
+
+body::before,
+body::after,
+main::before,
+main::after,
+header::before,
+header::after,
+.site-header::before,
+.site-header::after {
+    content: none !important;
+    display: none !important;
+}
+
 
 a {
     color: inherit;
@@ -60,8 +87,10 @@ button {
 
 .site-header {
     position: relative;
+    z-index: 20;
 
     display: flex;
+
     justify-content: space-between;
     align-items: center;
 
@@ -70,24 +99,7 @@ button {
     border-bottom: 1px solid var(--line);
 
     background: #ffffff;
-
-    z-index: 20;
 }
-
-
-/* IMPORTANT:
-   There should be absolutely nothing decorative
-   generated inside the header.
-*/
-
-.site-header::before,
-.site-header::after,
-.site-header .logo::before,
-.site-header .logo::after {
-    content: none !important;
-    display: none !important;
-}
-
 
 .logo {
     font-size: 14px;
@@ -521,7 +533,9 @@ h1 em {
 }
 
 
-/* LEFT / RIGHT RHYTHM */
+/* =========================================================
+   STORY LEFT / RIGHT RHYTHM
+========================================================= */
 
 .story-step:nth-child(odd) .story-copy {
     left: 7vw;
@@ -726,14 +740,13 @@ h1 em {
 
 /* =========================================================
    STATEMENT
-   BLACK / WHITE ORGANIC FORM
+   BLACK / WHITE ORGANIC ORNAMENT
 ========================================================= */
 
 .statement {
     position: relative;
 
     width: 100%;
-
     min-height: 100vh;
 
     margin: 0;
@@ -753,16 +766,23 @@ h1 em {
 
 
 /* =========================================================
-   ORGANIC FORM
+   ORNAMENT CONTAINER
+
+   No line animation.
+   No dashed strokes.
+   No grey SVG traces.
+
+   The ornament is a solid black organic mass with
+   white cuts through it.
 ========================================================= */
 
 .statement-ornament {
     position: absolute;
 
-    inset: -5% -5%;
+    inset: -8% -5%;
 
     width: 110%;
-    height: 110%;
+    height: 116%;
 
     z-index: 1;
 
@@ -770,7 +790,9 @@ h1 em {
 
     opacity: 1;
 
-    transform: rotate(-3deg) scale(1.08);
+    transform:
+        rotate(-4deg)
+        scale(1.04);
 }
 
 .statement-ornament svg {
@@ -784,7 +806,7 @@ h1 em {
 
 
 /* =========================================================
-   BLACK MAIN MASS
+   MAIN BLACK ORGANIC MASS
 ========================================================= */
 
 .statement-ornament .ornament-main {
@@ -792,13 +814,13 @@ h1 em {
 
     stroke: #000000;
 
-    stroke-width: 150;
+    stroke-width: 155;
 
     stroke-linecap: round;
 
     stroke-linejoin: round;
 
-    opacity: 0.92;
+    opacity: 0.96;
 
     vector-effect: non-scaling-stroke;
 }
@@ -806,6 +828,9 @@ h1 em {
 
 /* =========================================================
    WHITE CUT
+
+   This creates the visual impression of a carved /
+   architectural form rather than a simple line.
 ========================================================= */
 
 .statement-ornament .ornament-secondary {
@@ -813,7 +838,7 @@ h1 em {
 
     stroke: #ffffff;
 
-    stroke-width: 95;
+    stroke-width: 92;
 
     stroke-linecap: round;
 
@@ -826,7 +851,7 @@ h1 em {
 
 
 /* =========================================================
-   BLACK INNER DETAIL
+   BLACK INNER FORM
 ========================================================= */
 
 .statement-ornament .ornament-detail {
@@ -834,20 +859,20 @@ h1 em {
 
     stroke: #000000;
 
-    stroke-width: 32;
+    stroke-width: 34;
 
     stroke-linecap: round;
 
     stroke-linejoin: round;
 
-    opacity: 0.95;
+    opacity: 0.98;
 
     vector-effect: non-scaling-stroke;
 }
 
 
 /* =========================================================
-   WHITE FINE DETAIL
+   WHITE FINE CUT
 ========================================================= */
 
 .statement-ornament .ornament-fine {
@@ -855,7 +880,7 @@ h1 em {
 
     stroke: #ffffff;
 
-    stroke-width: 13;
+    stroke-width: 14;
 
     stroke-linecap: round;
 
@@ -904,9 +929,13 @@ h1 em {
 
     color: #151515;
 
+    /*
+       Keeps the typography readable over the
+       black / white organic form.
+    */
     text-shadow:
-        0 0 12px rgba(255, 255, 255, 0.92),
-        0 0 28px rgba(255, 255, 255, 0.72);
+        0 0 14px rgba(255, 255, 255, 0.96),
+        0 0 30px rgba(255, 255, 255, 0.82);
 }
 
 .statement-content strong {
@@ -1180,10 +1209,13 @@ footer .label {
     }
 
 
-    /* HEADER */
+    /* =====================================================
+       HEADER
+    ===================================================== */
 
     .site-header {
         padding-top: 18px;
+
         padding-bottom: 18px;
     }
 
@@ -1192,7 +1224,9 @@ footer .label {
     }
 
 
-    /* INTRO */
+    /* =====================================================
+       INTRO
+    ===================================================== */
 
     .intro {
         padding-top: 24vw;
@@ -1207,7 +1241,9 @@ footer .label {
     }
 
 
-    /* WORK HEADER */
+    /* =====================================================
+       WORK HEADER
+    ===================================================== */
 
     .section-header {
         display: block;
@@ -1224,7 +1260,9 @@ footer .label {
     }
 
 
-    /* GALLERY */
+    /* =====================================================
+       GALLERY
+    ===================================================== */
 
     .gallery {
         display: block;
@@ -1242,14 +1280,18 @@ footer .label {
     }
 
 
-    /* STORY */
+    /* =====================================================
+       STORY
+    ===================================================== */
 
     .story {
         margin-top: 20vw;
     }
 
 
-    /* STORY INTRO */
+    /* =====================================================
+       STORY INTRO
+    ===================================================== */
 
     .story-intro {
         min-height: 90svh;
@@ -1276,7 +1318,9 @@ footer .label {
     }
 
 
-    /* STORY STEPS */
+    /* =====================================================
+       STORY STEPS
+    ===================================================== */
 
     .story-step {
         min-height: 135svh;
@@ -1314,7 +1358,9 @@ footer .label {
     }
 
 
-    /* STORY TEXT */
+    /* =====================================================
+       STORY TEXT
+    ===================================================== */
 
     .story-copy {
         width: 78vw;
@@ -1349,7 +1395,9 @@ footer .label {
     }
 
 
-    /* BLACK INTERLUDE */
+    /* =====================================================
+       BLACK INTERLUDE
+    ===================================================== */
 
     .story-interlude {
         min-height: 70svh;
@@ -1364,7 +1412,9 @@ footer .label {
     }
 
 
-    /* FINAL STORY IMAGE */
+    /* =====================================================
+       FINAL STORY IMAGE
+    ===================================================== */
 
     .story-step-final {
         min-height: 125svh;
@@ -1403,7 +1453,9 @@ footer .label {
     }
 
 
-    /* STORY END */
+    /* =====================================================
+       STORY END
+    ===================================================== */
 
     .story-end {
         min-height: 70svh;
@@ -1433,15 +1485,21 @@ footer .label {
             28vw;
     }
 
-    .statement-ornament {
-        inset: -10% -25%;
 
-        width: 150%;
-        height: 120%;
+    /* -----------------------------------------------------
+       MOBILE ORGANIC FORM
+    ----------------------------------------------------- */
+
+    .statement-ornament {
+        inset: -12% -30%;
+
+        width: 160%;
+
+        height: 125%;
 
         transform:
             rotate(-7deg)
-            scale(1.05);
+            scale(1.02);
     }
 
     .statement-ornament .ornament-main {
@@ -1449,7 +1507,7 @@ footer .label {
     }
 
     .statement-ornament .ornament-secondary {
-        stroke-width: 68;
+        stroke-width: 65;
     }
 
     .statement-ornament .ornament-detail {
@@ -1459,6 +1517,11 @@ footer .label {
     .statement-ornament .ornament-fine {
         stroke-width: 9;
     }
+
+
+    /* -----------------------------------------------------
+       MOBILE STATEMENT TEXT
+    ----------------------------------------------------- */
 
     .statement-content {
         max-width: 90vw;
@@ -1474,12 +1537,14 @@ footer .label {
         letter-spacing: -0.025em;
 
         text-shadow:
-            0 0 12px rgba(255, 255, 255, 0.95),
-            0 0 24px rgba(255, 255, 255, 0.8);
+            0 0 12px rgba(255, 255, 255, 0.96),
+            0 0 25px rgba(255, 255, 255, 0.84);
     }
 
 
-    /* ABOUT */
+    /* =====================================================
+       ABOUT
+    ===================================================== */
 
     .about {
         display: block;
@@ -1494,7 +1559,9 @@ footer .label {
     }
 
 
-    /* FOOTER */
+    /* =====================================================
+       FOOTER
+    ===================================================== */
 
     footer {
         display: block;
@@ -1505,7 +1572,9 @@ footer .label {
     }
 
 
-    /* LIGHTBOX */
+    /* =====================================================
+       LIGHTBOX
+    ===================================================== */
 
     .lightbox {
         padding: 60px 18px 30px;
@@ -1544,3 +1613,4 @@ footer .label {
     }
 
 }
+```
