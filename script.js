@@ -1,26 +1,25 @@
 /* =========================================================
-   INBETWEEN BERLIN
-   LIGHTBOX + EDITORIAL SCROLL STORY
-========================================================= */
-
-
-/* =========================================================
    REMOVE CHATGPT REFERRAL PARAMETER
 ========================================================= */
 
-if (window.location.search.includes("utm_source=chatgpt.com")) {
+(function () {
 
-    const cleanUrl =
-        window.location.origin +
-        window.location.pathname +
-        window.location.hash;
+    const url = new URL(window.location.href);
 
-    window.history.replaceState(
-        {},
-        document.title,
-        cleanUrl
-    );
-}
+    if (url.searchParams.has("utm_source")) {
+
+        url.searchParams.delete("utm_source");
+
+        window.history.replaceState(
+            null,
+            document.title,
+            url.pathname +
+            url.search +
+            url.hash
+        );
+    }
+
+})();
 
 
 /* =========================================================
