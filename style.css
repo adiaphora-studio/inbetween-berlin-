@@ -806,7 +806,6 @@ h1 em {
 
 .worn-scroll-line {
     width: 1px;
-
     height: 45px;
 
     background: var(--line);
@@ -838,18 +837,16 @@ h1 em {
     display: block;
 
     width: min(68vw, 900px);
-
     max-width: 100%;
 
     aspect-ratio: 1 / 1;
 
     margin: 0;
-
     padding: 0;
 
     border: 0;
 
-    background: none;
+    background: transparent;
 
     overflow: hidden;
 
@@ -883,57 +880,62 @@ h1 em {
 
 .worn-image:focus-visible {
     outline: 2px solid var(--text);
-
     outline-offset: 5px;
 }
 
 
 /* =========================================================
-   WORN INTERLUDE
+   WORN MID STATEMENT
+   BETWEEN IMAGE 06 + 07
 ========================================================= */
 
-.worn-interlude {
+.worn-statement {
+    position: relative;
+
     width: 100%;
-
-    max-width: 1000px;
-
-    margin: 2vw auto;
-
-    padding: 5vw 0;
-
     box-sizing: border-box;
 
-    text-align: center;
+    margin: 2vw 0;
+
+    padding: 12vw var(--page) 13vw;
+
+    background: #ffffff;
+
+    overflow: hidden;
 }
 
 
 /* =========================================================
-   WORN INTERLUDE ORNAMENT
+   WORN STATEMENT ORNAMENT
 ========================================================= */
 
-.worn-interlude-ornament {
+.worn-statement-ornament {
     position: relative;
 
-    width: 150px;
-    height: 78px;
+    display: block;
 
-    margin: 0 auto 55px;
+    width: 210px;
+    height: 110px;
+
+    margin: 0 0 65px 0;
 
     pointer-events: none;
+
+    z-index: 2;
 }
 
 .worn-ornament-circle {
     position: absolute;
 
     left: 0;
-    top: 10px;
+    top: 15px;
 
-    width: 52px;
-    height: 52px;
+    width: 72px;
+    height: 72px;
 
     box-sizing: border-box;
 
-    border: 1.5px solid #111111;
+    border: 2px solid #111111;
 
     border-radius: 50%;
 }
@@ -941,11 +943,11 @@ h1 em {
 .worn-ornament-square {
     position: absolute;
 
-    left: 42px;
+    left: 58px;
     top: 0;
 
-    width: 52px;
-    height: 52px;
+    width: 72px;
+    height: 72px;
 
     background: #111111;
 
@@ -960,56 +962,68 @@ h1 em {
     left: 0;
     bottom: 0;
 
-    width: 150px;
-    height: 1.5px;
+    width: 210px;
+    height: 2px;
 
     background: #111111;
 }
 
-.worn-interlude-ornament::after {
+.worn-statement-ornament::after {
     content: "";
 
     position: absolute;
 
-    left: 52px;
-    top: 20px;
+    left: 72px;
+    top: 28px;
 
-    width: 20px;
-    height: 20px;
+    width: 28px;
+    height: 28px;
 
     background: #ffffff;
 
     transform: rotate(45deg);
 
-    z-index: 2;
+    z-index: 3;
 
     pointer-events: none;
 }
 
 
 /* =========================================================
-   WORN INTERLUDE TEXT
+   WORN STATEMENT TEXT
 ========================================================= */
 
-.worn-interlude-text {
-    max-width: 760px;
+.worn-statement-content {
+    position: relative;
 
-    margin: 0 auto;
+    width: 100%;
+    max-width: 1000px;
 
-    color: var(--text);
+    margin: 0;
+
+    z-index: 4;
+}
+
+.worn-statement-content p {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0;
 
     font-family: "Playfair Display", Georgia, serif;
 
-    font-size: clamp(34px, 4.5vw, 62px);
+    font-size: clamp(42px, 5.2vw, 76px);
 
-    line-height: 1.08;
+    line-height: 1.04;
 
     font-weight: 400;
 
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
+
+    color: #111111;
 }
 
-.worn-interlude-text strong {
+.worn-statement-content strong {
     font-weight: 400;
 }
 
@@ -1020,7 +1034,6 @@ h1 em {
 
 .worn-end {
     width: 100%;
-
     box-sizing: border-box;
 
     padding: 15vw 0 2vw;
@@ -1054,8 +1067,6 @@ h1 em {
 @media (max-width: 700px) {
 
     .worn-story {
-        box-sizing: border-box;
-
         padding-top: 25vw;
         padding-bottom: 25vw;
     }
@@ -1070,7 +1081,6 @@ h1 em {
 
     .worn-subtitle {
         max-width: 280px;
-
         margin-top: 30px;
     }
 
@@ -1085,7 +1095,6 @@ h1 em {
     .worn-image,
     .worn-image-right {
         width: 88vw;
-
         max-width: 100%;
 
         align-self: center;
@@ -1094,71 +1103,80 @@ h1 em {
     }
 
 
-    /* =====================================================
-       WORN INTERLUDE — MOBILE
-    ===================================================== */
+    /* -----------------------------------------
+       MID STATEMENT — MOBILE
+    ----------------------------------------- */
 
-    .worn-interlude {
-        width: 100%;
+    .worn-statement {
+        margin: 4vw 0;
 
-        max-width: 100%;
-
-        margin: 0 auto;
-
-        padding: 8vw 0;
+        padding:
+            25vw
+            var(--page)
+            28vw;
     }
 
-    .worn-interlude-ornament {
-        width: 120px;
-        height: 63px;
+    .worn-statement-ornament {
+        width: 145px;
+        height: 78px;
 
-        margin-bottom: 38px;
+        margin-bottom: 42px;
     }
 
     .worn-ornament-circle {
         left: 0;
-        top: 8px;
+        top: 11px;
 
-        width: 42px;
-        height: 42px;
+        width: 52px;
+        height: 52px;
 
         border-width: 1.5px;
     }
 
     .worn-ornament-square {
-        left: 34px;
+        left: 42px;
         top: 0;
 
-        width: 42px;
-        height: 42px;
+        width: 52px;
+        height: 52px;
     }
 
     .worn-ornament-line {
         left: 0;
         bottom: 0;
 
-        width: 120px;
+        width: 145px;
         height: 1.5px;
     }
 
-    .worn-interlude-ornament::after {
-        left: 42px;
-        top: 16px;
+    .worn-statement-ornament::after {
+        left: 52px;
+        top: 20px;
 
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
     }
 
-    .worn-interlude-text {
-        max-width: 88vw;
+    .worn-statement-content {
+        width: 100%;
+        max-width: 90vw;
+    }
 
-        font-size: clamp(31px, 8vw, 45px);
+    .worn-statement-content p {
+        width: 100%;
+        max-width: 90vw;
 
-        line-height: 1.08;
+        font-size: clamp(34px, 9vw, 52px);
+
+        line-height: 1.06;
 
         letter-spacing: -0.025em;
     }
 
+
+    /* -----------------------------------------
+       WORN END — MOBILE
+    ----------------------------------------- */
 
     .worn-end {
         padding-top: 28vw;
