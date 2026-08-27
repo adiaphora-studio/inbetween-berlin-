@@ -889,6 +889,132 @@ h1 em {
 
 
 /* =========================================================
+   WORN INTERLUDE
+========================================================= */
+
+.worn-interlude {
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 2vw auto;
+
+    padding: 5vw 0;
+
+    box-sizing: border-box;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   WORN INTERLUDE ORNAMENT
+========================================================= */
+
+.worn-interlude-ornament {
+    position: relative;
+
+    width: 150px;
+    height: 78px;
+
+    margin: 0 auto 55px;
+
+    pointer-events: none;
+}
+
+.worn-ornament-circle {
+    position: absolute;
+
+    left: 0;
+    top: 10px;
+
+    width: 52px;
+    height: 52px;
+
+    box-sizing: border-box;
+
+    border: 1.5px solid #111111;
+
+    border-radius: 50%;
+}
+
+.worn-ornament-square {
+    position: absolute;
+
+    left: 42px;
+    top: 0;
+
+    width: 52px;
+    height: 52px;
+
+    background: #111111;
+
+    transform: rotate(45deg);
+
+    box-sizing: border-box;
+}
+
+.worn-ornament-line {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 150px;
+    height: 1.5px;
+
+    background: #111111;
+}
+
+.worn-interlude-ornament::after {
+    content: "";
+
+    position: absolute;
+
+    left: 52px;
+    top: 20px;
+
+    width: 20px;
+    height: 20px;
+
+    background: #ffffff;
+
+    transform: rotate(45deg);
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   WORN INTERLUDE TEXT
+========================================================= */
+
+.worn-interlude-text {
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    color: var(--text);
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(34px, 4.5vw, 62px);
+
+    line-height: 1.08;
+
+    font-weight: 400;
+
+    letter-spacing: -0.03em;
+}
+
+.worn-interlude-text strong {
+    font-weight: 400;
+}
+
+
+/* =========================================================
    WORN END
 ========================================================= */
 
@@ -967,6 +1093,73 @@ h1 em {
         margin: 0;
     }
 
+
+    /* =====================================================
+       WORN INTERLUDE — MOBILE
+    ===================================================== */
+
+    .worn-interlude {
+        width: 100%;
+
+        max-width: 100%;
+
+        margin: 0 auto;
+
+        padding: 8vw 0;
+    }
+
+    .worn-interlude-ornament {
+        width: 120px;
+        height: 63px;
+
+        margin-bottom: 38px;
+    }
+
+    .worn-ornament-circle {
+        left: 0;
+        top: 8px;
+
+        width: 42px;
+        height: 42px;
+
+        border-width: 1.5px;
+    }
+
+    .worn-ornament-square {
+        left: 34px;
+        top: 0;
+
+        width: 42px;
+        height: 42px;
+    }
+
+    .worn-ornament-line {
+        left: 0;
+        bottom: 0;
+
+        width: 120px;
+        height: 1.5px;
+    }
+
+    .worn-interlude-ornament::after {
+        left: 42px;
+        top: 16px;
+
+        width: 16px;
+        height: 16px;
+    }
+
+    .worn-interlude-text {
+        max-width: 88vw;
+
+        font-size: clamp(31px, 8vw, 45px);
+
+        line-height: 1.08;
+
+        letter-spacing: -0.025em;
+    }
+
+
     .worn-end {
         padding-top: 28vw;
     }
@@ -977,8 +1170,6 @@ h1 em {
         font-size: clamp(29px, 8vw, 42px);
     }
 }
-
-
 /* =========================================================
    STATEMENT
 ========================================================= */
