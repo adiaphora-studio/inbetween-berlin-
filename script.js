@@ -1,3 +1,4 @@
+```js
 /* =========================================================
    REMOVE CHATGPT REFERRAL PARAMETER
 ========================================================= */
@@ -695,6 +696,175 @@ function updateStory() {
 
 
 /* =========================================================
+   STORY 02 — STATEMENT TRANSITION
+========================================================= */
+
+const statement =
+    document.querySelector(
+        ".statement"
+    );
+
+const statementContent =
+    statement
+        ? statement.querySelector(
+            ".statement-content p"
+        )
+        : null;
+
+const statementOrnament =
+    statement
+        ? statement.querySelector(
+            ".statement-ornament"
+        )
+        : null;
+
+
+function updateStatement() {
+
+    if (!statement) {
+        return;
+    }
+
+
+    const rect =
+        statement.getBoundingClientRect();
+
+    const viewportHeight =
+        window.innerHeight;
+
+
+    /*
+        0 = statement below viewport
+        0.5 = statement centered
+        1 = statement above viewport
+    */
+
+    const progress =
+        clamp(
+            (
+                viewportHeight -
+                rect.top
+            ) /
+            (
+                viewportHeight +
+                rect.height
+            ),
+            0,
+            1
+        );
+
+
+    /* =================================================
+       WHITE → BLACK
+    ================================================= */
+
+    const fadeIn =
+        smoothstep(
+            clamp(
+                (
+                    progress -
+                    0.20
+                ) /
+                0.25,
+                0,
+                1
+            )
+        );
+
+
+    /* =================================================
+       BLACK → WHITE
+    ================================================= */
+
+    const fadeOut =
+        1 -
+        smoothstep(
+            clamp(
+                (
+                    progress -
+                    0.75
+                ) /
+                0.20,
+                0,
+                1
+            )
+        );
+
+
+    const intensity =
+        Math.min(
+            fadeIn,
+            fadeOut
+        );
+
+
+    /* =================================================
+       BACKGROUND
+       WHITE → BLACK
+    ================================================= */
+
+    const background =
+        Math.round(
+            255 *
+            (1 - intensity)
+        );
+
+
+    statement.style.backgroundColor =
+        `rgb(
+            ${background},
+            ${background},
+            ${background}
+        )`;
+
+
+    /* =================================================
+       TEXT
+       BLACK → WHITE
+    ================================================= */
+
+    if (statementContent) {
+
+        const textValue =
+            Math.round(
+                17 +
+                (
+                    238 *
+                    intensity
+                )
+            );
+
+
+        statementContent.style.color =
+            `rgb(
+                ${textValue},
+                ${textValue},
+                ${textValue}
+            )`;
+    }
+
+
+    /* =================================================
+       ORNAMENT
+       BLACK → WHITE
+    ================================================= */
+
+    if (statementOrnament) {
+
+        const ornamentValue =
+            Math.round(
+                100 *
+                intensity
+            );
+
+
+        statementOrnament.style.filter =
+            `invert(${ornamentValue}%)`;
+    }
+}
+
+
+/* =========================================================
    REQUEST ANIMATION FRAME
 ========================================================= */
 
@@ -709,6 +879,8 @@ function requestStoryUpdate() {
             () => {
 
                 updateStory();
+
+                updateStatement();
 
                 ticking = false;
             }
@@ -747,3 +919,6 @@ window.addEventListener(
 ========================================================= */
 
 updateStory();
+
+updateStatement();
+```
