@@ -1306,6 +1306,8 @@ h1 em {
     margin-left: auto;
     margin-right: auto;
 }
+
+
 /* =========================================================
    UP & DOWN — COPY
 ========================================================= */
@@ -1315,13 +1317,23 @@ h1 em {
 
     z-index: 5;
 }
+
+
 /* =========================================================
-   UP & DOWN — STEP 06 COPY
+   UP & DOWN — LOWER COPY — DESKTOP ONLY
 ========================================================= */
 
-.updown-story .story-step[data-story="6"] .story-copy {
-    margin-top: 40px;
+@media (min-width: 701px) {
+
+    .updown-story .story-step[data-story="2"] .story-copy,
+    .updown-story .story-step[data-story="4"] .story-copy,
+    .updown-story .story-step[data-story="6"] .story-copy {
+        margin-top: 40px;
+    }
+
 }
+
+
 /* =========================================================
    UP & DOWN — END
 ========================================================= */
@@ -1382,7 +1394,6 @@ h1 em {
         font-size: clamp(29px, 8vw, 42px);
     }
 }
-
 /* =========================================================
    STATEMENT
 ========================================================= */
