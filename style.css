@@ -1188,6 +1188,148 @@ h1 em {
         font-size: clamp(29px, 8vw, 42px);
     }
 }
+```css
+/* =========================================================
+   STORY 03 — UP & DOWN
+========================================================= */
+
+.updown-story {
+    position: relative;
+
+    width: 100%;
+
+    background: #ffffff;
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   UP & DOWN — INTRO
+========================================================= */
+
+.updown-story .story-intro {
+    padding-top: 14vw;
+}
+
+
+/* =========================================================
+   UP & DOWN — SEQUENCE
+========================================================= */
+
+.updown-story .story-sequence {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15vw;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   UP & DOWN — IMAGES
+========================================================= */
+
+.updown-story .story-image-wrap {
+    position: relative;
+
+    width: min(68vw, 900px);
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+
+/* Alternate the visual movement */
+
+.updown-story .story-step:nth-child(even)
+.story-image-wrap {
+    margin-left: auto;
+}
+
+.updown-story .story-step:nth-child(odd)
+.story-image-wrap {
+    margin-left: 0;
+}
+
+
+/* =========================================================
+   UP & DOWN — COPY
+========================================================= */
+
+.updown-story .story-copy {
+    position: absolute;
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   UP & DOWN — END
+========================================================= */
+
+.updown-story .story-end {
+    padding-top: 15vw;
+
+    padding-bottom: 4vw;
+}
+
+.updown-story .story-end-text {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(30px, 4vw, 55px);
+
+    line-height: 1.08;
+
+    letter-spacing: -0.03em;
+}
+
+
+/* =========================================================
+   UP & DOWN — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .updown-story .story-intro {
+        padding-top: 25vw;
+    }
+
+    .updown-story .story-sequence {
+        gap: 24vw;
+    }
+
+    .updown-story .story-image-wrap {
+        width: 88vw;
+
+        max-width: 100%;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .updown-story .story-end {
+        padding-top: 28vw;
+
+        padding-bottom: 10vw;
+    }
+
+    .updown-story .story-end-text {
+        max-width: 85vw;
+
+        font-size: clamp(29px, 8vw, 42px);
+    }
+}
+```
 /* =========================================================
    STATEMENT
 ========================================================= */
