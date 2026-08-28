@@ -373,6 +373,9 @@ function updateStory() {
     const viewportHeight =
         window.innerHeight;
 
+    const isMobile =
+        window.innerWidth <= 700;
+
 
     storySteps.forEach(
         (step) => {
@@ -461,19 +464,33 @@ function updateStory() {
             }
 
 
+            /*
+                Softer entrance.
+
+                The text begins earlier and
+                takes longer to settle into place.
+            */
+
             const textIn =
                 smoothstep(
                     clamp(
                         (
                             progress -
-                            0.25
+                            0.20
                         ) /
-                        0.20,
+                        0.28,
                         0,
                         1
                     )
                 );
 
+
+            /*
+                Softer exit.
+
+                The text remains present slightly
+                longer before beginning to disappear.
+            */
 
             const textOut =
                 1 -
@@ -481,9 +498,9 @@ function updateStory() {
                     clamp(
                         (
                             progress -
-                            0.72
+                            0.78
                         ) /
-                        0.18,
+                        0.22,
                         0,
                         1
                     )
@@ -501,12 +518,30 @@ function updateStory() {
                TEXT MOVEMENT
             ================================================= */
 
+            const baseMovement =
+                isMobile
+                    ? 42
+                    : 42;
+
+
             const textMovement =
-                70 -
+                baseMovement -
                 (
                     textOpacity *
-                    70
+                    baseMovement
                 );
+
+
+            /*
+                Mobile gets an additional reduction
+                in movement so the text feels calmer
+                during finger scrolling.
+            */
+
+            const finalTextMovement =
+                isMobile
+                    ? textMovement * 0.72
+                    : textMovement;
 
 
             if (
@@ -515,10 +550,18 @@ function updateStory() {
                 )
             ) {
 
+                const finalMovement =
+                    isMobile
+                        ? 58
+                        : 80;
+
+
                 copy.style.transform =
                     `translate3d(
                         -50%,
-                        ${80 - textOpacity * 80}px,
+                        ${finalMovement -
+                        textOpacity *
+                        finalMovement}px,
                         0
                     )`;
 
@@ -527,7 +570,7 @@ function updateStory() {
                 copy.style.transform =
                     `translate3d(
                         0,
-                        ${textMovement}px,
+                        ${finalTextMovement}px,
                         0
                     )`;
             }
