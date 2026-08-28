@@ -70,6 +70,7 @@ button {
     align-items: center;
 
     width: 100%;
+    box-sizing: border-box;
 
     padding: 24px var(--page);
 
@@ -78,6 +79,8 @@ button {
 
 .logo {
     display: block;
+
+    flex-shrink: 0;
 
     font-size: 14px;
 
@@ -89,14 +92,64 @@ button {
 nav {
     display: flex;
 
-    gap: 28px;
+    align-items: center;
+
+    gap: 22px;
 
     color: var(--muted);
 
-    font-size: 13px;
+    font-size: 12px;
+
+    white-space: nowrap;
+}
+
+nav a {
+    transition: color 200ms ease;
+}
+
+nav a:hover {
+    color: var(--text);
 }
 
 
+/* =========================================================
+   HEADER — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .site-header {
+        align-items: flex-start;
+
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+
+    .logo {
+        font-size: 12px;
+
+        letter-spacing: 0.06em;
+    }
+
+    nav {
+        display: grid;
+
+        grid-template-columns: auto auto;
+
+        gap: 8px 16px;
+
+        max-width: 180px;
+
+        text-align: right;
+
+        font-size: 10px;
+
+        line-height: 1.2;
+
+        white-space: normal;
+    }
+
+}
 /* =========================================================
    INTRO
 ========================================================= */
