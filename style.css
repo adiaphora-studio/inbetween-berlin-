@@ -1245,19 +1245,14 @@ h1 em {
 }
 
 
-/* Alternate the visual movement */
+/* =========================================================
+   CENTER ALL IMAGES
+========================================================= */
 
-.updown-story .story-step:nth-child(even)
-.story-image-wrap {
+.updown-story .story-image-wrap {
     margin-left: auto;
+    margin-right: auto;
 }
-
-.updown-story .story-step:nth-child(odd)
-.story-image-wrap {
-    margin-left: 0;
-}
-
-
 /* =========================================================
    UP & DOWN — COPY
 ========================================================= */
