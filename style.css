@@ -380,392 +380,452 @@ h1 em {
 
 
 /* =========================================================
-   STORY — BEASTS WE HOLD
+STORY — BEASTS WE HOLD
 ========================================================= */
 
 .story {
-    position: relative;
+position: relative;
 
-    margin-top: 12vw;
+```
+margin-top: 12vw;
 
-    border-top: 1px solid var(--line);
+border-top: 1px solid var(--line);
 
-    overflow: clip;
+overflow: clip;
+```
+
 }
 
-
 /* =========================================================
-   STORY INTRO
+STORY INTRO
 ========================================================= */
 
 .story-intro {
-    min-height: 100svh;
+min-height: 100svh;
 
-    padding: 14vw var(--page) 8vw;
+```
+padding: 14vw var(--page) 8vw;
 
-    display: flex;
+display: flex;
 
-    flex-direction: column;
+flex-direction: column;
 
-    justify-content: center;
-    align-items: center;
+justify-content: center;
+align-items: center;
 
-    text-align: center;
+text-align: center;
+```
+
 }
 
 .story-intro .label {
-    margin-bottom: 35px;
+margin-bottom: 35px;
 }
 
 .story-intro h2 {
-    margin: 0;
+margin: 0;
 
-    font-size: clamp(64px, 11vw, 150px);
+```
+font-size: clamp(64px, 11vw, 150px);
 
-    line-height: 0.86;
+line-height: 0.86;
 
-    font-weight: 400;
+font-weight: 400;
 
-    letter-spacing: -0.065em;
+letter-spacing: -0.065em;
+```
+
 }
 
 .story-intro h2 em {
-    font-family: "Playfair Display", Georgia, serif;
+font-family: "Playfair Display", Georgia, serif;
 
-    font-style: italic;
+```
+font-style: italic;
 
-    font-weight: 400;
+font-weight: 400;
 
-    letter-spacing: -0.045em;
+letter-spacing: -0.045em;
+```
+
 }
 
 .story-subtitle {
-    margin: 45px 0 0;
+margin: 45px 0 0;
 
-    color: var(--muted);
+```
+color: var(--muted);
 
-    font-size: 13px;
+font-size: 13px;
+```
+
 }
 
-
 /* =========================================================
-   STORY SCROLL HINT
+STORY SCROLL HINT
 ========================================================= */
 
 .story-scroll-hint {
-    display: flex;
+display: flex;
 
-    flex-direction: column;
+```
+flex-direction: column;
 
-    align-items: center;
+align-items: center;
 
-    gap: 12px;
+gap: 12px;
 
-    margin-top: 90px;
+margin-top: 90px;
 
-    color: var(--muted);
+color: var(--muted);
 
-    font-size: 9px;
+font-size: 9px;
 
-    letter-spacing: 0.15em;
+letter-spacing: 0.15em;
 
-    text-transform: uppercase;
+text-transform: uppercase;
+```
+
 }
 
 .story-scroll-line {
-    width: 1px;
+width: 1px;
 
-    height: 45px;
+```
+height: 45px;
 
-    background: var(--line);
+background: var(--line);
+```
+
 }
 
-
 /* =========================================================
-   STORY SEQUENCE
+STORY SEQUENCE
 ========================================================= */
 
 .story-sequence {
-    position: relative;
+position: relative;
 }
 
 .story-step {
-    position: relative;
+position: relative;
 
-    min-height: 150vh;
+```
+min-height: 150vh;
 
-    display: flex;
+display: flex;
 
-    justify-content: center;
+justify-content: center;
 
-    align-items: flex-start;
+align-items: flex-start;
+```
+
 }
 
-
 /* =========================================================
-   STORY IMAGE
+STORY IMAGE
 ========================================================= */
 
 .story-image-wrap {
-    position: sticky;
+position: sticky;
 
-    top: 10vh;
+```
+top: 10vh;
 
-    width: min(62vw, 82vh);
+width: min(62vw, 82vh);
 
-    aspect-ratio: 1 / 1;
+aspect-ratio: 1 / 1;
 
-    flex: 0 0 auto;
+flex: 0 0 auto;
 
-    overflow: hidden;
+overflow: hidden;
 
-    background: #ffffff;
+background: #ffffff;
 
-    z-index: 2;
+z-index: 2;
+```
+
 }
 
 .story-image {
-    display: block;
+display: block;
 
-    width: 100%;
-    height: 100%;
+```
+width: 100%;
+height: 100%;
 
-    object-fit: cover;
+object-fit: cover;
 
-    opacity: 1;
+opacity: 1;
 
-    transform: scale(1);
+transform: scale(1);
 
-    will-change: transform, opacity;
+will-change: transform, opacity;
+```
+
 }
 
-
 /* =========================================================
-   STORY COPY
+STORY COPY
 ========================================================= */
 
 .story-copy {
-    position: absolute;
+position: absolute;
 
-    z-index: 10;
+```
+z-index: 10;
 
-    width: min(420px, 34vw);
+width: min(420px, 34vw);
 
-    padding: 0;
+padding: 0;
 
-    background: transparent;
+background: transparent;
 
-    opacity: 0;
+opacity: 0;
 
-    transform: translate3d(0, 70px, 0);
+transform: translate3d(0, 70px, 0);
 
-    will-change: transform, opacity;
+will-change: transform, opacity;
 
-    pointer-events: none;
+pointer-events: none;
+```
+
 }
 
-
 /* =========================================================
-   STORY COPY RHYTHM
+STORY COPY RHYTHM
 ========================================================= */
 
 .story-step:nth-child(odd) .story-copy {
-    left: 7vw;
+left: 7vw;
 
-    bottom: 25vh;
+```
+bottom: 25vh;
+```
+
 }
 
 .story-step:nth-child(even) .story-copy {
-    right: 7vw;
+right: 7vw;
 
-    bottom: 29vh;
+```
+bottom: 29vh;
+```
+
 }
 
-
 /* =========================================================
-   STORY NUMBER
+STORY NUMBER
 ========================================================= */
 
 .story-number {
-    display: block;
+display: block;
 
-    margin-bottom: 18px;
+```
+margin-bottom: 18px;
 
-    color: var(--muted);
+color: var(--muted);
 
-    font-size: 9px;
+font-size: 9px;
 
-    letter-spacing: 0.15em;
+letter-spacing: 0.15em;
+```
+
 }
 
-
 /* =========================================================
-   STORY TEXT
+STORY TEXT
 ========================================================= */
 
 .story-copy p {
-    margin: 0;
+margin: 0;
 
-    font-family: "Playfair Display", Georgia, serif;
+```
+font-family: "Playfair Display", Georgia, serif;
 
-    font-size: clamp(25px, 3vw, 44px);
+font-size: clamp(25px, 3vw, 44px);
 
-    line-height: 1.08;
+line-height: 1.08;
 
-    letter-spacing: -0.025em;
+letter-spacing: -0.025em;
+```
+
 }
 
-
 /* =========================================================
-   BLACK INTERLUDE
+BLACK INTERLUDE
 ========================================================= */
 
 .story-interlude {
-    position: relative;
+position: relative;
 
-    min-height: 75vh;
+```
+min-height: 75vh;
 
-    display: flex;
+display: flex;
 
-    justify-content: center;
-    align-items: center;
+justify-content: center;
+align-items: center;
 
-    padding: 12vw var(--page);
+padding: 12vw var(--page);
 
-    background: #000000;
-    color: #ffffff;
+background: #000000;
+color: #ffffff;
 
-    text-align: center;
+text-align: center;
+```
+
 }
 
 .story-interlude p {
-    max-width: 850px;
+max-width: 850px;
 
-    margin: 0;
+```
+margin: 0;
 
-    font-family: "Playfair Display", Georgia, serif;
+font-family: "Playfair Display", Georgia, serif;
 
-    font-size: clamp(42px, 7vw, 100px);
+font-size: clamp(42px, 7vw, 100px);
 
-    line-height: 0.98;
+line-height: 0.98;
 
-    letter-spacing: -0.04em;
+letter-spacing: -0.04em;
 
-    opacity: 0;
+opacity: 0;
 
-    transform: translateY(50px);
+transform: translateY(50px);
 
-    will-change: opacity, transform;
+will-change: opacity, transform;
+```
+
 }
 
-
 /* =========================================================
-   FINAL STORY STEP
+FINAL STORY STEP
 ========================================================= */
 
 .story-step-final {
-    min-height: 160vh;
+min-height: 160vh;
 
-    background: #000000;
+```
+background: #000000;
 
-    color: #ffffff;
+color: #ffffff;
+```
+
 }
 
 .story-step-final .story-image-wrap {
-    top: 0;
+top: 0;
 
-    width: min(100vw, 100vh);
+```
+width: min(100vw, 100vh);
 
-    height: min(100vw, 100vh);
+height: min(100vw, 100vh);
 
-    aspect-ratio: 1 / 1;
+aspect-ratio: 1 / 1;
 
-    background: #000000;
+background: #000000;
 
-    z-index: 2;
+z-index: 2;
+```
+
 }
 
 .story-step-final .story-image {
-    transform: scale(1);
+transform: scale(1);
 
-    object-fit: cover;
+```
+object-fit: cover;
+```
+
 }
 
-
 /* =========================================================
-   FINAL STORY TEXT
+FINAL STORY TEXT
 ========================================================= */
 
 .story-step-final .story-copy {
-    left: 50% !important;
+left: 50% !important;
 
-    right: auto !important;
+```
+right: auto !important;
 
-    bottom: 16vh;
+bottom: 16vh;
 
-    width: 90vw;
+width: 90vw;
 
-    color: #ffffff;
+color: #ffffff;
 
-    text-align: center;
+text-align: center;
 
-    transform: translate3d(-50%, 80px, 0);
+transform: translate3d(-50%, 80px, 0);
 
-    opacity: 0;
+opacity: 0;
+```
+
 }
 
 .story-step-final .story-number {
-    display: none;
+display: none;
 }
 
 .story-step-final .story-copy p {
-    font-size: clamp(48px, 8vw, 120px);
+font-size: clamp(48px, 8vw, 120px);
 
-    line-height: 0.9;
+```
+line-height: 0.9;
 
-    letter-spacing: -0.045em;
+letter-spacing: -0.045em;
+```
+
 }
 
-
 /* =========================================================
-   STORY END
+STORY END
 ========================================================= */
 
 .story-end {
-    min-height: 70vh;
+min-height: 70vh;
 
-    padding: 12vw var(--page);
+```
+padding: 12vw var(--page);
 
-    display: flex;
+display: flex;
 
-    flex-direction: column;
+flex-direction: column;
 
-    justify-content: center;
-    align-items: center;
+justify-content: center;
+align-items: center;
 
-    text-align: center;
+text-align: center;
 
-    border-top: 1px solid var(--line);
+border-top: 1px solid var(--line);
 
-    background: #ffffff;
+background: #ffffff;
+```
+
 }
 
 .story-end .label {
-    margin-bottom: 35px;
+margin-bottom: 35px;
 }
 
 .story-end-text {
-    max-width: 650px;
+max-width: 650px;
 
-    margin: 0;
+```
+margin: 0;
 
-    font-family: "Playfair Display", Georgia, serif;
+font-family: "Playfair Display", Georgia, serif;
 
-    font-size: clamp(30px, 4vw, 55px);
+font-size: clamp(30px, 4vw, 55px);
 
-    line-height: 1.08;
+line-height: 1.08;
 
-    letter-spacing: -0.03em;
+letter-spacing: -0.03em;
+```
+
 }
 
 
