@@ -945,7 +945,7 @@ BETWEEN IMAGE 06 + 07
 .worn-statement {
 position: relative;
 
-```
+
 width: 100%;
 box-sizing: border-box;
 
@@ -962,7 +962,7 @@ flex-direction: column;
 align-items: center;
 
 text-align: center;
-```
+
 
 }
 
@@ -973,7 +973,7 @@ WORN STATEMENT ORNAMENT
 .worn-statement-ornament {
 position: relative;
 
-```
+
 display: block;
 
 width: 150px;
@@ -994,7 +994,7 @@ transform-origin: center;
 .worn-ornament-circle {
 position: absolute;
 
-```
+
 left: 0;
 top: 15px;
 
@@ -1006,14 +1006,14 @@ box-sizing: border-box;
 border: 2px solid #111111;
 
 border-radius: 50%;
-```
+
 
 }
 
 .worn-ornament-square {
 position: absolute;
 
-```
+
 left: 58px;
 top: 0;
 
@@ -1025,14 +1025,14 @@ background: #111111;
 transform: rotate(45deg);
 
 box-sizing: border-box;
-```
+
 
 }
 
 .worn-ornament-line {
 position: absolute;
 
-```
+
 left: 0;
 bottom: 0;
 
@@ -1040,14 +1040,14 @@ width: 150px;
 height: 1px;
 
 background: #111111;
-```
+
 
 }
 
 .worn-statement-ornament::after {
 content: "";
 
-```
+
 position: absolute;
 
 left: 72px;
@@ -1074,20 +1074,19 @@ WORN STATEMENT TEXT
 .worn-statement-content {
 position: relative;
 
-```
+
 width: min(680px, 82vw);
 
 margin: 0 auto;
 
 z-index: 4;
-```
 
 }
 
 .worn-statement-content p {
 width: 100%;
 
-```
+
 margin: 0;
 
 font-family: "Playfair Display", Georgia, serif;
@@ -1115,7 +1114,7 @@ WORN MID STATEMENT — MOBILE
 
 @media (max-width: 700px) {
 
-```
+
 .worn-statement {
     margin: 0;
 
