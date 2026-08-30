@@ -938,146 +938,209 @@ h1 em {
 
 
 /* =========================================================
-   WORN MID STATEMENT
-   BETWEEN IMAGE 06 + 07
+WORN MID STATEMENT
+BETWEEN IMAGE 06 + 07
 ========================================================= */
 
 .worn-statement {
-    position: relative;
+position: relative;
 
-    width: 100%;
-    box-sizing: border-box;
+```
+width: 100%;
+box-sizing: border-box;
 
-    margin: 2vw 0;
+margin: 2vw 0;
 
-    padding: 12vw var(--page) 13vw;
+padding: 11vw var(--page) 12vw;
 
-    background: #ffffff;
+background: #ffffff;
 
-    overflow: hidden;
+overflow: hidden;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+
+text-align: center;
+```
+
 }
 
-
 /* =========================================================
-   WORN STATEMENT ORNAMENT
+WORN STATEMENT ORNAMENT
 ========================================================= */
 
 .worn-statement-ornament {
-    position: relative;
+position: relative;
 
-    display: block;
+```
+display: block;
 
-    width: 210px;
-    height: 110px;
+width: 150px;
+height: 78px;
 
-    margin: 0 0 65px 0;
+margin: 0 auto 48px;
 
-    pointer-events: none;
+pointer-events: none;
 
-    z-index: 2;
+z-index: 2;
+
+transform: scale(0.78);
+transform-origin: center;
+```
+
 }
 
 .worn-ornament-circle {
-    position: absolute;
+position: absolute;
 
-    left: 0;
-    top: 15px;
+```
+left: 0;
+top: 15px;
 
-    width: 72px;
-    height: 72px;
+width: 72px;
+height: 72px;
 
-    box-sizing: border-box;
+box-sizing: border-box;
 
-    border: 2px solid #111111;
+border: 2px solid #111111;
 
-    border-radius: 50%;
+border-radius: 50%;
+```
+
 }
 
 .worn-ornament-square {
-    position: absolute;
+position: absolute;
 
-    left: 58px;
-    top: 0;
+```
+left: 58px;
+top: 0;
 
-    width: 72px;
-    height: 72px;
+width: 72px;
+height: 72px;
 
-    background: #111111;
+background: #111111;
 
-    transform: rotate(45deg);
+transform: rotate(45deg);
 
-    box-sizing: border-box;
+box-sizing: border-box;
+```
+
 }
 
 .worn-ornament-line {
-    position: absolute;
+position: absolute;
 
-    left: 0;
-    bottom: 0;
+```
+left: 0;
+bottom: 0;
 
-    width: 210px;
-    height: 2px;
+width: 150px;
+height: 1px;
 
-    background: #111111;
+background: #111111;
+```
+
 }
 
 .worn-statement-ornament::after {
-    content: "";
+content: "";
 
-    position: absolute;
+```
+position: absolute;
 
-    left: 72px;
-    top: 28px;
+left: 72px;
+top: 28px;
 
-    width: 28px;
-    height: 28px;
+width: 28px;
+height: 28px;
 
-    background: #ffffff;
+background: #ffffff;
 
-    transform: rotate(45deg);
+transform: rotate(45deg);
 
-    z-index: 3;
+z-index: 3;
 
-    pointer-events: none;
+pointer-events: none;
+```
+
 }
 
-
 /* =========================================================
-   WORN STATEMENT TEXT
+WORN STATEMENT TEXT
 ========================================================= */
 
 .worn-statement-content {
-    position: relative;
+position: relative;
 
-    width: 100%;
-    max-width: 1000px;
+```
+width: min(680px, 82vw);
 
-    margin: 0;
+margin: 0 auto;
 
-    z-index: 4;
+z-index: 4;
+```
+
 }
 
 .worn-statement-content p {
-    width: 100%;
-    max-width: 1000px;
+width: 100%;
 
-    margin: 0;
+```
+margin: 0;
 
-    font-family: "Playfair Display", Georgia, serif;
+font-family: "Playfair Display", Georgia, serif;
 
-    font-size: clamp(42px, 5.2vw, 76px);
+font-size: clamp(20px, 2.25vw, 30px);
 
-    line-height: 1.04;
+line-height: 1.24;
 
-    font-weight: 400;
+font-weight: 400;
 
-    letter-spacing: -0.035em;
+letter-spacing: -0.018em;
 
-    color: #111111;
+color: #111111;
+```
+
 }
 
 .worn-statement-content strong {
-    font-weight: 400;
+font-weight: 400;
+}
+
+/* =========================================================
+WORN MID STATEMENT — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+```
+.worn-statement {
+    margin: 0;
+
+    padding: 20vw var(--page) 22vw;
+}
+
+.worn-statement-ornament {
+    margin-bottom: 38px;
+
+    transform: scale(0.68);
+}
+
+.worn-statement-content {
+    width: 88vw;
+}
+
+.worn-statement-content p {
+    font-size: clamp(19px, 5vw, 25px);
+
+    line-height: 1.25;
+
+    letter-spacing: -0.015em;
+}
+```
+
 }
 
 
