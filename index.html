@@ -244,236 +244,398 @@
     </section>
 
 
-    <!-- =================================================
-         STORY 01 — BEASTS WE HOLD
-    ================================================== -->
+```css
+/* =========================================================
+   STORY — BEASTS WE HOLD
+========================================================= */
 
-    <section class="story" id="beasts">
+.story {
+    position: relative;
 
+    margin-top: 12vw;
 
-        <!-- STORY INTRO -->
+    border-top: 1px solid var(--line);
 
-        <div class="story-intro">
+    overflow: clip;
+}
 
-            <p class="label">
-                Story 01
-            </p>
 
-            <h2>
-                Beasts<br>
-                <em>we hold.</em>
-            </h2>
+/* =========================================================
+   STORY INTRO
+========================================================= */
 
-            <p class="story-subtitle">
-                Animal forms in Berlin's everyday architecture.
-            </p>
+.story-intro {
+    min-height: 100svh;
 
-            <div class="story-scroll-hint">
-                <span>Scroll</span>
-                <span class="story-scroll-line"></span>
-            </div>
+    padding: 14vw var(--page) 8vw;
 
-        </div>
+    display: flex;
 
+    flex-direction: column;
 
-        <!-- STORY SEQUENCE -->
+    justify-content: center;
+    align-items: center;
 
-        <div class="story-sequence">
+    text-align: center;
+}
 
+.story-intro .label {
+    margin-bottom: 35px;
+}
 
-            <!-- STEP 01 -->
+.story-intro h2 {
+    margin: 0;
 
-            <div
-                class="story-step"
-                data-story="1"
-            >
+    font-size: clamp(64px, 11vw, 150px);
 
-                <div class="story-image-wrap">
+    line-height: 0.86;
 
-                    <img
-                        class="story-image"
-                        src="IMG_4587%203.jpg"
-                        alt="Animal-shaped architectural handrail in Berlin"
-                    >
+    font-weight: 400;
 
-                </div>
+    letter-spacing: -0.065em;
+}
 
-                <div class="story-copy">
+.story-intro h2 em {
+    font-family: "Playfair Display", Georgia, serif;
 
-                    <span class="story-number">
-                        01
-                    </span>
+    font-style: italic;
 
-                    <p>
-                        We hold them without thinking.
-                    </p>
+    font-weight: 400;
 
-                </div>
+    letter-spacing: -0.045em;
+}
 
-            </div>
+.story-subtitle {
+    margin: 45px 0 0;
 
+    color: var(--muted);
 
-            <!-- STEP 02 -->
+    font-size: 13px;
+}
 
-            <div
-                class="story-step"
-                data-story="2"
-            >
 
-                <div class="story-image-wrap">
+/* =========================================================
+   STORY SCROLL HINT
+========================================================= */
 
-                    <img
-                        class="story-image"
-                        src="IMG_7035%20Edited.jpg"
-                        alt="Animal ornament in Berlin architecture"
-                    >
+.story-scroll-hint {
+    display: flex;
 
-                </div>
+    flex-direction: column;
 
-                <div class="story-copy">
+    align-items: center;
 
-                    <span class="story-number">
-                        02
-                    </span>
+    gap: 12px;
 
-                    <p>
-                        They wait at the edge of movement.
-                    </p>
+    margin-top: 90px;
 
-                </div>
+    color: var(--muted);
 
-            </div>
+    font-size: 9px;
 
+    letter-spacing: 0.15em;
 
-            <!-- BLACK INTERLUDE -->
+    text-transform: uppercase;
+}
 
-            <div class="story-interlude">
+.story-scroll-line {
+    width: 1px;
 
-                <p>
-                    Not quite private.<br>
-                    Not quite public.<br>
-                    <em>Somewhere in between.</em>
-                </p>
+    height: 45px;
 
-            </div>
+    background: var(--line);
+}
 
 
-            <!-- STEP 03 -->
+/* =========================================================
+   STORY SEQUENCE
+========================================================= */
 
-            <div
-                class="story-step"
-                data-story="3"
-            >
+.story-sequence {
+    position: relative;
+}
 
-                <div class="story-image-wrap">
+.story-step {
+    position: relative;
 
-                    <img
-                        class="story-image"
-                        src="IMG_9379.jpg"
-                        alt="Animal architectural detail in a Berlin staircase"
-                    >
+    min-height: 150vh;
 
-                </div>
+    display: flex;
 
-                <div class="story-copy">
+    justify-content: center;
 
-                    <span class="story-number">
-                        03
-                    </span>
+    align-items: flex-start;
+}
 
-                    <p>
-                        Staircases. Entrances. Corridors.
-                    </p>
 
-                </div>
+/* =========================================================
+   STORY IMAGE
+========================================================= */
 
-            </div>
+.story-image-wrap {
+    position: sticky;
 
+    top: 10vh;
 
-            <!-- STEP 04 -->
+    width: min(62vw, 82vh);
 
-            <div
-                class="story-step"
-                data-story="4"
-            >
+    aspect-ratio: 1 / 1;
 
-                <div class="story-image-wrap">
+    flex: 0 0 auto;
 
-                    <img
-                        class="story-image"
-                        src="IMG_9123%20Edited.jpg"
-                        alt="Decorative animal handrail in Berlin"
-                    >
+    overflow: hidden;
 
-                </div>
+    background: #ffffff;
 
-                <div class="story-copy">
+    z-index: 2;
+}
 
-                    <span class="story-number">
-                        04
-                    </span>
+.story-image {
+    display: block;
 
-                    <p>
-                        Something made to be held.
-                    </p>
+    width: 100%;
+    height: 100%;
 
-                </div>
+    object-fit: cover;
 
-            </div>
+    opacity: 1;
 
+    transform: scale(1);
 
-            <!-- STEP 05 — FINAL -->
+    will-change: transform, opacity;
+}
 
-            <div
-                class="story-step story-step-final"
-                data-story="5"
-            >
 
-                <div class="story-image-wrap">
+/* =========================================================
+   STORY COPY
+========================================================= */
 
-                    <img
-                        class="story-image"
-                        src="IMG_8316%203.jpg"
-                        alt="Architectural animal ornament in Berlin"
-                    >
+.story-copy {
+    position: absolute;
 
-                </div>
+    z-index: 10;
 
-                <div class="story-copy">
+    width: min(420px, 34vw);
 
-                    <span class="story-number">
-                        05
-                    </span>
+    padding: 0;
 
-                    <p>
-                        TIERISCHE HANDLÄUFE<br>
-                        <em>Rampes animalières</em>
-                    </p>
+    background: transparent;
 
-                </div>
+    opacity: 0;
 
-            </div>
+    transform: translate3d(0, 70px, 0);
 
+    will-change: transform, opacity;
 
-        </div>
+    pointer-events: none;
+}
 
 
-        <!-- STORY END -->
+/* =========================================================
+   STORY COPY RHYTHM
+   Text sits clearly below / beside the image
+========================================================= */
 
-        <div class="story-end">
+.story-step:nth-child(odd) .story-copy {
+    left: 7vw;
 
-            <p class="label">
-                Beasts We Hold
-            </p>
+    bottom: 20vh;
+}
 
-            <p class="story-end-text">
-                Animal forms brought into the staircases of Berlin's bourgeois homes —
-                where ornament, status and imagination became part of everyday life.
-            </p>
+.story-step:nth-child(even) .story-copy {
+    right: 7vw;
 
-        </div>
+    bottom: 24vh;
+}
 
-    </section>
+
+/* =========================================================
+   STORY NUMBER
+========================================================= */
+
+.story-number {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    letter-spacing: 0.15em;
+}
+
+
+/* =========================================================
+   STORY TEXT
+========================================================= */
+
+.story-copy p {
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(25px, 3vw, 44px);
+
+    line-height: 1.08;
+
+    letter-spacing: -0.025em;
+}
+
+
+/* =========================================================
+   BLACK INTERLUDE
+========================================================= */
+
+.story-interlude {
+    position: relative;
+
+    min-height: 75vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 12vw var(--page);
+
+    background: #000000;
+    color: #ffffff;
+
+    text-align: center;
+}
+
+.story-interlude p {
+    max-width: 850px;
+
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(42px, 7vw, 100px);
+
+    line-height: 0.98;
+
+    letter-spacing: -0.04em;
+
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    will-change: opacity, transform;
+}
+
+
+/* =========================================================
+   FINAL STORY STEP
+========================================================= */
+
+.story-step-final {
+    min-height: 160vh;
+
+    background: #000000;
+
+    color: #ffffff;
+}
+
+.story-step-final .story-image-wrap {
+    top: 0;
+
+    width: min(100vw, 100vh);
+
+    height: min(100vw, 100vh);
+
+    aspect-ratio: 1 / 1;
+
+    background: #000000;
+
+    z-index: 2;
+}
+
+.story-step-final .story-image {
+    transform: scale(1);
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   FINAL STORY TEXT
+========================================================= */
+
+.story-step-final .story-copy {
+    left: 50% !important;
+
+    right: auto !important;
+
+    bottom: 16vh;
+
+    width: 90vw;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    transform: translate3d(-50%, 80px, 0);
+
+    opacity: 0;
+}
+
+.story-step-final .story-number {
+    display: none;
+}
+
+.story-step-final .story-copy p {
+    font-size: clamp(48px, 8vw, 120px);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.045em;
+}
+
+
+/* =========================================================
+   STORY END
+========================================================= */
+
+.story-end {
+    min-height: 70vh;
+
+    padding: 12vw var(--page);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    border-top: 1px solid var(--line);
+
+    background: #ffffff;
+}
+
+.story-end .label {
+    margin-bottom: 35px;
+}
+
+.story-end-text {
+    max-width: 650px;
+
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(30px, 4vw, 55px);
+
+    line-height: 1.08;
+
+    letter-spacing: -0.03em;
+}
+```
+
 
 
  <!-- =================================================
@@ -769,291 +931,328 @@
 
 
 </section>
-   
-<!-- =================================================
-     STORY 03 — UP & DOWN
-================================================== -->
+```css
+/* =========================================================
+   STORY 03 — UP & DOWN
+========================================================= */
 
-<section class="story updown-story" id="up-down">
+.updown-story {
+    position: relative;
 
+    width: 100%;
 
-    <!-- STORY INTRO -->
+    background: #ffffff;
 
-    <div class="story-intro">
+    overflow: visible;
+}
 
-        <p class="label">
-            Story 03
-        </p>
 
-        <h2>
-            Up<br>
-            <em>& Down.</em>
-        </h2>
+/* =========================================================
+   UP & DOWN — INTRO
+========================================================= */
 
-        <p class="story-subtitle">
-            Staircases, landings and passages through Berlin.
-        </p>
+.updown-story .story-intro {
+    padding-top: 14vw;
+}
 
-        <div class="story-scroll-hint">
-            <span>Scroll</span>
-            <span class="story-scroll-line"></span>
-        </div>
 
-    </div>
+/* =========================================================
+   UP & DOWN — SEQUENCE
+========================================================= */
 
+.updown-story .story-sequence {
+    display: flex;
 
-    <!-- STORY SEQUENCE -->
+    flex-direction: column;
 
-    <div class="story-sequence">
+    gap: 15vw;
 
+    width: 100%;
+}
 
-   <!-- STEP 01 -->
 
-<div
-    class="story-step"
-    data-story="1"
->
+/* =========================================================
+   UP & DOWN — STEP
+========================================================= */
 
-    <div class="story-image-wrap">
+.updown-story .story-step {
+    position: relative;
 
-        <img
-            class="story-image"
-            src="up1.jpg"
-            alt="Staircase in Berlin"
-        >
+    min-height: 155vh;
 
-    </div>
+    display: flex;
 
-    <div class="story-copy">
+    flex-direction: column;
 
-        <span class="story-number">
-            01
-        </span>
+    align-items: center;
 
-        <p>
-            Some houses<br>
-            keep their royal side.<br>
-            Look up.
-        </p>
+    justify-content: flex-start;
+}
 
-    </div>
 
-</div>
+/* =========================================================
+   UP & DOWN — IMAGES
+========================================================= */
 
+.updown-story .story-image-wrap {
+    position: sticky;
 
-       <!-- STEP 02 -->
+    top: 10vh;
 
-<div
-    class="story-step"
-    data-story="2"
->
+    width: min(68vw, 900px);
 
-    <div class="story-image-wrap">
+    aspect-ratio: 1 / 1;
 
-        <img
-            class="story-image"
-            src="up2.jpg"
-            alt="Staircase in Berlin"
-        >
+    overflow: hidden;
 
-    </div>
+    flex-shrink: 0;
 
-    <div class="story-copy">
+    background: #ffffff;
 
-        <span class="story-number">
-            02
-        </span>
+    z-index: 2;
+}
 
-        <p>
-            Daily ways.<br>
-            Different perspectives.
-        </p>
 
-    </div>
+/* =========================================================
+   CENTER ALL IMAGES
+========================================================= */
 
-</div>
+.updown-story .story-image-wrap {
+    margin-left: auto;
+    margin-right: auto;
+}
 
-      <!-- STEP 03 -->
 
-<div
-    class="story-step"
-    data-story="3"
->
+/* =========================================================
+   UP & DOWN — COPY
+   Text sits below the image instead of beside it.
+========================================================= */
 
-    <div class="story-image-wrap">
+.updown-story .story-copy {
+    position: absolute;
 
-        <img
-            class="story-image"
-            src="up3.jpg"
-            alt="Architectural staircase in Berlin"
-        >
+    z-index: 5;
 
-    </div>
+    width: min(420px, 34vw);
 
-    <div class="story-copy">
+    left: 50%;
 
-        <span class="story-number">
-            03
-        </span>
+    top: calc(10vh + min(68vw, 900px) + 5vw);
 
-        <p>
-            Geometry is everywhere.<br>
-            In architecture.<br>
-            In nature.
-        </p>
+    right: auto;
 
-    </div>
+    margin: 0;
 
-</div>
-       <!-- STEP 04 -->
+    padding: 0;
 
-<div
-    class="story-step"
-    data-story="4"
->
+    background: transparent;
 
-    <div class="story-image-wrap">
+    opacity: 0;
 
-        <img
-            class="story-image"
-            src="up4.jpg"
-            alt="Geometric staircase in Berlin"
-        >
+    transform: translate3d(-50%, 50px, 0);
 
-    </div>
+    will-change: transform, opacity;
 
-    <div class="story-copy">
+    pointer-events: none;
 
-        <span class="story-number">
-            04
-        </span>
+    text-align: center;
+}
 
-        <p>
-            How do we<br>
-            live in these spaces?
-        </p>
 
-    </div>
+/* =========================================================
+   UP & DOWN — NUMBER
+========================================================= */
 
-</div>
-      <!-- STEP 05 -->
+.updown-story .story-number {
+    display: block;
 
-<div
-    class="story-step"
-    data-story="5"
->
+    margin-bottom: 18px;
 
-    <div class="story-image-wrap">
+    color: var(--muted);
 
-        <img
-            class="story-image"
-            src="up5.jpg"
-            alt="Staircase architecture in Berlin"
-        >
+    font-size: 9px;
 
-    </div>
+    letter-spacing: 0.15em;
+}
 
-    <div class="story-copy">
 
-        <span class="story-number">
-            05
-        </span>
+/* =========================================================
+   UP & DOWN — TEXT
+========================================================= */
 
-        <p>
-            Architecture<br>
-            draws the movement<br>
-            before we take it.
-        </p>
+.updown-story .story-copy p {
+    margin: 0;
 
-    </div>
+    font-family: "Playfair Display", Georgia, serif;
 
-</div>
+    font-size: clamp(25px, 3vw, 44px);
 
-       <!-- STEP 06 -->
+    line-height: 1.08;
 
-<div
-    class="story-step"
-    data-story="6"
->
+    letter-spacing: -0.025em;
+}
 
-    <div class="story-image-wrap">
 
-        <img
-            class="story-image"
-            src="IMG_5520Edited.jpg"
-            alt="Architectural stairway in Berlin"
-        >
+/* =========================================================
+   UP & DOWN — FINAL STEP
+========================================================= */
 
-    </div>
+.updown-story .story-step-final {
+    min-height: 160vh;
 
-    <div class="story-copy">
+    background: #000000;
 
-        <span class="story-number">
-            06
-        </span>
+    color: #ffffff;
+}
 
-        <p>
-            Some see<br>
-            black and white<br>
-            in colors.
-        </p>
+.updown-story .story-step-final .story-image-wrap {
+    top: 0;
 
-    </div>
+    width: min(100vw, 100vh);
 
-</div>
-        <!-- STEP 07 — FINAL -->
+    height: min(100vw, 100vh);
 
-        <div
-            class="story-step story-step-final"
-            data-story="7"
-        >
+    aspect-ratio: 1 / 1;
 
-            <div class="story-image-wrap">
+    background: #000000;
 
-                <img
-                    class="story-image"
-                    src="IMG_8869EditedKopie.jpg"
-                    alt="Staircase and architectural geometry in Berlin"
-                >
+    z-index: 2;
+}
 
-            </div>
 
-            <div class="story-copy">
+/* =========================================================
+   UP & DOWN — FINAL COPY
+========================================================= */
 
-                <span class="story-number">
-                    07
-                </span>
+.updown-story .story-step-final .story-copy {
+    left: 50%;
 
-                <p>
-                    UP & DOWN.
-                </p>
+    right: auto;
 
-            </div>
+    top: auto;
 
-        </div>
+    bottom: 16vh;
 
+    width: 90vw;
 
-    </div>
+    color: #ffffff;
 
+    text-align: center;
 
-    <!-- STORY END -->
+    transform: translate3d(-50%, 80px, 0);
 
-    <div class="story-end">
+    opacity: 0;
+}
 
-        <p class="label">
-            Up & Down
-        </p>
+.updown-story .story-step-final .story-number {
+    display: none;
+}
 
-        <p class="story-end-text">
-            Berlin is full of ways up and down —
-            each staircase carrying its own geometry,
-            rhythm and history.
-        </p>
+.updown-story .story-step-final .story-copy p {
+    font-size: clamp(48px, 8vw, 120px);
 
-    </div>
+    line-height: 0.9;
 
-</section>
-```
+    letter-spacing: -0.045em;
+}
+
+
+/* =========================================================
+   UP & DOWN — END
+========================================================= */
+
+.updown-story .story-end {
+    padding-top: 15vw;
+
+    padding-bottom: 4vw;
+}
+
+.updown-story .story-end-text {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(30px, 4vw, 55px);
+
+    line-height: 1.08;
+
+    letter-spacing: -0.03em;
+}
+
+
+/* =========================================================
+   UP & DOWN — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .updown-story .story-intro {
+        padding-top: 25vw;
+    }
+
+    .updown-story .story-sequence {
+        gap: 24vw;
+    }
+
+    .updown-story .story-step {
+        min-height: 145vh;
+    }
+
+    .updown-story .story-image-wrap {
+        position: sticky;
+
+        top: 8vh;
+
+        width: 88vw;
+
+        max-width: 100%;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /*
+       Mobile keeps the copy below the image,
+       avoiding overlap in portrait and landscape.
+    */
+
+    .updown-story .story-copy {
+        width: 80vw;
+
+        left: 50%;
+
+        top: calc(8vh + 88vw + 7vw);
+
+        right: auto;
+
+        text-align: center;
+
+        transform: translate3d(-50%, 45px, 0);
+    }
+
+    .updown-story .story-end {
+        padding-top: 28vw;
+
+        padding-bottom: 10vw;
+    }
+
+    .updown-story .story-end-text {
+        max-width: 85vw;
+
+        font-size: clamp(29px, 8vw, 42px);
+    }
+
+    .updown-story .story-step-final .story-copy {
+        top: auto;
+
+        bottom: 16vh;
+
+        width: 90vw;
+    }
+}
+
     <!-- =================================================
          STATEMENT
     ================================================== -->
