@@ -1303,157 +1303,173 @@ letter-spacing: -0.03em;
 }
 
 /* =========================================================
-   STORY 03 — UP & DOWN
+STORY 03 — UP & DOWN
 ========================================================= */
 
 .updown-story {
-    position: relative;
+position: relative;
 
-    width: 100%;
+```
+width: 100%;
 
-    background: #ffffff;
+background: #ffffff;
 
-    overflow: visible;
+overflow: visible;
+```
+
 }
 
-
 /* =========================================================
-   UP & DOWN — INTRO
+UP & DOWN — INTRO
 ========================================================= */
 
 .updown-story .story-intro {
-    padding-top: 14vw;
+padding-top: 14vw;
 }
 
-
 /* =========================================================
-   UP & DOWN — SEQUENCE
+UP & DOWN — SEQUENCE
 ========================================================= */
 
 .updown-story .story-sequence {
-    display: flex;
+display: flex;
 
-    flex-direction: column;
+```
+flex-direction: column;
 
-    gap: 15vw;
+gap: 15vw;
 
-    width: 100%;
+width: 100%;
+```
+
 }
 
-
 /* =========================================================
-   UP & DOWN — IMAGES
+UP & DOWN — IMAGES
 ========================================================= */
 
 .updown-story .story-image-wrap {
-    position: relative;
+position: relative;
 
-    width: min(68vw, 900px);
+```
+width: min(68vw, 900px);
 
-    aspect-ratio: 1 / 1;
+aspect-ratio: 1 / 1;
 
-    overflow: hidden;
+overflow: hidden;
 
-    flex-shrink: 0;
+flex-shrink: 0;
+```
+
 }
 
-
 /* =========================================================
-   CENTER ALL IMAGES
+CENTER ALL IMAGES
 ========================================================= */
 
 .updown-story .story-image-wrap {
-    margin-left: auto;
-    margin-right: auto;
+margin-left: auto;
+margin-right: auto;
 }
 
-
 /* =========================================================
-   UP & DOWN — COPY
+UP & DOWN — COPY
 ========================================================= */
 
 .updown-story .story-copy {
-    position: absolute;
+position: absolute;
 
-    z-index: 5;
+```
+z-index: 5;
+```
+
 }
 
-
 /* =========================================================
-   UP & DOWN — LOWER COPY — DESKTOP ONLY
+UP & DOWN — LOWER COPY — DESKTOP ONLY
 ========================================================= */
 
 @media (min-width: 701px) {
 
-    .updown-story .story-step[data-story="2"] .story-copy,
-    .updown-story .story-step[data-story="4"] .story-copy,
-    .updown-story .story-step[data-story="6"] .story-copy {
-        margin-top: 40px;
-    }
+```
+.updown-story .story-step[data-story="2"] .story-copy,
+.updown-story .story-step[data-story="4"] .story-copy,
+.updown-story .story-step[data-story="6"] .story-copy {
+    margin-top: 40px;
+}
+```
 
 }
 
-
 /* =========================================================
-   UP & DOWN — END
+UP & DOWN — END
 ========================================================= */
 
 .updown-story .story-end {
-    padding-top: 15vw;
+padding-top: 15vw;
 
-    padding-bottom: 4vw;
+```
+padding-bottom: 4vw;
+```
+
 }
 
 .updown-story .story-end-text {
-    max-width: 600px;
+max-width: 600px;
 
-    margin: 0 auto;
+```
+margin: 0 auto;
 
-    font-family: "Playfair Display", Georgia, serif;
+font-family: "Playfair Display", Georgia, serif;
 
-    font-size: clamp(30px, 4vw, 55px);
+font-size: clamp(30px, 4vw, 55px);
 
-    line-height: 1.08;
+line-height: 1.08;
 
-    letter-spacing: -0.03em;
+letter-spacing: -0.03em;
+```
+
 }
 
-
 /* =========================================================
-   UP & DOWN — MOBILE
+UP & DOWN — MOBILE
 ========================================================= */
 
 @media (max-width: 700px) {
 
-    .updown-story .story-intro {
-        padding-top: 25vw;
-    }
-
-    .updown-story .story-sequence {
-        gap: 24vw;
-    }
-
-    .updown-story .story-image-wrap {
-        width: 88vw;
-
-        max-width: 100%;
-
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .updown-story .story-end {
-        padding-top: 28vw;
-
-        padding-bottom: 10vw;
-    }
-
-    .updown-story .story-end-text {
-        max-width: 85vw;
-
-        font-size: clamp(29px, 8vw, 42px);
-    }
+```
+.updown-story .story-intro {
+    padding-top: 25vw;
 }
+
+.updown-story .story-sequence {
+    gap: 24vw;
+}
+
+.updown-story .story-image-wrap {
+    width: 88vw;
+
+    max-width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.updown-story .story-end {
+    padding-top: 28vw;
+
+    padding-bottom: 10vw;
+}
+
+.updown-story .story-end-text {
+    max-width: 85vw;
+
+    font-size: clamp(29px, 8vw, 42px);
+}
+```
+
+}
+
 /* =========================================================
    STATEMENT
 ========================================================= */
