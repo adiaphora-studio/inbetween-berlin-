@@ -569,16 +569,22 @@ h1 em {
    STORY COPY RHYTHM
 ========================================================= */
 
+/*
+   Keep the text clearly outside the image area.
+   This preserves the existing animation while giving
+   Safari a little more breathing room.
+*/
+
 .story-step:nth-child(odd) .story-copy {
     left: 7vw;
 
-    bottom: 25vh;
+    bottom: 20vh;
 }
 
 .story-step:nth-child(even) .story-copy {
     right: 7vw;
 
-    bottom: 29vh;
+    bottom: 24vh;
 }
 
 
@@ -767,7 +773,6 @@ h1 em {
 
     letter-spacing: -0.03em;
 }
-
 
 /* =========================================================
    STORY 02 — WORN SURFACES
