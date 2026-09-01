@@ -449,193 +449,154 @@ function updateStory() {
             image.style.transform =
                 `scale(${imageScale})`;
 
-/* =================================================
-   TEXT FADE IN
-================================================= */
 
-const textIn =
-    smoothstep(
-        clamp(
-            (
-                progress -
-                0.20
-            ) /
-            0.28,
-            0,
-            1
-        )
-    );
+            /* =================================================
+               TEXT
+            ================================================= */
+
+            const copy =
+                step.querySelector(
+                    ".story-copy"
+                );
+
+            if (!copy) {
+                return;
+            }
 
 
-/* =================================================
-   TEXT FADE OUT
-================================================= */
+            /* =================================================
+               TEXT FADE IN
+            ================================================= */
 
-const textOut =
-    1 -
-    smoothstep(
-        clamp(
-            (
-                progress -
-                0.72
-            ) /
-            0.20,
-            0,
-            1
-        )
-    );
-
-
-/* =================================================
-   TEXT OPACITY
-================================================= */
-
-const textOpacity =
-    Math.min(
-        textIn,
-        textOut
-    );
+            const textIn =
+                smoothstep(
+                    clamp(
+                        (
+                            progress -
+                            0.20
+                        ) /
+                        0.28,
+                        0,
+                        1
+                    )
+                );
 
 
-/* =================================================
-   TEXT MOVEMENT
-================================================= */
+            /* =================================================
+               TEXT FADE OUT
+            ================================================= */
 
-const baseMovement =
-    isMobile
-        ? 42
-        : 42;
-
-
-const textMovement =
-    baseMovement -
-    (
-        textOpacity *
-        baseMovement
-    );
-
-
-/*
-    Mobile gets an additional reduction
-    in movement so the text feels calmer
-    during finger scrolling.
-*/
-
-const finalTextMovement =
-    isMobile
-        ? textMovement * 0.72
-        : textMovement;
+            const textOut =
+                1 -
+                smoothstep(
+                    clamp(
+                        (
+                            progress -
+                            0.72
+                        ) /
+                        0.20,
+                        0,
+                        1
+                    )
+                );
 
 
-if (
-    step.classList.contains(
-        "story-step-final"
-    )
-) {
+            /* =================================================
+               TEXT OPACITY
+            ================================================= */
 
-    const finalMovement =
-        isMobile
-            ? 58
-            : 80;
-
-
-    copy.style.transform =
-        `translate3d(
-            -50%,
-            ${finalMovement -
-            textOpacity *
-            finalMovement}px,
-            0
-        )`;
-
-} else {
-
-    copy.style.transform =
-        `translate3d(
-            0,
-            ${finalTextMovement}px,
-            0
-        )`;
-}
+            const textOpacity =
+                Math.min(
+                    textIn,
+                    textOut
+                );
 
 
-copy.style.opacity =
-    textOpacity;
+            /* =================================================
+               TEXT MOVEMENT
+            ================================================= */
+
+            const baseMovement =
+                isMobile
+                    ? 42
+                    : 42;
 
 
-/* =================================================
-   TEXT COLOR
-   BLACK → WHITE
-================================================= */
-
-if (
-    !step.classList.contains(
-        "story-step-final"
-    )
-) {
-
-    const colorProgress =
-        smoothstep(
-            clamp(
+            const textMovement =
+                baseMovement -
                 (
-                    progress -
-                    0.36
-                ) /
-                0.20,
-                0,
-                1
-            )
-        );
+                    textOpacity *
+                    baseMovement
+                );
 
 
-    const r =
-        Math.round(
-            21 -
-            (
-                21 *
-                colorProgress
-            )
-        );
+            const finalTextMovement =
+                isMobile
+                    ? textMovement * 0.72
+                    : textMovement;
 
 
-    const g =
-        Math.round(
-            21 -
-            (
-                21 *
-                colorProgress
-            )
-        );
+            if (
+                step.classList.contains(
+                    "story-step-final"
+                )
+            ) {
+
+                const finalMovement =
+                    isMobile
+                        ? 58
+                        : 80;
 
 
-    const b =
-        Math.round(
-            21 -
-            (
-                21 *
-                colorProgress
-            )
-        );
+                copy.style.transform =
+                    `translate3d(
+                        -50%,
+                        ${finalMovement -
+                        textOpacity *
+                        finalMovement}px,
+                        0
+                    )`;
+
+            } else {
+
+                copy.style.transform =
+                    `translate3d(
+                        0,
+                        ${finalTextMovement}px,
+                        0
+                    )`;
+            }
 
 
-    copy.style.color =
-        `rgb(${r}, ${g}, ${b})`;
-}
+            /* =================================================
+               TEXT VISIBILITY
+            ================================================= */
+
+            copy.style.opacity =
+                textOpacity;
 
 
-/* =================================================
-   FINAL STORY TEXT
-================================================= */
+            /* =================================================
+               TEXT COLOR
+            ================================================= */
 
-if (
-    step.classList.contains(
-        "story-step-final"
-    )
-) {
+            copy.style.color =
+                "#ffffff";
 
-    copy.style.color =
-        "#ffffff";
-}
+
+            /* =================================================
+               FINAL STORY TEXT
+            ================================================= */
+
+            if (
+                step.classList.contains(
+                    "story-step-final"
+                )
+            ) {
+
+                copy.style.color =
+                    "#ffffff";
+            }
 
         }
     );
@@ -718,7 +679,6 @@ if (
             `translateY(${movement}px)`;
     }
 }
-
 
 /* =========================================================
    REQUEST ANIMATION FRAME
