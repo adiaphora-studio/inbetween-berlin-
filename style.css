@@ -726,7 +726,6 @@ h1 em {
     letter-spacing: -0.045em;
 }
 
-
 /* =========================================================
    STORY END
 ========================================================= */
@@ -734,7 +733,7 @@ h1 em {
 .story-end {
     min-height: 70vh;
 
-    padding: 12vw var(--page);
+    padding: 12vw var(--page) 9vw;
 
     display: flex;
 
@@ -769,6 +768,82 @@ h1 em {
 }
 
 
+/* =========================================================
+   STORY END — DISCOVER MORE
+========================================================= */
+
+.story-discover {
+    margin-top: 7vw;
+
+    display: inline-flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 14px;
+
+    color: #111111;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+
+    transition: opacity 0.35s ease;
+}
+
+.story-discover-line {
+    width: 90px;
+
+    height: 1px;
+
+    background: #111111;
+
+    transform-origin: center;
+
+    transition:
+        width 0.45s ease,
+        transform 0.45s ease;
+}
+
+.story-discover:hover {
+    opacity: 0.65;
+}
+
+.story-discover:hover .story-discover-line {
+    width: 125px;
+
+    transform: translateX(8px);
+}
+
+
+/* =========================================================
+   STORY END — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .story-end {
+        min-height: 65vh;
+
+        padding: 22vw var(--page) 16vw;
+    }
+
+    .story-end-text {
+        max-width: 88vw;
+
+        font-size: clamp(29px, 8vw, 42px);
+    }
+
+    .story-discover {
+        margin-top: 15vw;
+    }
+
+}
 /* =========================================================
    STORY 02 — WORN SURFACES
 ========================================================= */
