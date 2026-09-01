@@ -618,6 +618,57 @@ h1 em {
     line-height: 1.08;
 
     letter-spacing: -0.025em;
+
+    color: #ffffff;
+
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   STORY COPY
+========================================================= */
+
+.story-copy {
+    position: absolute;
+
+    z-index: 10;
+
+    width: min(420px, 34vw);
+
+    padding: 0;
+
+    background: transparent;
+
+    opacity: 0;
+
+    transform: translate3d(0, 70px, 0);
+
+    will-change: transform, opacity;
+
+    pointer-events: none;
+}
+/* =========================================================
+   STORY COPY RHYTHM — DESKTOP
+========================================================= */
+
+@media (min-width: 701px) {
+
+    .story-step .story-copy {
+        left: 50%;
+        right: auto;
+
+        bottom: auto;
+
+        width: min(620px, 62vw);
+
+        margin-left: -310px;
+
+        margin-top: calc(min(62vw, 82vh) + 55px);
+
+        text-align: center;
+    }
+
 }
 
 
