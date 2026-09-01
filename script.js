@@ -451,6 +451,7 @@ function updateStory() {
 
 
        
+```js
 /* =================================================
    TEXT
 ================================================= */
@@ -465,9 +466,12 @@ if (!copy) {
 }
 
 
-/* =================================================
-   TEXT FADE IN
-================================================= */
+/*
+    Softer entrance.
+
+    The text begins earlier and
+    takes longer to settle into place.
+*/
 
 const textIn =
     smoothstep(
@@ -483,9 +487,12 @@ const textIn =
     );
 
 
-/* =================================================
-   TEXT FADE OUT
-================================================= */
+/*
+    Softer exit.
+
+    The text remains present slightly
+    longer before beginning to disappear.
+*/
 
 const textOut =
     1 -
@@ -493,18 +500,14 @@ const textOut =
         clamp(
             (
                 progress -
-                0.70
+                0.78
             ) /
-            0.25,
+            0.22,
             0,
             1
         )
     );
 
-
-/* =================================================
-   TEXT OPACITY
-================================================= */
 
 const textOpacity =
     Math.min(
@@ -519,8 +522,9 @@ const textOpacity =
 
 const baseMovement =
     isMobile
-        ? 38
+        ? 42
         : 42;
+
 
 const textMovement =
     baseMovement -
@@ -530,15 +534,17 @@ const textMovement =
     );
 
 
+/*
+    Mobile gets an additional reduction
+    in movement so the text feels calmer
+    during finger scrolling.
+*/
+
 const finalTextMovement =
     isMobile
         ? textMovement * 0.72
         : textMovement;
 
-
-/* =================================================
-   FINAL STORY TEXT
-================================================= */
 
 if (
     step.classList.contains(
@@ -550,6 +556,7 @@ if (
         isMobile
             ? 58
             : 80;
+
 
     copy.style.transform =
         `translate3d(
@@ -571,21 +578,84 @@ if (
 }
 
 
-/* =================================================
-   TEXT VISIBILITY
-================================================= */
-
 copy.style.opacity =
     textOpacity;
 
 
 /* =================================================
    TEXT COLOR
+   BLACK → WHITE
 ================================================= */
 
-copy.style.color =
-    "#ffffff";
+if (
+    !step.classList.contains(
+        "story-step-final"
+    )
+) {
 
+    const colorProgress =
+        smoothstep(
+            clamp(
+                (
+                    progress -
+                    0.36
+                ) /
+                0.20,
+                0,
+                1
+            )
+        );
+
+
+    const r =
+        Math.round(
+            21 -
+            (
+                21 *
+                colorProgress
+            )
+        );
+
+
+    const g =
+        Math.round(
+            21 -
+            (
+                21 *
+                colorProgress
+            )
+        );
+
+
+    const b =
+        Math.round(
+            21 -
+            (
+                21 *
+                colorProgress
+            )
+        );
+
+
+    copy.style.color =
+        `rgb(${r}, ${g}, ${b})`;
+}
+
+
+/* =================================================
+   FINAL STORY TEXT
+================================================= */
+
+if (
+    step.classList.contains(
+        "story-step-final"
+    )
+) {
+
+    copy.style.color =
+        "#ffffff";
+}
+```
 
     /* =========================================================
        BLACK INTERLUDE
