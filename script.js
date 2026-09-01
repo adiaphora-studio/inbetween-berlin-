@@ -450,145 +450,225 @@ function updateStory() {
                 `scale(${imageScale})`;
 
 
-       
+            /* =================================================
+               TEXT
+            ================================================= */
 
-/* =================================================
-   TEXT
-================================================= */
+            const copy =
+                step.querySelector(
+                    ".story-copy"
+                );
 
-const copy =
-    step.querySelector(
-        ".story-copy"
+            if (!copy) {
+                return;
+            }
+
+
+            /* =================================================
+               TEXT FADE IN
+            ================================================= */
+
+            const textIn =
+                smoothstep(
+                    clamp(
+                        (
+                            progress -
+                            0.20
+                        ) /
+                        0.28,
+                        0,
+                        1
+                    )
+                );
+
+
+            /* =================================================
+               TEXT FADE OUT
+            ================================================= */
+
+            const textOut =
+                1 -
+                smoothstep(
+                    clamp(
+                        (
+                            progress -
+                            0.70
+                        ) /
+                        0.25,
+                        0,
+                        1
+                    )
+                );
+
+
+            /* =================================================
+               TEXT OPACITY
+            ================================================= */
+
+            const textOpacity =
+                Math.min(
+                    textIn,
+                    textOut
+                );
+
+
+            /* =================================================
+               TEXT MOVEMENT
+            ================================================= */
+
+            const baseMovement =
+                isMobile
+                    ? 38
+                    : 42;
+
+
+            const textMovement =
+                baseMovement -
+                (
+                    textOpacity *
+                    baseMovement
+                );
+
+
+            const finalTextMovement =
+                isMobile
+                    ? textMovement * 0.72
+                    : textMovement;
+
+
+            /* =================================================
+               FINAL STORY TEXT
+            ================================================= */
+
+            if (
+                step.classList.contains(
+                    "story-step-final"
+                )
+            ) {
+
+                const finalMovement =
+                    isMobile
+                        ? 58
+                        : 80;
+
+
+                copy.style.transform =
+                    `translate3d(
+                        -50%,
+                        ${finalMovement -
+                        textOpacity *
+                        finalMovement}px,
+                        0
+                    )`;
+
+            } else {
+
+                copy.style.transform =
+                    `translate3d(
+                        0,
+                        ${finalTextMovement}px,
+                        0
+                    )`;
+            }
+
+
+            /* =================================================
+               TEXT VISIBILITY
+            ================================================= */
+
+            copy.style.opacity =
+                textOpacity;
+
+
+            /* =================================================
+               TEXT COLOR
+            ================================================= */
+
+            copy.style.color =
+                "#ffffff";
+
+        }
     );
 
-if (!copy) {
-    return;
+
+    /* =========================================================
+       BLACK INTERLUDE
+    ========================================================= */
+
+    if (
+        interlude &&
+        interludeText
+    ) {
+
+        const rect =
+            interlude.getBoundingClientRect();
+
+
+        const progress =
+            clamp(
+                (
+                    viewportHeight -
+                    rect.top
+                ) /
+                (
+                    viewportHeight +
+                    rect.height
+                ),
+                0,
+                1
+            );
+
+
+        const textIn =
+            smoothstep(
+                clamp(
+                    (
+                        progress -
+                        0.28
+                    ) /
+                    0.25,
+                    0,
+                    1
+                )
+            );
+
+
+        const textOut =
+            1 -
+            smoothstep(
+                clamp(
+                    (
+                        progress -
+                        0.72
+                    ) /
+                    0.20,
+                    0,
+                    1
+                )
+            );
+
+
+        const opacity =
+            Math.min(
+                textIn,
+                textOut
+            );
+
+
+        const movement =
+            50 -
+            opacity * 50;
+
+
+        interludeText.style.opacity =
+            opacity;
+
+
+        interludeText.style.transform =
+            `translateY(${movement}px)`;
+    }
+
 }
-
-
-/* =================================================
-   TEXT FADE IN
-================================================= */
-
-const textIn =
-    smoothstep(
-        clamp(
-            (
-                progress -
-                0.20
-            ) /
-            0.28,
-            0,
-            1
-        )
-    );
-
-
-/* =================================================
-   TEXT FADE OUT
-================================================= */
-
-const textOut =
-    1 -
-    smoothstep(
-        clamp(
-            (
-                progress -
-                0.70
-            ) /
-            0.25,
-            0,
-            1
-        )
-    );
-
-
-/* =================================================
-   TEXT OPACITY
-================================================= */
-
-const textOpacity =
-    Math.min(
-        textIn,
-        textOut
-    );
-
-
-/* =================================================
-   TEXT MOVEMENT
-================================================= */
-
-const baseMovement =
-    isMobile
-        ? 38
-        : 42;
-
-const textMovement =
-    baseMovement -
-    (
-        textOpacity *
-        baseMovement
-    );
-
-
-const finalTextMovement =
-    isMobile
-        ? textMovement * 0.72
-        : textMovement;
-
-
-/* =================================================
-   FINAL STORY TEXT
-================================================= */
-
-if (
-    step.classList.contains(
-        "story-step-final"
-    )
-) {
-
-    const finalMovement =
-        isMobile
-            ? 58
-            : 80;
-
-    copy.style.transform =
-        `translate3d(
-            -50%,
-            ${finalMovement -
-            textOpacity *
-            finalMovement}px,
-            0
-        )`;
-
-} else {
-
-    copy.style.transform =
-        `translate3d(
-            0,
-            ${finalTextMovement}px,
-            0
-        )`;
-}
-
-
-/* =================================================
-   TEXT VISIBILITY
-================================================= */
-
-copy.style.opacity =
-    textOpacity;
-
-
-/* =================================================
-   TEXT COLOR
-================================================= */
-
-copy.style.color =
-    "#ffffff";
-
-
-
     /* =========================================================
        BLACK INTERLUDE
     ========================================================= */
