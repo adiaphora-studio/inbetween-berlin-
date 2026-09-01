@@ -354,7 +354,6 @@ function smoothstep(value) {
     );
 }
 
-
 /* =========================================================
    STORY ANIMATION
 ========================================================= */
@@ -414,40 +413,38 @@ function updateStory() {
                     ".story-image"
                 );
 
-            if (!image) {
-                return;
+            if (image) {
+
+                let imageScale;
+
+
+                if (
+                    step.classList.contains(
+                        "story-step-final"
+                    )
+                ) {
+
+                    imageScale =
+                        1 +
+                        smoothstep(
+                            progress
+                        ) *
+                        0.16;
+
+                } else {
+
+                    imageScale =
+                        0.985 +
+                        smoothstep(
+                            progress
+                        ) *
+                        0.025;
+                }
+
+
+                image.style.transform =
+                    `scale(${imageScale})`;
             }
-
-
-            let imageScale;
-
-
-            if (
-                step.classList.contains(
-                    "story-step-final"
-                )
-            ) {
-
-                imageScale =
-                    1 +
-                    smoothstep(
-                        progress
-                    ) *
-                    0.16;
-
-            } else {
-
-                imageScale =
-                    0.985 +
-                    smoothstep(
-                        progress
-                    ) *
-                    0.025;
-            }
-
-
-            image.style.transform =
-                `scale(${imageScale})`;
 
 
             /* =================================================
@@ -459,7 +456,18 @@ function updateStory() {
                     ".story-copy"
                 );
 
+
+            /*
+                IMPORTANT:
+                Every story step needs its own
+                .story-copy element.
+
+                If there is no copy, we simply
+                skip this step.
+            */
+
             if (!copy) {
+
                 return;
             }
 
@@ -536,6 +544,10 @@ function updateStory() {
                     : textMovement;
 
 
+            /* =================================================
+               FINAL STORY TEXT
+            ================================================= */
+
             if (
                 step.classList.contains(
                     "story-step-final"
@@ -578,10 +590,62 @@ function updateStory() {
 
             /* =================================================
                TEXT COLOR
+               BLACK → WHITE
             ================================================= */
 
-            copy.style.color =
-                "#ffffff";
+            if (
+                !step.classList.contains(
+                    "story-step-final"
+                )
+            ) {
+
+                const colorProgress =
+                    smoothstep(
+                        clamp(
+                            (
+                                progress -
+                                0.36
+                            ) /
+                            0.20,
+                            0,
+                            1
+                        )
+                    );
+
+
+                const r =
+                    Math.round(
+                        21 -
+                        (
+                            21 *
+                            colorProgress
+                        )
+                    );
+
+
+                const g =
+                    Math.round(
+                        21 -
+                        (
+                            21 *
+                            colorProgress
+                        )
+                    );
+
+
+                const b =
+                    Math.round(
+                        21 -
+                        (
+                            21 *
+                            colorProgress
+                        )
+                    );
+
+
+                copy.style.color =
+                    `rgb(${r}, ${g}, ${b})`;
+            }
 
 
             /* =================================================
