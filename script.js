@@ -355,6 +355,7 @@ function smoothstep(value) {
 }
 
 
+
 /* =========================================================
    STORY ANIMATION
 ========================================================= */
@@ -365,7 +366,6 @@ function updateStory() {
         !story ||
         !storySteps.length
     ) {
-
         return;
     }
 
@@ -384,11 +384,9 @@ function updateStory() {
                 step.getBoundingClientRect();
 
 
-            /*
-                0 = scene is below viewport
-                0.5 = scene is centered
-                1 = scene has moved above viewport
-            */
+            /* =================================================
+               PROGRESS
+            ================================================= */
 
             const progress =
                 clamp(
@@ -414,40 +412,38 @@ function updateStory() {
                     ".story-image"
                 );
 
-            if (!image) {
-                return;
+            if (image) {
+
+                let imageScale;
+
+
+                if (
+                    step.classList.contains(
+                        "story-step-final"
+                    )
+                ) {
+
+                    imageScale =
+                        1 +
+                        smoothstep(
+                            progress
+                        ) *
+                        0.16;
+
+                } else {
+
+                    imageScale =
+                        0.985 +
+                        smoothstep(
+                            progress
+                        ) *
+                        0.025;
+                }
+
+
+                image.style.transform =
+                    `scale(${imageScale})`;
             }
-
-
-            let imageScale;
-
-
-            if (
-                step.classList.contains(
-                    "story-step-final"
-                )
-            ) {
-
-                imageScale =
-                    1 +
-                    smoothstep(
-                        progress
-                    ) *
-                    0.16;
-
-            } else {
-
-                imageScale =
-                    0.985 +
-                    smoothstep(
-                        progress
-                    ) *
-                    0.025;
-            }
-
-
-            image.style.transform =
-                `scale(${imageScale})`;
 
 
             /* =================================================
@@ -464,12 +460,9 @@ function updateStory() {
             }
 
 
-            /*
-                Softer entrance.
-
-                The text begins earlier and
-                takes longer to settle into place.
-            */
+            /* =================================================
+               TEXT FADE IN
+            ================================================= */
 
             const textIn =
                 smoothstep(
@@ -485,12 +478,9 @@ function updateStory() {
                 );
 
 
-            /*
-                Softer exit.
-
-                The text remains present slightly
-                longer before beginning to disappear.
-            */
+            /* =================================================
+               TEXT FADE OUT
+            ================================================= */
 
             const textOut =
                 1 -
@@ -498,14 +488,18 @@ function updateStory() {
                     clamp(
                         (
                             progress -
-                            0.78
+                            0.72
                         ) /
-                        0.22,
+                        0.20,
                         0,
                         1
                     )
                 );
 
+
+            /* =================================================
+               TEXT OPACITY
+            ================================================= */
 
             const textOpacity =
                 Math.min(
@@ -519,9 +513,7 @@ function updateStory() {
             ================================================= */
 
             const baseMovement =
-                isMobile
-                    ? 42
-                    : 42;
+                42;
 
 
             const textMovement =
@@ -532,17 +524,15 @@ function updateStory() {
                 );
 
 
-            /*
-                Mobile gets an additional reduction
-                in movement so the text feels calmer
-                during finger scrolling.
-            */
-
             const finalTextMovement =
                 isMobile
                     ? textMovement * 0.72
                     : textMovement;
 
+
+            /* =================================================
+               FINAL STORY TEXT
+            ================================================= */
 
             if (
                 step.classList.contains(
@@ -575,6 +565,10 @@ function updateStory() {
                     )`;
             }
 
+
+            /* =================================================
+               TEXT VISIBILITY
+            ================================================= */
 
             copy.style.opacity =
                 textOpacity;
@@ -657,6 +651,84 @@ function updateStory() {
         }
     );
 
+
+    /* =========================================================
+       BLACK INTERLUDE
+    ========================================================= */
+
+    if (
+        interlude &&
+        interludeText
+    ) {
+
+        const rect =
+            interlude.getBoundingClientRect();
+
+
+        const progress =
+            clamp(
+                (
+                    viewportHeight -
+                    rect.top
+                ) /
+                (
+                    viewportHeight +
+                    rect.height
+                ),
+                0,
+                1
+            );
+
+
+        const textIn =
+            smoothstep(
+                clamp(
+                    (
+                        progress -
+                        0.28
+                    ) /
+                    0.25,
+                    0,
+                    1
+                )
+            );
+
+
+        const textOut =
+            1 -
+            smoothstep(
+                clamp(
+                    (
+                        progress -
+                        0.72
+                    ) /
+                    0.20,
+                    0,
+                    1
+                )
+            );
+
+
+        const opacity =
+            Math.min(
+                textIn,
+                textOut
+            );
+
+
+        const movement =
+            50 -
+            opacity * 50;
+
+
+        interludeText.style.opacity =
+            opacity;
+
+
+        interludeText.style.transform =
+            `translateY(${movement}px)`;
+    }
+}
 
     /* =========================================================
        BLACK INTERLUDE
