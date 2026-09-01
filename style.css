@@ -1793,6 +1793,7 @@ WORN MID STATEMENT — MOBILE
 }
 
 
+
 /* =========================================================
    UP & DOWN — MOBILE
 ========================================================= */
@@ -1809,12 +1810,6 @@ WORN MID STATEMENT — MOBILE
 
     .updown-story .story-step {
         min-height: 125vh;
-
-        display: flex;
-
-        justify-content: center;
-
-        align-items: flex-start;
     }
 
     .updown-story .story-image-wrap {
@@ -1826,14 +1821,8 @@ WORN MID STATEMENT — MOBILE
         margin-right: auto;
     }
 
-    /* =====================================================
-       COPY — SAME MOBILE POSITIONING AS STORY 01
-    ===================================================== */
-
     .updown-story .story-copy {
         left: 50%;
-
-        right: auto;
 
         width: 84vw;
 
@@ -1841,84 +1830,34 @@ WORN MID STATEMENT — MOBILE
 
         margin-top: calc(88vw + 38px);
 
-        padding: 0;
-
         text-align: center;
 
         color: #ffffff;
-
-        transform: translate3d(0, 70px, 0);
     }
 
-    /* =====================================================
-       TEXT
-    ===================================================== */
-
     .updown-story .story-copy p {
-        margin: 0;
-
-        font-family: "Playfair Display", Georgia, serif;
-
         font-size: clamp(25px, 7.5vw, 40px);
 
-        line-height: 1.08;
-
-        letter-spacing: -0.025em;
-
         color: #ffffff;
-
-        text-align: center;
 
         text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
     }
 
-    /* =====================================================
-       NUMBER
-    ===================================================== */
-
     .updown-story .story-number {
-        display: block;
-
-        margin-bottom: 18px;
-
         color: rgba(255, 255, 255, 0.7);
-
-        font-size: 9px;
-
-        letter-spacing: 0.15em;
     }
-
-    /* =====================================================
-       FINAL STEP
-    ===================================================== */
 
     .updown-story .story-step-final {
         min-height: 145vh;
     }
 
     .updown-story .story-step-final .story-copy {
-        left: 50% !important;
-
-        right: auto !important;
-
         width: 90vw;
 
         margin-left: 0 !important;
 
         bottom: 12vh;
-
-        text-align: center;
     }
-
-    .updown-story .story-step-final .story-copy p {
-        text-align: center;
-
-        color: #ffffff;
-    }
-
-    /* =====================================================
-       END
-    ===================================================== */
 
     .updown-story .story-end {
         min-height: 65vh;
@@ -1937,6 +1876,7 @@ WORN MID STATEMENT — MOBILE
     }
 
 }
+
 /* =========================================================
    STATEMENT
 ========================================================= */
