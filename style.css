@@ -1505,20 +1505,40 @@ WORN MID STATEMENT — MOBILE
 ========================================================= */
 
 .updown-story .story-image-wrap {
-    position: relative;
+    position: sticky;
 
-    width: min(68vw, 900px);
+    top: 10vh;
+
+    width: min(62vw, 82vh);
 
     aspect-ratio: 1 / 1;
 
+    flex: 0 0 auto;
+
     overflow: hidden;
 
-    flex-shrink: 0;
+    background: #ffffff;
+
+    z-index: 2;
 
     margin-left: auto;
     margin-right: auto;
 }
 
+.updown-story .story-image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 1;
+
+    transform: scale(1);
+
+    will-change: transform, opacity;
+}
 
 /* =========================================================
    UP & DOWN — COPY
@@ -1534,13 +1554,15 @@ WORN MID STATEMENT — MOBILE
 
     bottom: auto;
 
-    width: min(620px, 68vw);
+    width: min(620px, 62vw);
 
     margin-left: -310px;
 
-    margin-top: calc(min(68vw, 900px) + 55px);
+    margin-top: calc(min(62vw, 82vh) + 55px);
 
     padding: 0;
+
+    background: transparent;
 
     text-align: center;
 
@@ -1554,8 +1576,6 @@ WORN MID STATEMENT — MOBILE
 
     pointer-events: none;
 }
-
-
 /* =========================================================
    UP & DOWN — TEXT
 ========================================================= */
@@ -1575,8 +1595,6 @@ WORN MID STATEMENT — MOBILE
 
     text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
 }
-
-
 /* =========================================================
    UP & DOWN — NUMBER
 ========================================================= */
