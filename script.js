@@ -354,6 +354,7 @@ function smoothstep(value) {
     );
 }
 
+
 /* =========================================================
    STORY ANIMATION
 ========================================================= */
@@ -413,38 +414,40 @@ function updateStory() {
                     ".story-image"
                 );
 
-            if (image) {
-
-                let imageScale;
-
-
-                if (
-                    step.classList.contains(
-                        "story-step-final"
-                    )
-                ) {
-
-                    imageScale =
-                        1 +
-                        smoothstep(
-                            progress
-                        ) *
-                        0.16;
-
-                } else {
-
-                    imageScale =
-                        0.985 +
-                        smoothstep(
-                            progress
-                        ) *
-                        0.025;
-                }
-
-
-                image.style.transform =
-                    `scale(${imageScale})`;
+            if (!image) {
+                return;
             }
+
+
+            let imageScale;
+
+
+            if (
+                step.classList.contains(
+                    "story-step-final"
+                )
+            ) {
+
+                imageScale =
+                    1 +
+                    smoothstep(
+                        progress
+                    ) *
+                    0.16;
+
+            } else {
+
+                imageScale =
+                    0.985 +
+                    smoothstep(
+                        progress
+                    ) *
+                    0.025;
+            }
+
+
+            image.style.transform =
+                `scale(${imageScale})`;
 
 
             /* =================================================
@@ -456,25 +459,17 @@ function updateStory() {
                     ".story-copy"
                 );
 
-
-            /*
-                IMPORTANT:
-                Every story step needs its own
-                .story-copy element.
-
-                If there is no copy, we simply
-                skip this step.
-            */
-
             if (!copy) {
-
                 return;
             }
 
 
-            /* =================================================
-               TEXT FADE IN
-            ================================================= */
+            /*
+                Softer entrance.
+
+                The text begins earlier and
+                takes longer to settle into place.
+            */
 
             const textIn =
                 smoothstep(
@@ -490,9 +485,12 @@ function updateStory() {
                 );
 
 
-            /* =================================================
-               TEXT FADE OUT
-            ================================================= */
+            /*
+                Softer exit.
+
+                The text remains present slightly
+                longer before beginning to disappear.
+            */
 
             const textOut =
                 1 -
@@ -500,18 +498,14 @@ function updateStory() {
                     clamp(
                         (
                             progress -
-                            0.72
+                            0.78
                         ) /
-                        0.20,
+                        0.22,
                         0,
                         1
                     )
                 );
 
-
-            /* =================================================
-               TEXT OPACITY
-            ================================================= */
 
             const textOpacity =
                 Math.min(
@@ -538,15 +532,17 @@ function updateStory() {
                 );
 
 
+            /*
+                Mobile gets an additional reduction
+                in movement so the text feels calmer
+                during finger scrolling.
+            */
+
             const finalTextMovement =
                 isMobile
                     ? textMovement * 0.72
                     : textMovement;
 
-
-            /* =================================================
-               FINAL STORY TEXT
-            ================================================= */
 
             if (
                 step.classList.contains(
@@ -579,10 +575,6 @@ function updateStory() {
                     )`;
             }
 
-
-            /* =================================================
-               TEXT VISIBILITY
-            ================================================= */
 
             copy.style.opacity =
                 textOpacity;
@@ -743,6 +735,7 @@ function updateStory() {
             `translateY(${movement}px)`;
     }
 }
+
 
 /* =========================================================
    REQUEST ANIMATION FRAME
