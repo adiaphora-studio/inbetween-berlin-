@@ -449,210 +449,193 @@ function updateStory() {
             image.style.transform =
                 `scale(${imageScale})`;
 
+/* =================================================
+   TEXT FADE IN
+================================================= */
 
-            /* =================================================
-               TEXT
-            ================================================= */
-
-            const copy =
-                step.querySelector(
-                    ".story-copy"
-                );
-
-            if (!copy) {
-                return;
-            }
-
-
-            /*
-                Softer entrance.
-
-                The text begins earlier and
-                takes longer to settle into place.
-            */
-
-            const textIn =
-                smoothstep(
-                    clamp(
-                        (
-                            progress -
-                            0.20
-                        ) /
-                        0.28,
-                        0,
-                        1
-                    )
-                );
+const textIn =
+    smoothstep(
+        clamp(
+            (
+                progress -
+                0.20
+            ) /
+            0.28,
+            0,
+            1
+        )
+    );
 
 
-            /*
-                Softer exit.
+/* =================================================
+   TEXT FADE OUT
+================================================= */
 
-                The text remains present slightly
-                longer before beginning to disappear.
-            */
-
-            const textOut =
-                1 -
-                smoothstep(
-                    clamp(
-                        (
-                            progress -
-                            0.78
-                        ) /
-                        0.22,
-                        0,
-                        1
-                    )
-                );
+const textOut =
+    1 -
+    smoothstep(
+        clamp(
+            (
+                progress -
+                0.72
+            ) /
+            0.20,
+            0,
+            1
+        )
+    );
 
 
-            const textOpacity =
-                Math.min(
-                    textIn,
-                    textOut
-                );
+/* =================================================
+   TEXT OPACITY
+================================================= */
+
+const textOpacity =
+    Math.min(
+        textIn,
+        textOut
+    );
 
 
-            /* =================================================
-               TEXT MOVEMENT
-            ================================================= */
+/* =================================================
+   TEXT MOVEMENT
+================================================= */
 
-            const baseMovement =
-                isMobile
-                    ? 42
-                    : 42;
+const baseMovement =
+    isMobile
+        ? 42
+        : 42;
 
 
-            const textMovement =
-                baseMovement -
+const textMovement =
+    baseMovement -
+    (
+        textOpacity *
+        baseMovement
+    );
+
+
+/*
+    Mobile gets an additional reduction
+    in movement so the text feels calmer
+    during finger scrolling.
+*/
+
+const finalTextMovement =
+    isMobile
+        ? textMovement * 0.72
+        : textMovement;
+
+
+if (
+    step.classList.contains(
+        "story-step-final"
+    )
+) {
+
+    const finalMovement =
+        isMobile
+            ? 58
+            : 80;
+
+
+    copy.style.transform =
+        `translate3d(
+            -50%,
+            ${finalMovement -
+            textOpacity *
+            finalMovement}px,
+            0
+        )`;
+
+} else {
+
+    copy.style.transform =
+        `translate3d(
+            0,
+            ${finalTextMovement}px,
+            0
+        )`;
+}
+
+
+copy.style.opacity =
+    textOpacity;
+
+
+/* =================================================
+   TEXT COLOR
+   BLACK → WHITE
+================================================= */
+
+if (
+    !step.classList.contains(
+        "story-step-final"
+    )
+) {
+
+    const colorProgress =
+        smoothstep(
+            clamp(
                 (
-                    textOpacity *
-                    baseMovement
-                );
+                    progress -
+                    0.36
+                ) /
+                0.20,
+                0,
+                1
+            )
+        );
 
 
-            /*
-                Mobile gets an additional reduction
-                in movement so the text feels calmer
-                during finger scrolling.
-            */
-
-            const finalTextMovement =
-                isMobile
-                    ? textMovement * 0.72
-                    : textMovement;
+    const r =
+        Math.round(
+            21 -
+            (
+                21 *
+                colorProgress
+            )
+        );
 
 
-            if (
-                step.classList.contains(
-                    "story-step-final"
-                )
-            ) {
-
-                const finalMovement =
-                    isMobile
-                        ? 58
-                        : 80;
+    const g =
+        Math.round(
+            21 -
+            (
+                21 *
+                colorProgress
+            )
+        );
 
 
-                copy.style.transform =
-                    `translate3d(
-                        -50%,
-                        ${finalMovement -
-                        textOpacity *
-                        finalMovement}px,
-                        0
-                    )`;
-
-            } else {
-
-                copy.style.transform =
-                    `translate3d(
-                        0,
-                        ${finalTextMovement}px,
-                        0
-                    )`;
-            }
+    const b =
+        Math.round(
+            21 -
+            (
+                21 *
+                colorProgress
+            )
+        );
 
 
-            copy.style.opacity =
-                textOpacity;
+    copy.style.color =
+        `rgb(${r}, ${g}, ${b})`;
+}
 
 
-            /* =================================================
-               TEXT COLOR
-               BLACK → WHITE
-            ================================================= */
+/* =================================================
+   FINAL STORY TEXT
+================================================= */
 
-            if (
-                !step.classList.contains(
-                    "story-step-final"
-                )
-            ) {
+if (
+    step.classList.contains(
+        "story-step-final"
+    )
+) {
 
-                const colorProgress =
-                    smoothstep(
-                        clamp(
-                            (
-                                progress -
-                                0.36
-                            ) /
-                            0.20,
-                            0,
-                            1
-                        )
-                    );
-
-
-                const r =
-                    Math.round(
-                        21 -
-                        (
-                            21 *
-                            colorProgress
-                        )
-                    );
-
-
-                const g =
-                    Math.round(
-                        21 -
-                        (
-                            21 *
-                            colorProgress
-                        )
-                    );
-
-
-                const b =
-                    Math.round(
-                        21 -
-                        (
-                            21 *
-                            colorProgress
-                        )
-                    );
-
-
-                copy.style.color =
-                    `rgb(${r}, ${g}, ${b})`;
-            }
-
-
-            /* =================================================
-               FINAL STORY TEXT
-            ================================================= */
-
-            if (
-                step.classList.contains(
-                    "story-step-final"
-                )
-            ) {
-
-                copy.style.color =
-                    "#ffffff";
-            }
+    copy.style.color =
+        "#ffffff";
+}
 
         }
     );
