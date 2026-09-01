@@ -539,7 +539,6 @@ h1 em {
     will-change: transform, opacity;
 }
 
-
 /* =========================================================
    STORY COPY
 ========================================================= */
@@ -566,21 +565,27 @@ h1 em {
 
 
 /* =========================================================
-   STORY COPY RHYTHM
+   STORY COPY RHYTHM — DESKTOP
 ========================================================= */
 
-.story-step:nth-child(odd) .story-copy {
-    left: 7vw;
+@media (min-width: 701px) {
 
-    bottom: 25vh;
+    .story-step .story-copy {
+        left: 50%;
+        right: auto;
+
+        bottom: auto;
+
+        width: min(620px, 62vw);
+
+        margin-left: -310px;
+
+        margin-top: calc(min(62vw, 82vh) + 55px);
+
+        text-align: center;
+    }
+
 }
-
-.story-step:nth-child(even) .story-copy {
-    right: 7vw;
-
-    bottom: 29vh;
-}
-
 
 /* =========================================================
    STORY NUMBER
