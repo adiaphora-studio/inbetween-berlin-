@@ -1821,19 +1821,24 @@ WORN MID STATEMENT — MOBILE
         margin-right: auto;
     }
 
-    .updown-story .story-copy {
-        left: 50%;
+   
+.updown-story .story-copy {
+    left: 8vw;
 
-        width: 84vw;
+    right: auto;
 
-        margin-left: -42vw;
+    width: 84vw;
 
-        margin-top: calc(88vw + 38px);
+    margin-left: 0;
 
-        text-align: center;
+    margin-top: calc(88vw + 38px);
 
-        color: #ffffff;
-    }
+    text-align: center;
+
+    color: #ffffff;
+}
+
+
 
     .updown-story .story-copy p {
         font-size: clamp(25px, 7.5vw, 40px);
