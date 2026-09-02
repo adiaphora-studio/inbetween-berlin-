@@ -790,3 +790,378 @@ window.addEventListener(
 ========================================================= */
 
 updateStory();
+/* =========================================================
+   BEASTS WE HOLD — DISCOVER PAGE
+========================================================= */
+
+(function () {
+
+    const beastsPage = document.querySelector(".beasts-page");
+
+    if (!beastsPage) return;
+
+
+    /* =====================================================
+       IMAGE FADE INS
+    ===================================================== */
+
+    const fadeElements = document.querySelectorAll(
+        ".beasts-detail-image, .beasts-pair img, [data-fade]"
+    );
+
+    const fadeObserver = new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.18,
+            rootMargin: "0px 0px -8% 0px"
+        }
+    );
+
+    fadeElements.forEach((element) => {
+        fadeObserver.observe(element);
+    });
+
+
+    /* =====================================================
+       FIXED BACKGROUND IMAGES
+    ===================================================== */
+
+    const fixedScenes = document.querySelectorAll(
+        ".beasts-fixed-scene"
+    );
+
+    const fixedObserver = new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                const image = entry.target.querySelector(
+                    "[data-fixed-image]"
+                );
+
+                if (!image) return;
+
+                if (entry.isIntersecting) {
+                    image.classList.add("is-visible");
+                } else {
+                    image.classList.remove("is-visible");
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+    fixedScenes.forEach((scene) => {
+        fixedObserver.observe(scene);
+    });
+
+
+    /* =====================================================
+       LIGHTBOX
+    ===================================================== */
+
+    const galleryItems = Array.from(
+        document.querySelectorAll(".beasts-gallery-item")
+    );
+
+    const lightbox = document.getElementById(
+        "beastsLightbox"
+    );
+
+    const lightboxImage = document.getElementById(
+        "beastsLightboxImage"
+    );
+
+    const lightboxCounter = document.getElementById(
+        "beastsLightboxCounter"
+    );
+
+    const closeButton = document.getElementById(
+        "beastsLightboxClose"
+    );
+
+    const prevButton = document.getElementById(
+        "beastsLightboxPrev"
+    );
+
+    const nextButton = document.getElementById(
+        "beastsLightboxNext"
+    );
+
+
+    const galleryImages = galleryItems.map((item) => {
+
+        const image = item.querySelector("img");
+
+        return {
+            src: image.getAttribute("src"),
+            alt: image.getAttribute("alt") || ""
+        };
+
+    });
+
+
+    let currentGalleryIndex = 0;
+
+
+    function updateBeastsLightbox() {
+
+        if (!galleryImages.length) return;
+
+        const current = galleryImages[currentGalleryIndex];
+
+        lightboxImage.src = current.src;
+        lightboxImage.alt = current.alt;
+
+        lightboxCounter.textContent =
+            String(currentGalleryIndex + 1).padStart(2, "0") +
+            " / " +
+            String(galleryImages.length).padStart(2, "0");
+    }
+
+
+    function openBeastsLightbox(index) {
+
+        currentGalleryIndex = index;
+
+        updateBeastsLightbox();
+
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+
+        document.body.style.overflow = "hidden";
+    }
+
+
+    function closeBeastsLightbox() {
+
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+
+        document.body.style.overflow = "";
+    }
+
+
+    function nextBeastsImage() {
+
+        currentGalleryIndex =
+            (currentGalleryIndex + 1) %
+            galleryImages.length;
+
+        updateBeastsLightbox();
+    }
+
+
+    function previousBeastsImage() {
+
+        currentGalleryIndex =
+            (currentGalleryIndex - 1 + galleryImages.length) %
+            galleryImages.length;
+
+        updateBeastsLightbox();
+    }
+
+
+    galleryItems.forEach((item, index) => {
+
+        item.addEventListener("click", () => {
+            openBeastsLightbox(index);
+        });
+
+    });
+
+
+    closeButton.addEventListener(
+        "click",
+        closeBeastsLightbox
+    );
+
+
+    nextButton.addEventListener(
+        "click",
+        nextBeastsImage
+    );
+
+
+    prevButton.addEventListener(
+        "click",
+        previousBeastsImage
+    );
+
+
+    lightbox.addEventListener("click", (event) => {
+
+        if (event.target === lightbox) {
+            closeBeastsLightbox();
+        }
+
+    });
+
+
+    /* =====================================================
+       KEYBOARD
+    ===================================================== */
+
+    document.addEventListener("keydown", (event) => {
+
+        if (!lightbox.classList.contains("is-open")) return;
+
+        if (event.key === "Escape") {
+            closeBeastsLightbox();
+        }
+
+        if (event.key === "ArrowRight") {
+            nextBeastsImage();
+        }
+
+        if (event.key === "ArrowLeft") {
+            previousBeastsImage();
+        }
+
+    });
+
+
+    /* =====================================================
+       LIGHTBOX SWIPE
+    ===================================================== */
+
+    let lightboxTouchStartX = 0;
+    let lightboxTouchStartY = 0;
+
+
+    lightbox.addEventListener(
+        "touchstart",
+        (event) => {
+
+            const touch = event.changedTouches[0];
+
+            lightboxTouchStartX = touch.clientX;
+            lightboxTouchStartY = touch.clientY;
+
+        },
+        { passive: true }
+    );
+
+
+    lightbox.addEventListener(
+        "touchend",
+        (event) => {
+
+            const touch = event.changedTouches[0];
+
+            const deltaX =
+                touch.clientX - lightboxTouchStartX;
+
+            const deltaY =
+                touch.clientY - lightboxTouchStartY;
+
+
+            if (Math.abs(deltaX) < 60) return;
+
+            if (Math.abs(deltaX) < Math.abs(deltaY)) return;
+
+
+            if (deltaX < 0) {
+                nextBeastsImage();
+            } else {
+                previousBeastsImage();
+            }
+
+        },
+        { passive: true }
+    );
+
+
+    /* =====================================================
+       MOBILE EXIT SWIPE
+       ONLY ACTIVE AT THE VERY END
+    ===================================================== */
+
+    let exitTouchStartX = 0;
+    let exitTouchStartY = 0;
+
+
+    beastsPage.addEventListener(
+        "touchstart",
+        (event) => {
+
+            const touch = event.changedTouches[0];
+
+            exitTouchStartX = touch.clientX;
+            exitTouchStartY = touch.clientY;
+
+        },
+        { passive: true }
+    );
+
+
+    beastsPage.addEventListener(
+        "touchend",
+        (event) => {
+
+            const touch = event.changedTouches[0];
+
+            const deltaX =
+                touch.clientX - exitTouchStartX;
+
+            const deltaY =
+                touch.clientY - exitTouchStartY;
+
+
+            if (window.innerWidth > 700) return;
+
+            if (deltaX < 100) return;
+
+            if (Math.abs(deltaX) < Math.abs(deltaY)) return;
+
+
+            const scrollPosition =
+                window.scrollY + window.innerHeight;
+
+            const documentHeight =
+                document.documentElement.scrollHeight;
+
+
+            const isAtBottom =
+                documentHeight - scrollPosition < 100;
+
+
+            if (isAtBottom) {
+                window.location.href = "index.html";
+            }
+
+        },
+        { passive: true }
+    );
+
+
+    /* =====================================================
+       PREVENT IMAGE DRAGGING
+    ===================================================== */
+
+    document
+        .querySelectorAll(".beasts-page img")
+        .forEach((image) => {
+
+            image.addEventListener("dragstart", (event) => {
+                event.preventDefault();
+            });
+
+        });
+
+
+})();
