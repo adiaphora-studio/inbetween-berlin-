@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Beasts We Hold — Inbetween Berlin</title>
+
+    <meta
+        name="description"
+        content="Animal forms in Berlin's everyday architecture."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- DISCOVER PAGE CSS -->
+    <style>
+        /* =========================================================
+           BEASTS WE HOLD — DISCOVER PAGE
+        ========================================================= */
+
+        .beasts-page {
+            --beasts-black: #000;
+            --beasts-white: #fff;
+            --beasts-muted: rgba(255,255,255,.48);
+            --beasts-line: rgba(255,255,255,.16);
+
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .beasts-page * {
+            box-sizing: border-box;
+        }
+
+        .beasts-page a {
+            color: inherit;
+        }
+
+        /* ---------------------------------------------------------
+           INTRO
+        --------------------------------------------------------- */
+
+        .beasts-intro {
+            min-height: 100svh;
+            padding: 10vw 8vw 8vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #000;
+            position: relative;
+            z-index: 10;
+        }
+
+        .beasts-kicker {
+            margin: 0 0 38px;
+            font-family: "DM Sans", sans-serif;
+            font-size: 9px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--beasts-muted);
+        }
+
+        .beasts-title {
+            margin: 0;
+            font-family: "DM Sans", sans-serif;
+            font-size: clamp(70px, 12vw, 170px);
+            line-height: .84;
+            font-weight: 400;
+            letter-spacing: -.065em;
+        }
+
+        .beasts-title em {
+            font-family: "Playfair Display", Georgia, serif;
+            font-style: italic;
+            font-weight: 400;
+            letter-spacing: -.045em;
+        }
+
+        .beasts-intro-text {
+            max-width: 550px;
+            margin: 55px 0 0;
+            color: rgba(255,255,255,.62);
+            font-family: "DM Sans", sans-serif;
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        .beasts-scroll {
+            position: absolute;
+            bottom: 7vw;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            font-family: "DM Sans", sans-serif;
+            font-size: 8px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.42);
+        }
+
+        .beasts-scroll-line {
+            width: 1px;
+            height: 45px;
+            background: rgba(255,255,255,.25);
+        }
+
+        /* ---------------------------------------------------------
+           GENERAL FOREGROUND SHEET
+        --------------------------------------------------------- */
+
+        .beasts-sheet {
+            position: relative;
+            z-index: 5;
+            background: #000;
+        }
+
+        .beasts-text-section {
+            min-height: 100vh;
+            padding: 14vw 8vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+
+        .beasts-text-inner {
+            width: min(760px, 84vw);
+        }
+
+        .beasts-section-number {
+            display: block;
+            margin-bottom: 30px;
+            font-family: "DM Sans", sans-serif;
+            font-size: 9px;
+            letter-spacing: .16em;
+            color: rgba(255,255,255,.4);
+        }
+
+        .beasts-heading {
+            margin: 0 0 35px;
+            font-family: "DM Sans", sans-serif;
+            font-size: clamp(38px, 5.5vw, 76px);
+            line-height: .98;
+            font-weight: 400;
+            letter-spacing: -.045em;
+        }
+
+        .beasts-body {
+            max-width: 650px;
+            margin: 0;
+            font-family: "DM Sans", sans-serif;
+            font-size: clamp(15px, 1.35vw, 19px);
+            line-height: 1.65;
+            font-weight: 300;
+            color: rgba(255,255,255,.72);
+        }
+
+        .beasts-body + .beasts-body {
+            margin-top: 24px;
+        }
+
+        /* ---------------------------------------------------------
+           DETAIL IMAGES
+        --------------------------------------------------------- */
+
+        .beasts-detail {
+            position: relative;
+            z-index: 6;
+            padding: 8vw 8vw 15vw;
+            background: #000;
+        }
+
+        .beasts-detail-image {
+            display: block;
+            width: min(850px, 82vw);
+            max-height: 85vh;
+            margin: 0 auto;
+            object-fit: cover;
+
+            opacity: 0;
+            transform: translateY(70px);
+            transition:
+                opacity 1.2s cubic-bezier(.22,.61,.36,1),
+                transform 1.2s cubic-bezier(.22,.61,.36,1);
+        }
+
+        .beasts-detail-image.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .beasts-detail-caption {
+            width: min(850px, 82vw);
+            margin: 20px auto 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            font-family: "DM Sans", sans-serif;
+            font-size: 9px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.35);
+        }
+
+        /* ---------------------------------------------------------
+           FIXED IMAGE SCENES
+        --------------------------------------------------------- */
+
+        .beasts-fixed-scene {
+            position: relative;
+            min-height: 180vh;
+            background: #000;
+        }
+
+        .beasts-fixed-media {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .beasts-fixed-media img {
+            position: sticky;
+            top: 0;
+            display: block;
+            width: 100%;
+            height: 100svh;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0;
+            transition: opacity 1.2s ease;
+        }
+
+        .beasts-fixed-media img.is-visible {
+            opacity: 1;
+        }
+
+        .beasts-fixed-overlay {
+            position: relative;
+            z-index: 5;
+            min-height: 180vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15vw 8vw;
+        }
+
+        .beasts-fixed-card {
+            width: min(720px, 84vw);
+            padding: 7vw;
+            background: #000;
+        }
+
+        .beasts-fixed-card .beasts-body {
+            color: rgba(255,255,255,.78);
+        }
+
+        /* ---------------------------------------------------------
+           IMAGE PAIRS
+        --------------------------------------------------------- */
+
+        .beasts-pair {
+            position: relative;
+            z-index: 7;
+            min-height: 100vh;
+            padding: 10vw 8vw 16vw;
+            background: #000;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6vw;
+            align-items: center;
+        }
+
+        .beasts-pair figure {
+            margin: 0;
+        }
+
+        .beasts-pair img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            opacity: 0;
+            transform: translateY(60px);
+            transition:
+                opacity 1s ease,
+                transform 1s cubic-bezier(.22,.61,.36,1);
+        }
+
+        .beasts-pair img.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .beasts-pair figure:nth-child(2) {
+            margin-top: 12vw;
+        }
+
+        .beasts-pair figcaption {
+            margin-top: 14px;
+            font-family: "DM Sans", sans-serif;
+            font-size: 8px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.34);
+        }
+
+        /* ---------------------------------------------------------
+           WIDE TEXT MOMENT
+        --------------------------------------------------------- */
+
+        .beasts-wide-text {
+            min-height: 110vh;
+            padding: 15vw 8vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            position: relative;
+            z-index: 7;
+        }
+
+        .beasts-wide-text p {
+            width: min(1050px, 88vw);
+            margin: 0;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(36px, 6vw, 90px);
+            line-height: 1.03;
+            letter-spacing: -.035em;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(55px);
+            transition:
+                opacity 1.2s ease,
+                transform 1.2s cubic-bezier(.22,.61,.36,1);
+        }
+
+        .beasts-wide-text p.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ---------------------------------------------------------
+           FINAL
+        --------------------------------------------------------- */
+
+        .beasts-final {
+            min-height: 100vh;
+            padding: 15vw 8vw 10vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #000;
+            position: relative;
+            z-index: 7;
+        }
+
+        .beasts-final-inner {
+            width: min(850px, 88vw);
+        }
+
+        .beasts-final h2 {
+            margin: 0 0 35px;
+            font-family: "DM Sans", sans-serif;
+            font-size: clamp(45px, 7vw, 105px);
+            line-height: .9;
+            font-weight: 400;
+            letter-spacing: -.055em;
+        }
+
+        .beasts-final h2 em {
+            font-family: "Playfair Display", Georgia, serif;
+            font-style: italic;
+        }
+
+        .beasts-final p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.65;
+            color: rgba(255,255,255,.58);
+        }
+
+        /* ---------------------------------------------------------
+           GALLERY
+        --------------------------------------------------------- */
+
+        .beasts-gallery {
+            position: relative;
+            z-index: 8;
+            padding: 10vw 5vw 12vw;
+            background: #000;
+            border-top: 1px solid rgba(255,255,255,.12);
+        }
+
+        .beasts-gallery-header {
+            padding: 0 3vw 5vw;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .beasts-gallery-label {
+            margin: 0;
+            font-family: "DM Sans", sans-serif;
+            font-size: 9px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.42);
+        }
+
+        .beasts-gallery-count {
+            margin: 0;
+            font-family: "DM Sans", sans-serif;
+            font-size: 9px;
+            color: rgba(255,255,255,.28);
+        }
+
+        .beasts-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .beasts-gallery-item {
+            appearance: none;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            background: none;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .beasts-gallery-item img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            transition: transform .7s cubic-bezier(.22,.61,.36,1);
+        }
+
+        .beasts-gallery-item:hover img {
+            transform: scale(1.025);
+        }
+
+        /* ---------------------------------------------------------
+           LIGHTBOX
+        --------------------------------------------------------- */
+
+        .beasts-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0,0,0,.96);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 5vw;
+        }
+
+        .beasts-lightbox.is-open {
+            display: flex;
+        }
+
+        .beasts-lightbox img {
+            display: block;
+            max-width: 90vw;
+            max-height: 88vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .beasts-lightbox-close,
+        .beasts-lightbox-prev,
+        .beasts-lightbox-next {
+            position: absolute;
+            border: 0;
+            background: none;
+            color: #fff;
+            cursor: pointer;
+            font-family: "DM Sans", sans-serif;
+            font-size: 11px;
+            opacity: .55;
+            transition: opacity .25s ease;
+        }
+
+        .beasts-lightbox-close:hover,
+        .beasts-lightbox-prev:hover,
+        .beasts-lightbox-next:hover {
+            opacity: 1;
+        }
+
+        .beasts-lightbox-close {
+            top: 28px;
+            right: 35px;
+            font-size: 18px;
+        }
+
+        .beasts-lightbox-prev {
+            left: 30px;
+            top: 50%;
+        }
+
+        .beasts-lightbox-next {
+            right: 30px;
+            top: 50%;
+        }
+
+        .beasts-lightbox-counter {
+            position: absolute;
+            left: 50%;
+            bottom: 28px;
+            transform: translateX(-50%);
+            font-family: "DM Sans", sans-serif;
+            font-size: 9px;
+            letter-spacing: .12em;
+            color: rgba(255,255,255,.4);
+        }
+
+        /* ---------------------------------------------------------
+           EXIT
+        --------------------------------------------------------- */
+
+        .beasts-exit {
+            position: relative;
+            z-index: 8;
+            min-height: 18vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+
+        .beasts-exit a {
+            font-family: "DM Sans", sans-serif;
+            font-size: 8px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.3);
+            text-decoration: none;
+            transition: color .3s ease;
+        }
+
+        .beasts-exit a:hover {
+            color: #fff;
+        }
+
+        /* ---------------------------------------------------------
+           MOBILE
+        --------------------------------------------------------- */
+
+        @media (max-width: 700px) {
+
+            .beasts-intro {
+                padding: 22vw 7vw 30vw;
+            }
+
+            .beasts-title {
+                font-size: clamp(58px, 18vw, 100px);
+            }
+
+            .beasts-intro-text {
+                max-width: 86vw;
+                margin-top: 40px;
+                font-size: 12px;
+            }
+
+            .beasts-scroll {
+                bottom: 10vw;
+            }
+
+            .beasts-text-section {
+                min-height: 90vh;
+                padding: 25vw 8vw;
+            }
+
+            .beasts-text-inner {
+                width: 84vw;
+            }
+
+            .beasts-heading {
+                font-size: clamp(35px, 10vw, 52px);
+                margin-bottom: 28px;
+            }
+
+            .beasts-body {
+                font-size: 14px;
+                line-height: 1.65;
+            }
+
+            .beasts-detail {
+                padding: 5vw 6vw 24vw;
+            }
+
+            .beasts-detail-image {
+                width: 88vw;
+                max-height: none;
+                transform: translateY(45px);
+            }
+
+            .beasts-detail-caption {
+                width: 88vw;
+                font-size: 7px;
+            }
+
+            .beasts-fixed-scene {
+                min-height: 175vh;
+            }
+
+            .beasts-fixed-overlay {
+                min-height: 175vh;
+                padding: 15vw 6vw;
+            }
+
+            .beasts-fixed-card {
+                width: 88vw;
+                padding: 10vw 8vw;
+            }
+
+            .beasts-pair {
+                min-height: auto;
+                padding: 12vw 6vw 25vw;
+                grid-template-columns: 1fr;
+                gap: 18vw;
+            }
+
+            .beasts-pair figure:nth-child(2) {
+                margin-top: 0;
+            }
+
+            .beasts-pair img {
+                aspect-ratio: 4 / 5;
+            }
+
+            .beasts-wide-text {
+                min-height: 90vh;
+                padding: 25vw 7vw;
+            }
+
+            .beasts-wide-text p {
+                width: 88vw;
+                font-size: clamp(32px, 9vw, 52px);
+            }
+
+            .beasts-final {
+                min-height: 90vh;
+                padding: 25vw 7vw;
+            }
+
+            .beasts-final-inner {
+                width: 88vw;
+            }
+
+            .beasts-final h2 {
+                font-size: clamp(42px, 12vw, 65px);
+            }
+
+            .beasts-gallery {
+                padding: 20vw 4vw 25vw;
+            }
+
+            .beasts-gallery-header {
+                padding: 0 2vw 7vw;
+            }
+
+            .beasts-gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 7px;
+            }
+
+            .beasts-lightbox {
+                padding: 4vw;
+            }
+
+            .beasts-lightbox img {
+                max-width: 94vw;
+                max-height: 82vh;
+            }
+
+            .beasts-lightbox-prev {
+                left: 15px;
+            }
+
+            .beasts-lightbox-next {
+                right: 15px;
+            }
+
+            .beasts-lightbox-close {
+                top: 18px;
+                right: 20px;
+            }
+
+            .beasts-exit {
+                min-height: 20vh;
+            }
+        }
+    </style>
+</head>
+
+<body class="beasts-page">
+
+<main>
+
+    <!-- =========================================================
+         INTRO
+    ========================================================= -->
+
+    <section class="beasts-intro">
+
+        <p class="beasts-kicker">Inbetween Berlin · Story 01</p>
+
+        <h1 class="beasts-title">
+            Beasts<br>
+            <em>we hold.</em>
+        </h1>
+
+        <p class="beasts-intro-text">
+            Animal forms hidden in the staircases of Berlin.
+            A closer look at handrails, ornaments and the small
+            architectural details that become part of everyday movement.
+        </p>
+
+        <div class="beasts-scroll">
+            <span>Scroll</span>
+            <span class="beasts-scroll-line"></span>
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         OPENING
+    ========================================================= -->
+
+    <section class="beasts-sheet">
+
+        <section class="beasts-text-section">
+
+            <div class="beasts-text-inner">
+
+                <span class="beasts-section-number">01 — THE HANDRAIL</span>
+
+                <h2 class="beasts-heading">
+                    The handrail is part of the architecture.
+                </h2>
+
+                <p class="beasts-body">
+                    We usually notice a staircase because it takes us
+                    somewhere. The handrail is different. It is designed
+                    to be touched, followed and used almost without
+                    conscious attention.
+                </p>
+
+                <p class="beasts-body">
+                    In Berlin's older residential buildings, however,
+                    the handrail can be much more than a functional
+                    object. Wood, iron, stone, glass, stucco and painted
+                    surfaces were often brought together as parts of a
+                    larger interior. The staircase was designed as a
+                    space in its own right.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- BEAST 01 -->
+
+        <section class="beasts-detail">
+
+            <img
+                class="beasts-detail-image"
+                src="beast1.jpg"
+                alt="Animal-shaped architectural handrail in Berlin"
+            >
+
+            <div class="beasts-detail-caption">
+                <span>Beast 01</span>
+                <span>Handrail detail</span>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FIXED SCENE 01
+        ====================================================== -->
+
+        <section class="beasts-fixed-scene">
+
+            <div class="beasts-fixed-media">
+                <img
+                    src="FIXFOTO1.jpg"
+                    alt=""
+                    aria-hidden="true"
+                    data-fixed-image
+                >
+            </div>
+
+            <div class="beasts-fixed-overlay">
+
+                <article class="beasts-fixed-card">
+
+                    <span class="beasts-section-number">
+                        02 — HISTORICISM
+                    </span>
+
+                    <h2 class="beasts-heading">
+                        Old forms, new buildings.
+                    </h2>
+
+                    <p class="beasts-body">
+                        Much of the architecture associated with Berlin's
+                        late nineteenth and early twentieth centuries is
+                        connected to Historicism. Rather than developing
+                        one single new style, architects and craftsmen
+                        repeatedly returned to earlier periods and adapted
+                        their forms for contemporary buildings.
+                    </p>
+
+                    <p class="beasts-body">
+                        Romanesque, Gothic, Renaissance, Baroque and
+                        Rococo elements could appear separately or be
+                        combined within the same building. During the
+                        Gründerzeit, this approach became particularly
+                        visible in Berlin's rapidly expanding residential
+                        districts.
+                    </p>
+
+                    <p class="beasts-body">
+                        Ornament was therefore not simply an addition
+                        placed onto an otherwise finished building.
+                        It could help establish an atmosphere, distinguish
+                        an entrance or staircase, and contribute to the
+                        overall impression of a house.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- BEASTS 02 + 03 -->
+
+        <section class="beasts-pair">
+
+            <figure>
+                <img
+                    src="beast2.jpg"
+                    alt="Animal detail on a Berlin handrail"
+                >
+                <figcaption>Beast 02 · detail</figcaption>
+            </figure>
+
+            <figure>
+                <img
+                    src="beast3.jpg"
+                    alt="Decorative animal handrail detail"
+                >
+                <figcaption>Beast 03 · detail</figcaption>
+            </figure>
+
+        </section>
+
+
+        <!-- =====================================================
+             TEXT
+        ====================================================== -->
+
+        <section class="beasts-text-section">
+
+            <div class="beasts-text-inner">
+
+                <span class="beasts-section-number">
+                    03 — THE STAIRCASE AS ENSEMBLE
+                </span>
+
+                <h2 class="beasts-heading">
+                    A staircase was rarely just a staircase.
+                </h2>
+
+                <p class="beasts-body">
+                    In many Berlin Altbauten, the staircase belongs to a
+                    larger decorative ensemble. Patterned floors, coloured
+                    glass, doors, wall surfaces, stucco, ironwork and
+                    painted decoration could all contribute to the same
+                    visual language.
+                </p>
+
+                <p class="beasts-body">
+                    The handrail sits directly inside this ensemble.
+                    It follows the movement of the staircase while also
+                    carrying its own ornament. A curve can become a neck,
+                    a carved end can suggest a head, and a small detail
+                    that would be almost invisible elsewhere suddenly
+                    becomes something that the hand encounters every day.
+                </p>
+
+                <p class="beasts-body">
+                    These interiors also tell us something about the
+                    social ambitions of their period. Decorative
+                    architecture could communicate taste, refinement
+                    and a connection to established historical forms.
+                    It could contribute to the representation of a
+                    household and to the character of a building without
+                    necessarily being designed as a literal status symbol.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- BEAST 04 -->
+
+        <section class="beasts-detail">
+
+            <img
+                class="beasts-detail-image"
+                src="beast4.jpg"
+                alt="Animal head incorporated into a handrail"
+            >
+
+            <div class="beasts-detail-caption">
+                <span>Beast 04</span>
+                <span>Animal form · wood</span>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             WIDE TEXT
+        ====================================================== -->
+
+        <section class="beasts-wide-text">
+
+            <p data-fade>
+                In this selection, two animals return again and again:
+                <em>the lion and the dolphin.</em>
+            </p>
+
+        </section>
+
+
+        <!-- BEAST 05 + 06 -->
+
+        <section class="beasts-pair">
+
+            <figure>
+                <img
+                    src="beast5.jpg"
+                    alt="Lion motif in a Berlin handrail"
+                >
+                <figcaption>Beast 05 · lion</figcaption>
+            </figure>
+
+            <figure>
+                <img
+                    src="beast6.jpg"
+                    alt="Dolphin motif in Berlin architectural ornament"
+                >
+                <figcaption>Beast 06 · dolphin</figcaption>
+            </figure>
+
+        </section>
+
+
+        <!-- =====================================================
+             FIXED SCENE 02
+        ====================================================== -->
+
+        <section class="beasts-fixed-scene">
+
+            <div class="beasts-fixed-media">
+                <img
+                    src="FIXFOTO2.jpg"
+                    alt=""
+                    aria-hidden="true"
+                    data-fixed-image
+                >
+            </div>
+
+            <div class="beasts-fixed-overlay">
+
+                <article class="beasts-fixed-card">
+
+                    <span class="beasts-section-number">
+                        04 — ANIMALS
+                    </span>
+
+                    <h2 class="beasts-heading">
+                        Lions, dolphins and other creatures.
+                    </h2>
+
+                    <p class="beasts-body">
+                        Animal motifs had a long history in European
+                        decorative art. Lions could evoke strength,
+                        guardianship or heraldic traditions. Dolphins
+                        belonged to a different but equally established
+                        repertoire of classical and ornamental imagery.
+                    </p>
+
+                    <p class="beasts-body">
+                        In the staircase, however, these figures do not
+                        necessarily need to carry one fixed symbolic
+                        meaning. They can simply be part of an ornamental
+                        vocabulary — selected, adapted and combined with
+                        other forms to make an interior distinctive.
+                    </p>
+
+                    <p class="beasts-body">
+                        That ambiguity is part of what makes these details
+                        interesting today. A creature that once belonged
+                        to a larger decorative system can survive as a
+                        fragment of everyday architecture.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- BEAST 07 + 08 -->
+
+        <section class="beasts-pair">
+
+            <figure>
+                <img
+                    src="beast7.jpg"
+                    alt="Animal paw detail on a Berlin handrail"
+                >
+                <figcaption>Beast 07 · paw</figcaption>
+            </figure>
+
+            <figure>
+                <img
+                    src="beast8.jpg"
+                    alt="Ornamental animal transition on a handrail"
+                >
+                <figcaption>Beast 08 · transition</figcaption>
+            </figure>
+
+        </section>
+
+
+        <!-- =====================================================
+             MAKERS / ARCHIVE
+        ====================================================== -->
+
+        <section class="beasts-text-section">
+
+            <div class="beasts-text-inner">
+
+                <span class="beasts-section-number">
+                    05 — WHO MADE THEM?
+                </span>
+
+                <h2 class="beasts-heading">
+                    Most of the time, the maker is harder to find.
+                </h2>
+
+                <p class="beasts-body">
+                    The history of a building is not necessarily the
+                    history of every person who worked on it. Architectural
+                    records may preserve the name of an architect,
+                    developer or owner while individual decorative
+                    elements remain undocumented.
+                </p>
+
+                <p class="beasts-body">
+                    This does not mean that the craftsmen behind them
+                    were unimportant. Quite the opposite: these details
+                    depended on carpentry, carving, metalwork, stucco,
+                    glass and other forms of specialised labour.
+                </p>
+
+                <p class="beasts-body">
+                    Archival survival is uneven. Some interiors have
+                    documented artists or sculptors; many individual
+                    handrails and ornaments are simply recorded as parts
+                    of a building. Looking closely at them therefore
+                    means looking at a layer of architectural history
+                    that is often easier to see than to name.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FINAL
+        ====================================================== -->
+
+        <section class="beasts-final">
+
+            <div class="beasts-final-inner">
+
+                <span class="beasts-section-number">
+                    END
+                </span>
+
+                <h2>
+                    Something made<br>
+                    <em>to be held.</em>
+                </h2>
+
+                <p>
+                    The animals in these staircases were never separate
+                    from everyday life. They were part of the architecture,
+                    part of movement and part of the surfaces people
+                    encountered on their way through a building.
+                </p>
+
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!-- =========================================================
+         GALLERY
+    ========================================================= -->
+
+    <section class="beasts-gallery">
+
+        <div class="beasts-gallery-header">
+            <p class="beasts-gallery-label">
+                Beasts We Hold · Archive
+            </p>
+
+            <p class="beasts-gallery-count">
+                13 images
+            </p>
+        </div>
+
+        <div class="beasts-gallery-grid">
+
+            <!-- NEW IMAGES -->
+
+            <button class="beasts-gallery-item" data-beasts-gallery="0">
+                <img src="beast1.jpg" alt="Beast 01">
+            </button>
+
+            <button class="beasts-gallery-item" data-beasts-gallery="1">
+                <img src="beast2.jpg" alt="Beast 02">
+            </button>
+
+            <button class="beasts-gallery-item" data-beasts-gallery="2">
+                <img src="beast3.jpg" alt="Beast 03">
+            </button>
+
+            <button class="beasts-gallery-item" data-beasts-gallery="3">
+                <img src="beast4.jpg" alt="Beast 04">
+            </button>
+
+            <button class="beasts-gallery-item" data-beasts-gallery="4">
+                <img src="beast5.jpg" alt="Beast 05">
+            </button>
+
+            <button class="beasts-gallery-item" data-beasts-gallery="5">
+                <img src="beast6.jpg" alt="Beast 06">
+            </button>
+
+            <button class="beasts-gallery-item" data-beasts-gallery="6">
+                <img src="beast7.jpg" alt="Beast 07">
+            </button>
+
+            <button class="beasts-gallery-item" data-beasts-gallery="7">
+                <img src="beast8.jpg" alt="Beast 08">
+            </button>
+
+
+            <!-- EXISTING STORY 01 IMAGES -->
+
+            <button class="beasts-gallery-item" data-beasts-gallery="8">
+                <img src="IMG_4587%203.jpg" alt="Beast from Story 01">
+            </button>
+
+            <button class="beasts-gallery-item" data-beasts-gallery="9">
+                <img src="IMG_7035%20Edited.jpg" alt="Beast from Story 01">
+            </button>
+
+            <button class="beasts-gallery-item" data-beasts-gallery="10">
+                <img src="IMG_9379.jpg" alt="Beast from Story 01">
+            </button>
+
+            <button class="beasts-gallery-item" data-beasts-gallery="11">
+                <img src="IMG_9123%20Edited.jpg" alt="Beast from Story 01">
+            </button>
+
+            <button class="beasts-gallery-item" data-beasts-gallery="12">
+                <img src="IMG_8316%203.jpg" alt="Beast from Story 01">
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         LIGHTBOX
+    ========================================================= -->
+
+    <div
+        class="beasts-lightbox"
+        id="beastsLightbox"
+        aria-hidden="true"
+    >
+
+        <button
+            class="beasts-lightbox-close"
+            id="beastsLightboxClose"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+        <button
+            class="beasts-lightbox-prev"
+            id="beastsLightboxPrev"
+            aria-label="Previous image"
+        >
+            ←
+        </button>
+
+        <img
+            id="beastsLightboxImage"
+            src=""
+            alt=""
+        >
+
+        <button
+            class="beasts-lightbox-next"
+            id="beastsLightboxNext"
+            aria-label="Next image"
+        >
+            →
+        </button>
+
+        <div
+            class="beasts-lightbox-counter"
+            id="beastsLightboxCounter"
+        >
+            01 / 13
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         EXIT
+    ========================================================= -->
+
+    <footer class="beasts-exit">
+
+        <a href="index.html" aria-label="Back to Inbetween Berlin">
+            INBETWEEN BERLIN
+        </a>
+
+    </footer>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
