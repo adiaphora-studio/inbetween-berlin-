@@ -219,58 +219,145 @@
             color: rgba(255,255,255,.35);
         }
 
-        /* ---------------------------------------------------------
-           FIXED IMAGE SCENES
-        --------------------------------------------------------- */
+ /* ---------------------------------------------------------
+   FIXED IMAGE SCENES — ROLLING BLACK SHEET
+--------------------------------------------------------- */
 
-        .beasts-fixed-scene {
-            position: relative;
-            min-height: 180vh;
-            background: #000;
-        }
+.beasts-fixed-scene {
+    position: relative;
+    min-height: 230vh;
+    background: transparent;
+}
 
-        .beasts-fixed-media {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            pointer-events: none;
-        }
+/* FIXED PHOTO */
+.beasts-fixed-media {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
 
-        .beasts-fixed-media img {
-            position: sticky;
-            top: 0;
-            display: block;
-            width: 100%;
-            height: 100svh;
-            object-fit: cover;
-            object-position: center;
-            opacity: 0;
-            transition: opacity 1.2s ease;
-        }
+.beasts-fixed-media img {
+    position: sticky;
+    top: 0;
 
-        .beasts-fixed-media img.is-visible {
-            opacity: 1;
-        }
+    display: block;
+    width: 100%;
+    height: 100svh;
 
-        .beasts-fixed-overlay {
-            position: relative;
-            z-index: 5;
-            min-height: 180vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15vw 8vw;
-        }
+    object-fit: cover;
+    object-position: center;
 
-        .beasts-fixed-card {
-            width: min(720px, 84vw);
-            padding: 7vw;
-            background: #000;
-        }
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
 
-        .beasts-fixed-card .beasts-body {
-            color: rgba(255,255,255,.78);
-        }
+.beasts-fixed-media img.is-visible {
+    opacity: 1;
+}
+
+
+/* ---------------------------------------------------------
+   BLACK ROLLING SHEET
+--------------------------------------------------------- */
+
+.beasts-fixed-overlay {
+    position: relative;
+    z-index: 5;
+
+    min-height: 230vh;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding: 0;
+
+    background: transparent;
+}
+
+
+/*
+   The black sheet is intentionally much larger than the
+   text itself. It therefore completely covers the photograph
+   while moving through the scene.
+*/
+
+.beasts-fixed-card {
+    position: relative;
+
+    width: 100%;
+    min-height: 125vh;
+
+    margin-top: 52vh;
+
+    padding:
+        14vw
+        max(8vw, calc((100vw - 900px) / 2))
+        18vw;
+
+    background: #000;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* TEXT */
+.beasts-fixed-card .beasts-body {
+    color: rgba(255,255,255,.78);
+}
+
+
+/* ---------------------------------------------------------
+   EXTRA BLACK SPACE AFTER THE SHEET
+--------------------------------------------------------- */
+
+/*
+   The large bottom area prevents the next image/content
+   from appearing immediately after the text.
+*/
+
+.beasts-fixed-scene::after {
+    content: "";
+    display: block;
+
+    height: 55vh;
+
+    background: #000;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+    .beasts-fixed-scene {
+        min-height: 245vh;
+    }
+
+    .beasts-fixed-overlay {
+        min-height: 245vh;
+    }
+
+    .beasts-fixed-card {
+        min-height: 135vh;
+
+        margin-top: 48vh;
+
+        padding:
+            25vw
+            8vw
+            28vw;
+    }
+
+    .beasts-fixed-scene::after {
+        height: 55vh;
+    }
+}
 
         /* ---------------------------------------------------------
            IMAGE PAIRS
